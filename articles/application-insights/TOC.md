@@ -111,7 +111,7 @@
 ### [Árak és kvóták kezelése](app-insights-pricing.md)
 ### [Alkalmazásteljesítmény-figyelés az Application Insights az SCOM-hoz használatával](app-insights-scom.md)
 
-##Exportálás
+## Exportálás
 ### [Folyamatos exportálás](app-insights-export-telemetry.md)
 ### [Adatmodell exportálása](app-insights-export-data-model.md)
 ### [Power BI-exportálás](app-insights-export-power-bi.md)
@@ -159,10 +159,5 @@
 ### [Támogatás](app-insights-get-dev-support.md)
 
 ## [Videók](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
