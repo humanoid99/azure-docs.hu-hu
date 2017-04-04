@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 4950dbe528290c7d839c97cc8770db4ae0ec08c6
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5d74f2c130eeddb1022acf9673c6a2006af2db58
+ms.lasthandoff: 03/25/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Ismerkedés a Storm Starter-mintákkal Linux-alapú HDInsight platformon történő big data-elemzéshez
@@ -35,11 +35,7 @@ Az Apache Storm egy skálázható, hibatűrő, elosztott, valós idejű számít
 
 * **Azure-előfizetés**. Lásd: [Ingyenes Azure-fiók létrehozása](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **SSH- és SCP-ismeretek**. Az SSH és az SCP a HDInsighttal történő használatáról további információkat az alábbi dokumentumokban talál:
-  
-    * [Az SSH használata a HDInsightra épülő Linux-alapú Hadooppal Bash on Windows 10, Linux, Unix vagy OS X rendszeren](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Az SSH (PuTTY) használata a HDInsightra épülő Linux-alapú Hadooppal Windows rendszerben](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **SSH- és SCP-ismeretek**. További információk: [Az SSH használata HDInsighttal](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="access-control-requirements"></a>A hozzáférés-vezérlésre vonatkozó követelmények
 
@@ -99,11 +95,7 @@ HDInsight alatt futó Storm-fürt létrehozásához kövesse az alábbi lépése
    
     Ha az SSH-felhasználói fiókhoz jelszót használt, a rendszer felkéri annak megadására. Nyilvános kulcs használatakor lehetséges, hogy az `-i` paraméter használatára van szükség a megfelelő titkos kulcs megadásához. Például: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
    
-    Az SSH Linux-alapú HDInsighttal történő használatáról további információkat a következő cikkekben talál:
-   
-    * [Az SSH használata a HDInsightra épülő Linux-alapú Hadooppal Bash on Windows 10, Linux, Unix vagy OS X rendszeren](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Az SSH (PuTTY) használata a HDInsightra épülő Linux-alapú Hadooppal Windows rendszerben](hdinsight-hadoop-linux-use-ssh-windows.md)
+    További információk: [Az SSH használata HDInsighttal](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Használja az alábbi parancsot példatopológia indításához:
    

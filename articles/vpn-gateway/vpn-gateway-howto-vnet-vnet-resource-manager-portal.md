@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 102eab0e2e915521f8702b526dda886a2502f40b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,7 +67,7 @@ A virtuális hálózatokat a következő okokból érdemes összekapcsolni:
 
 A virtuális hálózatok közötti kapcsolatokról további információt a cikk végén, [A virtuális hálózatok közötti kapcsolatokra vonatkozó szempontok](#faq) című részben talál.
 
-### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Példabeállítások
+### <a name="values"></a>Példabeállítások
 Ha gyakorlatként használja ezeket a lépéseket, ezeket a konfigurációs mintaértékeket használhatja. Csupán a példa kedvéért több címteret használunk az egyes virtuális hálózatokhoz. Azonban a virtuális hálózatok közötti kapcsolat konfigurálásához nincs szükség több címtérre.
 
 **Értékek a TestVNet1-hez:**
@@ -115,18 +116,18 @@ Ha gyakorlatként használja ezeket a lépéseket, ezeket a konfigurációs mint
   * Név: TestVNet4toTestVNet1
   * Megosztott kulcs: Saját maga létrehozhatja a megosztott kulcsot. Ebben a példában az abc123-at használjuk. Fontos, hogy az érték egyezzen, amikor létrehozza a virtuális hálózatok közötti kapcsolatot.
 
-## <a name="a-namecreatvneta1-create-and-configure-testvnet1"></a><a name="CreatVNet"></a>1. A TestVNet1 létrehozása és konfigurálása
+## <a name="CreatVNet"></a>1. A TestVNet1 létrehozása és konfigurálása
 Ha már rendelkezik egy virtuális hálózattal, győződjön meg arról, hogy a beállításai kompatibilisek a VPN-átjáró kialakításával. Különösen ügyeljen az esetleges olyan alhálózatokra, amelyek átfedésbe kerülhetnek más hálózatokkal. Egymást átfedő alhálózatok esetén a kapcsolat nem fog megfelelően működni. Ha a virtuális hálózat a megfelelő beállításokkal lett konfigurálva, folytassa a [DNS-kiszolgáló megadása](#dns) szakaszban leírt lépésekkel.
 
 ### <a name="to-create-a-virtual-network"></a>Virtuális hálózat létrehozása
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-create-subnets"></a><a name="subnets"></a>2. További címterek hozzáadása és alhálózatok létrehozása
+## <a name="subnets"></a>2. További címterek hozzáadása és alhálózatok létrehozása
 Miután létrehozta a virtuális hálózatot, további címtereket adhat hozzá és alhálózatokat hozhat létre.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namegatewaysubneta3-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>3. Átjáróalhálózat létrehozása
+## <a name="gatewaysubnet"></a>3. Átjáróalhálózat létrehozása
 Mielőtt csatlakoztatja virtuális hálózatát egy átjáróhoz, létre kell hoznia az átjáróalhálózatot ahhoz a virtuális hálózathoz, amelyhez csatlakozni szeretne. Ha lehetséges, a legjobb megoldás egy átjáróalhálózat létrehozása /28 vagy /27 CIDR-blokk használatával annak érdekében, hogy a jövőbeli további konfigurációs követelmények számára elegendő IP-címet biztosíthasson.
 
 Ha gyakorlatként hozza létre ezt a konfigurációt, használja ezeket a [Példabeállításokat](#values) az átjáróalhálózat létrehozásakor.
@@ -136,21 +137,21 @@ Ha gyakorlatként hozza létre ezt a konfigurációt, használja ezeket a [Péld
 ### <a name="to-create-a-gateway-subnet"></a>Átjáróalhálózat létrehozása
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namednsservera4-specify-a-dns-server-optional"></a><a name="DNSServer"></a>4. DNS-kiszolgáló megadása (nem kötelező)
-Ha azt szeretné, hogy a virtuális hálózatok közötti kapcsolatokon üzembe helyezett virtuális gépekhez legyen névfeloldás, adjon meg egy DNS-kiszolgálót.
+## <a name="DNSServer"></a>4. DNS-kiszolgáló megadása (nem kötelező)
+A virtuális hálózatok közötti kapcsolatokhoz nincs szükség DNS-re. Ha azonban azt szeretné, hogy a virtuális hálózatokon üzembe helyezett erőforrásokon működjön a névfeloldás, adjon meg egy DNS-kiszolgálót. Ezzel a beállítással megadhatja azt a DNS-kiszolgálót, amelyet névfeloldásra kíván használni ennél a virtuális hálózatnál. A beállítás nem hoz létre új DNS-kiszolgálót.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. Virtuális hálózati átjáró létrehozása
+## <a name="VNetGateway"></a>5. Virtuális hálózati átjáró létrehozása
 Ebben a lépésben a virtuális hálózat virtuális hálózati átjáróját fogja létrehozni. Ennek végrehajtása 45 percig is eltarthat. Ha gyakorlatként hozza létre ezt a konfigurációt, használja ezeket a [Példabeállításokat](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namecreatetestvnet4a6-create-and-configure-testvnet4"></a><a name="CreateTestVNet4"></a>6. A TestVNet4 létrehozása és konfigurálása
+## <a name="CreateTestVNet4"></a>6. A TestVNet4 létrehozása és konfigurálása
 Miután konfigurálta a TestVNet1-et, hozza létre a TestVNet4-et az előző lépések megismétlésével és az értékek a TestVNet4 értékeire való kicserélésével. A TestVNet4 konfigurálásához nem kell megvárnia, hogy befejeződjön a TestVNet1 virtuális hálózati átjárójának létrehozása. Ha a saját értékeit használja, győződjön meg róla, hogy a címterek nincsenek átfedésben azokkal a virtuális hálózatokkal, amelyekhez csatlakozni kíván.
 
-## <a name="a-nametestvnet1connectiona7-configure-the-testvnet1-connection"></a><a name="TestVNet1Connection"></a>7. A TestVNet1 kapcsolat konfigurálása
+## <a name="TestVNet1Connection"></a>7. A TestVNet1 kapcsolat konfigurálása
 Miután mind a TestVNet1, mind a TestVNet4 virtuális hálózati átjárójának létrehozása befejeződött, létrehozhatja a virtuális hálózati átjárókapcsolatokat. Ebben a szakaszban hozza létre a kapcsolatot a VNet1 felől a VNet4 felé.
 
 1. A **Minden erőforrás** részben navigáljon a virtuális hálózata virtuális hálózati átjárójához. Például: **TestVNet1GW**. A virtuális hálózati átjáró paneljének megnyitásához kattintson a **TestVNet1GW** elemre.
@@ -172,10 +173,10 @@ Miután mind a TestVNet1, mind a TestVNet4 virtuális hálózati átjárójának
     ![Megosztott kulcs](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Megosztott kulcs")
 10. A módosítások mentéséhez kattintson az **OK** gombra a panel alján.
 
-## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. A TestVNet4 kapcsolat konfigurálása
+## <a name="TestVNet4Connection"></a>8. A TestVNet4 kapcsolat konfigurálása
 Ezután hozzon létre kapcsolatot a TestVNet4 felől a TestVNet1 felé. Ugyanazt a módszert használja, mint a TestVNet1 felől a TestVNet4 felé irányuló kapcsolat létrehozásakor. Ügyeljen arra, hogy ugyanazt a megosztott kulcsot használja.
 
-## <a name="a-nameverifyconnectiona9-verify-your-connection"></a><a name="VerifyConnection"></a>9. A kapcsolat ellenőrzése
+## <a name="VerifyConnection"></a>9. A kapcsolat ellenőrzése
 Ellenőrizze a kapcsolatot. Minden egyes virtuális hálózati átjáró esetében tegye a következőket:
 
 1. Keresse meg a virtuális hálózati átjáró paneljét. Például: **TestVNet4GW**. 
@@ -189,16 +190,11 @@ Kattintson duplán az egyes kapcsolatokra az adott kapcsolat információinak me
 
 ![Alapvető szolgáltatások](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Alapvető szolgáltatások")
 
-## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>A virtuális hálózatok közötti kapcsolatokra vonatkozó szempontok
+## <a name="faq"></a>A virtuális hálózatok közötti kapcsolatokra vonatkozó szempontok
 A virtuális hálózatok közötti kapcsolatokról további információt a gyakori kérdésekben talál.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="next-steps"></a>Következő lépések
 Miután a kapcsolat létrejött, hozzáadhat virtuális gépeket a virtuális hálózataihoz. További információkért tekintse meg a [Virtual Machines-dokumentációt](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

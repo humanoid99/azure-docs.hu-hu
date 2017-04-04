@@ -17,15 +17,15 @@ ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 1c087f3ecbdd6956b50a8ef9b7e81340f83ff0cf
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="create-and-query-a-single-azure-sql-database-in-the-azure-portal"></a>Önálló Azure SQL-adatbázis létrehozása és lekérdezése az Azure Portalon
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure SQL Database létrehozása az Azure Portalon
 
-Az Azure SQL-adatbázisok létrehozhatók az Azure Portal segítségével. Ez a módszer egy böngészőalapú felhasználói felületet biztosít az Azure SQL-adatbázisok, valamint az összes kapcsolódó Azure-erőforrás létrehozásához.
+Ez a rövid útmutató végigvezeti azon, hogyan hozhat létre SQL Database adatbázist az Azure-ban.  Az Azure SQL Database egy adatbázis-szolgáltatási ajánlat, amellyel magas rendelkezésre állású SQL Server-adatbázisokat futtathat és méretezhet a felhőben.  Ez a rövid útmutató bemutatja, hogyan teheti meg az új SQL Database adatbázisok létrehozásának első lépéseit az Azure Portalon.
 
 ## <a name="log-in-to-the-azure-portal"></a>Jelentkezzen be az Azure portálra.
 
@@ -41,52 +41,66 @@ Kövesse az alábbi lépéseket az Adventure Works LT mintaadatokat tartalmazó 
 
 2. Az **Új** panelen válassza az **Adatbázisok** lehetőséget, majd az **Adatbázisok** panelen válassza az **SQL Database** lehetőséget.
 
-3. Töltse ki az SQL Database űrlapját a szükséges információkkal: 
-   - Adatbázis neve: Adjon meg egy adatbázisnevet
-   - Előfizetés: Válassza ki az előfizetést
-   - Erőforráscsoport: Válasszon ki egy újat vagy egy meglévőt
+    ![adatbázis létrehozása-1](./media/sql-database-get-started/create-database-1.png)
+
+3. Töltse ki az SQL Database űrlapját a következő információkkal az előző képen látható módon: 
+   - Adatbázis neve: használja a **mySampleDatabase** nevet
+   - Erőforráscsoport: használja a **myResourceGroup** nevet
    - Forrás: Válassza a **Minta (AdventureWorksLT)** lehetőséget
-   - Kiszolgáló: Hozzon létre egy új kiszolgálót (a **Kiszolgáló** nevének globálisan egyedinek kell lennie)
-   - Rugalmas készlet: A gyors üzembe helyezéshez válassza a **Most nem** lehetőséget
-   - Tarifacsomag: Válassza a **20 DTU** egységet, illetve a **250** GB tárhelyet
-   - Rendezés: A mintaadatbázis importálásakor nem módosíthatja ezt az értéket 
-   - Rögzítés az irányítópulton: Jelölje be ezt a jelölőnégyzetet
 
-      ![Adatbázis létrehozása](./media/sql-database-get-started/create-database-s1.png)
+4. Kattintson a **Kiszolgáló** lehetőségre új kiszolgáló létrehozásához és konfigurálásához az új adatbázis számára. Töltse ki az **új kiszolgáló űrlapját**: adjon meg egy globálisan egyedi kiszolgálónevet, a kiszolgáló rendszergazdai bejelentkezési nevét, majd adjon meg egy tetszőleges jelszót. 
 
-4. Amikor végzett, kattintson a **Létrehozás** gombra. Az üzembe helyezés eltarthat néhány percig.
-5. Miután az SQL-adatbázis üzembe helyezése befejeződött, válassza ki az **SQL-adatbázisok** elemet az irányítópulton, vagy az **SQL-adatbázisok** elemet a bal oldali menüben, majd kattintson az új adatbázisra az **SQL-adatbázisok** oldalon. Megnyílik az adatbázis áttekintő oldala, amelyen látható a teljes kiszolgálónév (például **mynewserver20170313.database.windows.net**), valamint a további konfigurálható beállítások.
+    ![adatbázis-kiszolgáló létrehozása](./media/sql-database-get-started/create-database-server.png)
+5. Kattintson a **Kiválasztás** gombra.
 
-      ![new-sql database](./media/sql-database-get-started/new-database-s1-overview.png) 
+6. Kattintson a **Tarifacsomag** parancsra az új adatbázis szolgáltatás- és teljesítményszintjének megadásához. Ehhez a rövid útmutatóhoz válassza a **20 DTU** egységet, illetve a **250** GB tárhelyet
+
+    ![adatbázis létrehozása-s1](./media/sql-database-get-started/create-database-s1.png)
+
+7. Kattintson az **Alkalmaz** gombra.  
+
+8. Kattintson a **Létrehozás** elemre az adatbázis létrehozásához. Az üzembe helyezés eltarthat néhány percig. 
+
+9. Az eszköztáron kattintson az **Értesítések** parancsra az üzembe helyezési folyamat megfigyeléséhez.
+
+    ![értesítés](./media/sql-database-get-started/notification.png)
+
 
 ## <a name="create-a-server-level-firewall-rule"></a>Kiszolgálószintű tűzfalszabály létrehozása
 
-Az SQL Database szolgáltatás egy tűzfalat hoz létre, amely megakadályozza, hogy a külső alkalmazások és eszközök csatlakozzanak a kiszolgálóhoz és adatbázishoz. Kövesse az alábbi lépéseket, és hozzon létre egy [SQL Database-kiszolgálószintű tűzfalszabályt](sql-database-firewall-configure.md) az IP-címhez, amellyel engedélyezheti a külső kapcsolatokat az SQL Database-tűzfalon keresztül. 
+Az SQL Database szolgáltatás egy tűzfalat hoz létre a kiszolgáló szintjén, amely megakadályozza, hogy a külső alkalmazások és eszközök csatlakozzanak a kiszolgálóhoz vagy a kiszolgálón lévő adatbázisokhoz, kivéve, ha létrehoz tűzfalszabályt, hogy adott IP-címek számára megnyissa a tűzfalat. A következő lépésekkel hozzon létre egy [kiszolgálószintű SQL Database-tűzfalszabályt](sql-database-firewall-configure.md) az ügyfél IP-címéhez, és engedélyezze a külső kapcsolatokat csak az Ön IP-címéhez az SQL Database-tűzfalon keresztül. 
 
-1. Kattintson a **Kiszolgálótűzfal beállítása** lehetőségre az adatbázis eszköztárán. Megnyílik az SQL Database kiszolgálóhoz tartozó **Tűzfalbeállítások** oldal. 
+1. Az üzembe helyezés befejezése után kattintson az **SQL-adatbázisok** elemre a bal oldali menüben, majd kattintson az új **mySampleDatabase** adatbázisra az **SQL-adatbázisok** lapon. Megnyílik az adatbázis áttekintő oldala, amelyen látható a teljes kiszolgálónév (például **mynewserver20170327.database.windows.net**), valamint a további konfigurálható beállítások.
 
       ![kiszolgálói tűzfalszabály](./media/sql-database-get-started/server-firewall-rule.png) 
 
-2. Kattintson az **Ügyfél IP-címének hozzáadása** elemre az eszköztárban, majd kattintson a **Mentés** gombra. A rendszer létrehoz egy kiszolgálószintű tűzfalszabályt az aktuális IP-címhez.
+2. Kattintson a **Kiszolgálótűzfal beállítása** lehetőségre az eszköztáron az előző képen látható módon. Megnyílik az SQL Database kiszolgálóhoz tartozó **Tűzfalbeállítások** oldal. 
 
-3. Kattintson az **OK** gombra, majd az **X**-re a Tűzfalbeállítások oldal bezárásához.
+3. Kattintson az **Ügyfél IP-címének hozzáadása** elemre az eszköztárban, majd kattintson a **Mentés** gombra. A rendszer létrehoz egy kiszolgálószintű tűzfalszabályt az aktuális IP-címhez.
+
+      ![kiszolgálótűzfal-szabály beállítása](./media/sql-database-get-started/server-firewall-rule-set.png) 
+
+4. Kattintson az **OK** gombra, majd az **X**-re a **Tűzfalbeállítások** oldal bezárásához.
 
 Mostantól csatlakozhat az adatbázishoz és annak kiszolgálójához az SQL Server Management Studio vagy más választott eszköz használatával.
 
 ## <a name="query-the-sql-database"></a>Az SQL-adatbázis lekérdezése
 
-Kövesse az alábbi lépéseket az adatbázis az Azure Portalon található lekérdezésszerkesztő segítségével történő lekérdezéséhez. 
+Amikor létrehoztuk az SQL-adatbázist, az **AdventureWorksLT** mintaadatbázissal töltöttük fel (ez a rövid útmutató során korábban, a felhasználói felület létrehozásával kapcsolatban kiválasztott egyik lehetőség volt). Most az Azure Portalon lévő beépített lekérdezési eszközzel kérdezzük le az adatokat. 
 
-1. Az adatbázishoz tartozó SQL Database oldalon kattintson az **Eszközök** elemre az eszköztárban. Megnyílik a **Lekérdezésszerkesztő** előzetes oldala.
+1. Az adatbázishoz tartozó SQL Database oldalon kattintson az **Eszközök** elemre az eszköztárban. Megnyílik az **Eszközök** lap.
 
      ![eszközök menü](./media/sql-database-get-started/tools-menu.png) 
 
-2. Kattintson a **Lekérdezésszerkesztő (előzetes verzió)** lehetőségre, kattintson az **Előzetes verziójú szolgáltatás feltételei** jelölőnégyzetre, majd az **OK** gombra. Megnyílik a lekérdezésszerkesztő.
+2. Kattintson a **Lekérdezésszerkesztő (előzetes verzió)** lehetőségre, kattintson az **Előzetes verziójú szolgáltatás feltételei** jelölőnégyzetre, majd az **OK** gombra. Megnyílik a Lekérdezésszerkesztő lapja.
 
-3. Kattintson a **Bejelentkezés** elemre, majd amikor a rendszert kéri, válassza ki az **SQL Server-hitelesítés** lehetőséget, és adja meg a kiszolgáló rendszergazdai bejelentkezési nevét és jelszavát.
+3. Kattintson a **Bejelentkezés** elemre, majd amikor a rendszer kéri, válassza ki az **SQL Server-hitelesítés** lehetőséget, és adja meg a kiszolgáló korábban létrehozott rendszergazdai bejelentkezési nevét és jelszavát.
+
+    ![bejelentkezés](./media/sql-database-get-started/login.png) 
+
 4. A bejelentkezéshez kattintson az **OK** gombra.
 
-5. A hitelesítés után írja be a kívánt lekérdezést a lekérdezési ablakba, például a következő lekérdezést:
+5. A hitelesítés után írja be a következő lekérdezést a lekérdezésszerkesztő panelén.
 
    ```
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -99,11 +113,11 @@ Kövesse az alábbi lépéseket az adatbázis az Azure Portalon található lek�
 
     ![lekérdezésszerkesztő: eredmények](./media/sql-database-get-started/query-editor-results.png)
 
-7. A Lekérdezésszerkesztő oldal bezárásához kattintson az **X**-re.
+7. A **Lekérdezésszerkesztő** lap bezárásához kattintson az **X**-re, majd kattintson ismét az **X**-re az **Eszközök** lap bezárásához.
 
 ## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
 
-A jelen gyűjteményben található **Csatlakozási** rövid útmutatók és az oktatóanyag-gyűjtemény oktatóanyagai is erre a rövid útmutatóra épülnek. Ha azt tervezi, hogy az ezt rövid útmutatókkal vagy az oktatóanyagokkal dolgozik tovább, akkor ne törölje az ebben a rövid útmutatóban létrehozott erőforrásokat. Ha nem folytatja a munkát, akkor a következő lépésekkel törölheti az Azure Portalon a rövid útmutatóhoz létrehozott összes erőforrást.
+Az ebben a gyűjteményben lévő többi rövid útmutató erre a rövid útmutatóra épít. Ha azt tervezi, hogy az ezt rövid útmutatókkal vagy az oktatóanyagokkal dolgozik tovább, akkor ne törölje az ebben a rövid útmutatóban létrehozott erőforrásokat. Ha nem folytatja a munkát, akkor a következő lépésekkel törölheti az Azure Portalon a rövid útmutatóhoz létrehozott összes erőforrást.
 
 1. Az Azure Portal bal oldali menüjében kattintson az **Erőforráscsoportok** lehetőségre, majd kattintson a **myResourceGroup** elemre. 
 2. Az erőforráscsoport oldalán kattintson a **Törlés** elemre, írja be a **myResourceGroup** szöveget a szövegmezőbe, majd kattintson a **Törlés** gombra.

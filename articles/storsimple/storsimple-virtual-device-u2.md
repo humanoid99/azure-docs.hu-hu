@@ -4,7 +4,7 @@ description: "Megtudhatja, hogyan hozható létre, helyezhető üzembe és kezel
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f37752a5-cd0c-479b-bef2-ac2c724bcc37
 ms.service: storsimple
@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/20/2017
+ms.date: 03/22/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 8b07ac76ebf40cd9bcf428711c2c0f3f3d917388
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -33,7 +33,7 @@ A StorSimple virtuális eszköz két modellben érhető el: a hagyományos 8010-
 | **Maximális kapacitás** |30 TB |64 TB |
 | **Azure virtuális gép** |Standard_A3 (4 mag, 7 GB memória) |Standard_DS3 (4 mag, 14 GB memória) |
 | **Verziók kompatibilitása** |A 2. frissítés előzetes verzióját vagy újabb verziókat futtató verziók |A 2. frissítést vagy újabb verziókat futtató verziók |
-| **Régiónkénti elérhetőség** |Minden Azure-régió |A Premium Storage-ot támogató összes Azure-régió<br></br>A prémium szintű Storage-régiók listáját az [Azure-szolgáltatások régió szerint](https://azure.microsoft.com/en-us/regions/services) lapon találhatja. Azonosítsa a régiókat, ahol támogatottak a DS, DSV2, Fs és GS virtuálisgép-sorozatok. |
+| **Régiónkénti elérhetőség** |Minden Azure-régió |A Premium Storage-ot támogató összes Azure-régió<br></br> A prémium szintű Storage-régiók olyan régiók, amelyek a *Lemezes tárolás* sornak felelnek meg az [Azure-szolgáltatások régió szerint](https://azure.microsoft.com/en-us/regions/services) című lapon található listában. |
 | **Tárolás típusa** |A helyi lemezeken Azure Standard szintű tárolást használ<br></br> További információ a [Standard szintű tárfiók létrehozásáról](../storage/storage-create-storage-account.md) |A helyi lemezeken Azure Premium szintű tárolást használ<sup>2</sup> <br></br>További információ a [Premium Storage-fiók létrehozásáról](../storage/storage-premium-storage.md) |
 | **Útmutató a számítási feladatokhoz** |A fájlok elemszintű lekérése a biztonsági másolatokból |Felhőalapú fejlesztési és tesztelési forgatókönyvek, kis késés, nagyobb teljesítményű számítási feladatok <br></br>Másodlagos vészhelyreállítási eszköz |
 
@@ -69,7 +69,7 @@ Az alábbi szakaszok ismertetik a StorSimple virtuális eszköz előfeltételeit
 #### <a name="azure-requirements"></a>Azure-követelmények
 A virtuális eszköz kiépítése előtt a következő előkészületekre lesz szükség az Azure-környezetben:
 
-* A virtuális eszközhöz [konfigurálnia kell egy virtuális hálózatot az Azure-on](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Premium szintű Storage használata esetén a Premium szintű Storage-ot támogató Azure-régióban kell létrehoznia egy virtuális hálózatot. A prémium szintű Storage-régiók listáját az [Azure-szolgáltatások régió szerint](https://azure.microsoft.com/en-us/regions/services) lapon találhatja. Azonosítsa a régiókat, ahol támogatottak a DS, DSV2, Fs és GS virtuálisgép-sorozatok.
+* A virtuális eszközhöz [konfigurálnia kell egy virtuális hálózatot az Azure-on](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Premium szintű Storage használata esetén a Premium szintű Storage-ot támogató Azure-régióban kell létrehoznia egy virtuális hálózatot. A prémium szintű Storage-régiók olyan régiók, amelyek a *Lemezes tárolás* sornak felelnek meg az [Azure-szolgáltatások régió szerint](https://azure.microsoft.com/en-us/regions/services) című lapon található listában.
 * Saját DNS-kiszolgálónév megadása helyett az Azure által megadott alapértelmezett DNS-kiszolgáló használata javasolt. Ha megadott DNS-kiszolgálónév nem érvényes, vagy ha a DNS-kiszolgáló nem tudja megfelelően feloldani az IP-címeket, akkor a virtuális eszköz létrehozása sikertelen lesz.
 * A végpont és telephely közötti, valamint a telephely és telephely közötti lehetőségek választhatóak, de nem kötelezőek. Igény szerint ezeket a lehetőségeket speciális forgatókönyvekhez is konfigurálhatja.
 * Az [Azure virtuális gépeket](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (gazdakiszolgálókat) létrehozhatja abban a virtuális hálózatban, amely a virtuális eszközön elérhető köteteket használja. Ezeknek a kiszolgálóknak az alábbi követelményeknek kell megfelelniük:                             

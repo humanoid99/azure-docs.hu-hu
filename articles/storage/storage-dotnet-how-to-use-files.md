@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
-ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -46,7 +46,7 @@ Ez a videó azt mutatja be, hogyan hozhat létre Azure fájlmegosztásokat Windo
 ## <a name="about-this-tutorial"></a>Az oktatóanyag ismertetése
 Ez az alapszintű bemutató a Microsoft Azure File Storage alapvető funkcióit mutatja be. Az útmutató a következő lépéseket fedi le:
 
-* Az Azure portál vagy a PowerShell használata: új Azure fájlmegosztás létrehozása, kódtár hozzáadása, helyi fájl feltöltése a megosztásba és a kódtár fájljainak listázása.
+* Az Azure Portal vagy a PowerShell használata: új Azure-fájlmegosztás létrehozása, könyvtár hozzáadása, helyi fájl feltöltése a megosztásba és a könyvtár fájljainak listázása.
 * Fájlmegosztás csatlakoztatása, mintha SMB-megosztást csatlakoztatna.
 * Hozzáférés fájlmegosztáshoz helyszíni alkalmazásból az Azure Storage .NET-hez készült ügyféloldali kódtárával. Konzolalkalmazás létrehozása és a következő műveletek végrehajtása a fájlmegosztással:
   * A megosztásban található fájl tartalmának írása a konzolablakba.
@@ -58,7 +58,7 @@ Ez az alapszintű bemutató a Microsoft Azure File Storage alapvető funkcióit 
 
 A fájlmegosztás mostantól minden tárfiókhoz lehetséges, így használhat meglévő tárfiókot használ, vagy létrehozhat egy újat. Új tárfiók létrehozása: [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) (Tárfiók létrehozása).
 
-## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Fájlmegosztás kezelése az Azure portállal
+## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Fájlmegosztás kezelése az Azure Portallal
 Az [Azure Portal](https://portal.azure.com) kezelőfelületet nyújt a felhasználók számára a fájlmegosztásokhoz. A portál a következőket teszi lehetővé:
 
 * Fájlmegosztás létrehozása
@@ -129,7 +129,7 @@ A PowerShell használatának előkészítéseként töltse le és telepítse az 
 Kattintson a **Start** gombra, és írja be a **Windows PowerShell** kifejezést egy Azure PowerShell ablak megnyitásához. A PowerShell-ablak betölti az Azure PowerShell modult.
 
 ### <a name="create-a-context-for-your-storage-account-and-key"></a>Környezet létrehozása a tárfiókhoz és a fiókkulcshoz
-Hozza létre a tárfiók környezetét. A környezet magában foglalja a tárfiók nevét és a fiókkulcsot. Útmutatás a fiókkulcs átmásolásához egy [Azure Portalról](https://portal.azure.com): [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys) (A tárelérési kulcs megtekintése és másolása).
+Hozza létre a tárfiók környezetét. A környezet magában foglalja a tárfiók nevét és a fiókkulcsot. Útmutatás a fiókkulcs átmásolásához az [Azure Portalról](https://portal.azure.com): [A tárelérési kulcs megtekintése és másolása](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 Az alábbi példában cserélje ki a `storage-account-name` és a `storage-account-key` elemet a tárfiók nevére és kulcsára.
 
@@ -211,8 +211,8 @@ Ha egy ügyfél hozzáfér a File Storage-hoz, a használt SMB verziója az oper
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Fájlmegosztás csatlakoztatása egy Windowst futtató Azure virtuális gépről
 Az Azure fájlmegosztások csatlakoztatásának bemutatásához létrehozunk egy Windowst futtató Azure virtuális gépet, és távolról jelentkezünk be a megosztás csatlakoztatásához.
 
-1. Először hozzon létre egy új Azure virtuális gépet a [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows virtuális gép létrehozása az Azure Portalon) útmutatásait követve.
-2. Ezután lépjen be távolról a virtuális gépre a [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Bejelentkezés Windows virtuális gépre az Azure Portal segítségével) útmutatásai alapján.
+1. Először hozzon létre egy új Azure-beli virtuális gépet a [Windows rendszerű virtuális gép létrehozása az Azure Portalon](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) útmutatásait követve.
+2. Ezután lépjen be távolról a virtuális gépre a [Bejelentkezés Windows rendszerű virtuális gépre az Azure Portal segítségével](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) útmutatásai alapján.
 3. Nyisson meg egy PowerShell-ablakot a virtuális gépen.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>A tárfiók hitelesítő adatainak megőrzése a virtuális gépen
@@ -264,17 +264,29 @@ Ha helyszíni ügyfélről szeretne fájlmegosztást csatlakoztatni, először h
 A File Storage-t meghívó kód megírásához használhatja a Storage .NET-hez és Javához elérhető klienskódtárait, vagy az Azure Storage REST API-ját. A jelen szakaszban ismertetett példa bemutatja, hogy hogyan használható egy fájlmegosztás [az Azure Storage .NET-hez készült ügyféloldali kódtára](https://msdn.microsoft.com/library/mt347887.aspx) segítségével egy egyszerű, az asztalon futó konzolalkalmazással.
 
 ### <a name="create-the-console-application-and-obtain-the-assembly"></a>A konzolalkalmazás létrehozása és az összeállítás elérése
-Új konzolalkalmazás létrehozása a Visual Studióban, és az Azure Storage ügyféloldali kódtárat tartalmazó NuGet-csomag telepítése:
+Hozzon létre egy új Windows-konzolalkalmazást a Visual Studióban. A következő lépések azt mutatják be, hogyan hozhat létre konzolalkalmazást a Visual Studio 2017-ben, de a lépések a Visual Studio más verziói esetén is hasonlók.
 
-1. A Visual Studióban válassza a **File (Fájl) > New Project (Új projekt)** lehetőséget, majd a Visual C# sablonok közül a **Windows >Console Application (Konzolalkalmazás)** elemet.
-2. Nevezze el a konzolalkalmazást, majd kattintson az **OK** gombra.
-3. Ha létrejött a projekt, kattintson a jobb gombbal a projektben a Megoldáskezelőre, és válassza a **Manage NuGet Packages** (NuGet-csomagok kezelése) lehetőséget. Keresse rá az interneten a „WindowsAzure.Storage” kifejezésre, és kattintson az **Install** (Telepítés) gombra az Azure Storage .NET-csomaghoz és -függőségekhez készült ügyféloldali kódtárának telepítéséhez.
+1. Válassza a **File** (Fájl) > **New** (Új) > **Project** (Projekt) lehetőséget.
+2. Válassza az **Installed** (Telepítve) > **Templates** (Sablonok) > **Visual C#** > **Windows Classic Desktop** (Windows klasszikus asztal) lehetőséget
+3. Válassza a **Console App (.NET Framework)** (Konzolalkalmazás (.NET keretrendszer) lehetőséget
+4. Írja be az alkalmazás nevét a **Name:** (Név:) mezőbe
+5. Kattintson az **OK** gombra.
 
-A cikkben található példakódok a [Microsoft Azure Configuration Manager könyvtárát](https://msdn.microsoft.com/library/azure/mt634646.aspx) is használják a tárolásikapcsolat-karakterlánc lekéréséhez a konzolalkalmazás app.config fájljából. Az Azure Configuration Manager segítségével mindig lekérheti futásidőben a kapcsolati karakterláncot, függetlenül attól, hogy az alkalmazás a Microsoft Azure-ban, illetve egy asztali gépen, mobileszközön vagy webalkalmazásban fut-e.
+Az oktatóanyagban szereplő példák hozzáadhatók a konzolalkalmazás `Program.cs` fájljában található `Main()` metódushoz.
 
-Az Azure Configuration Manager csomagjának telepítéséhez kattintson a jobb gombbal a projektben a Megoldáskezelőre, és válassza a **Manage NuGet Packages** (NuGet-csomagok kezelése) lehetőséget. Keresse rá az interneten a „ConfigurationManager” kifejezésre, és kattintson az **Install** (Telepítés) gombra a csomag telepítéséhez.
+Az Azure Storage ügyféloldali kódtárat bármilyen típusú .NET-alkalmazásban használhatja, ideértve az Azure-felhőszolgáltatásokat vagy -webappokat és az asztali és mobilalkalmazásokat is. Ebben az útmutatóban az egyszerűség kedvéért egy konzolalkalmazást használunk.
 
-Az Azure Configuration Manager használata nem kötelező. Használhat egy API-t is, például a .NET-keretrendszer [ConfigurationManager osztályát](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
+### <a name="use-nuget-to-install-the-required-packages"></a>A szükséges csomagok telepítése a NuGettel
+Két csomagra kell hivatkoznia a projektben az oktatóanyag teljesítéséhez:
+
+* [A Microsoft Azure Storage ügyféloldali kódtára a .NET-hez](https://www.nuget.org/packages/WindowsAzure.Storage/): Ez a csomag programozott hozzáférést biztosít a tárfiókja adatforrásaihoz.
+* [A Microsoft Azure Configuration Manager könyvtár a .NET-hez](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Ez a csomag egy osztályt biztosít a konfigurációs fájlban található kapcsolati karakterlánc elemzéséhez, függetlenül attól, hogy az alkalmazás hol fut.
+
+A NuGettel mindkét csomagot beszerezheti. Kövesse az alábbi lépéseket:
+
+1. Kattintson a jobb gombbal a projektjére a **Megoldáskezelőben**, és válassza a **Manage NuGet Packages** (NuGet-csomagok kezelése) lehetőséget.
+2. Keressen rá az interneten a „WindowsAzure.Storage” kifejezésre, és kattintson az **Install** (Telepítés) gombra a Storage ügyféloldali kódtár és függőségeinek telepítéséhez.
+3. Keresse rá az interneten a „WindowsAzure.ConfigurationManager” kifejezésre, és kattintson az **Install** (Telepítés) gombra az Azure Configuration Manager telepítéséhez.
 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>A tárfiók hitelesítő adatainak mentése az app.config fájlba
 Mentse el a hitelesítő adatokat a projekt app.config fájljába. Szerkessze az app.config fájlt úgy, hogy hasonló legyen az alábbi példában bemutatotthoz. Ehhez cserélje ki a `myaccount` elemet a tárfiók nevére, a `mykey` elemet pedig a tárfiók kulcsára.
@@ -296,8 +308,8 @@ Mentse el a hitelesítő adatokat a projekt app.config fájljába. Szerkessze az
 > 
 > 
 
-### <a name="add-namespace-declarations"></a>Névtér-deklarációk hozzáadása
-Nyissa meg a `program.cs` fájlt a Megoldáskezelőből, és adja hozzá az alábbi névtér-deklarációkat a fájl elejéhez.
+### <a name="add-using-directives"></a>Hozzáadás irányelvekkel
+Nyissa meg a `Program.cs` fájlt a Solution Explorer (Megoldáskezelő) felületén, és irányelvekkel adja hozzá az alábbiakat a fájl elejéhez.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -546,7 +558,7 @@ A File Storage mérőszámait az [Azure Portalon](https://portal.azure.com) enge
 
 Az alábbi példakód bemutatja, hogyan használható a Storage .NET-hez készült ügyféloldali kódtára arra, hogy engedélyezze a mérőszámok használatát a File Storage-hoz.
 
-Először adja hozzá az alábbi `using` utasításokat a program.cs fájlhoz a fent hozzáadottak kiegészítéseként:
+Először adja hozzá a következő `using` irányelveket a `Program.cs` fájlhoz a fentiekben hozzáadottak kiegészítéseként:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -645,7 +657,7 @@ Emellett olvassa el az [Azure-fájlok hibaelhárításáról szóló cikk](stora
     Ha nagyszámú fájlt kell átvinnie a File Storage-ba, javasoljuk, hogy használja az AzCopy, az Azure PowerShell (Windows) vagy az Azure CLI (Linux/Unix) eszközt, mert ezek hálózati adatátvitelre lettek optimalizálva.
 15. **Az Azure Files teljesítményével kapcsolatos problémák megoldásához kiadott javítás**
     
-    A Windows csapata nemrégiben megjelentetett egy javítást a teljesítménnyel kapcsolatos problémák kezelésére, amelyek akkor jelentkeznek, amikor az ügyfél Windows 8.1 vagy Windows Server 2012 R2 rendszerről fér hozzá az Azure Files Storage-hoz. További információt a következő KB-cikkben talál: [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025) (Lassú teljesítmény az Azure Files Storage használatakor Windows 8.1 vagy Server 2012 R2 rendszerről).
+    A Windows csapata nemrégiben megjelentetett egy javítást a teljesítménnyel kapcsolatos problémák kezelésére, amelyek akkor jelentkeznek, amikor az ügyfél Windows 8.1 vagy Windows Server 2012 R2 rendszerről fér hozzá az Azure Files Storage-hoz. További információt a következő KB-cikkben talál: [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/kb/3114025) (Lassú teljesítmény az Azure Files Storage használatakor Windows 8.1 vagy Server 2012 R2 rendszerről).
 16. **Az Azure File Storage használata az IBM MQ-val**
     
     Az IBM kiadott egy útmutató dokumentumot az IBM MQ ügyfelei számára, amely segítséget nyújt az Azure File Storage konfigurálásához az általuk használt szolgáltatással. További információk: [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service) (Az IBM MQ többpéldányos üzenetsor-kezelőjének beállítása a Microsoft Azure File szolgáltatással).
@@ -655,9 +667,10 @@ Emellett olvassa el az [Azure-fájlok hibaelhárításáról szóló cikk](stora
 
 18. **Hogyan lehet engedélyezni a kiszolgálóoldali titkosítást az Azure Files-hoz?**
 
-    A [kiszolgálóoldali titkosítás](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) jelenleg előzetes verzióban működik. Az előzetes verzióban a szolgáltatást kizárólag az újonnan létrehozott Azure Resource Manager- (ARM-) tárfiókokhoz lehet használni.
-    Azure Resource Manager-tárfiókokon való használatát az Azure Portalon engedélyezheti. A File Storage titkosítása terveink szerint február végétől lesz elérhető az [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), az [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) és a [Microsoft Azure Storage erőforrás-szolgáltató API-jának](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) használatával. A szolgáltatás díjmentesen engedélyezhető. Ha engedélyezi az Azure File Storage-hoz a Storage szolgáltatás titkosítását, az adatai automatikusan titkosítva lesznek. 
-    További információk is rendelkezésre állnak a Storage szolgáltatás titkosításáról. Az előzetes verzióval kapcsolatos további kérdéseit itt teheti fel: ssediscussions@microsoft.com.
+    Az Azure Files [kiszolgálóoldali titkosítása](storage-service-encryption.md) jelenleg előzetes verzióban működik. Az előzetes verzióban csak az [Azure Portalon](https://portal.azure.com) létrehozott Azure Resource Manager-tárfiókokon engedélyezheti ezt a funkciót. A szolgáltatás díjmentesen engedélyezhető. Ha engedélyezi az Azure File Storage-hoz a Storage szolgáltatás titkosítását, az adatai automatikusan titkosítva lesznek. 
+    
+    A jövőben az [Azure PowerShell-lel](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), az [Azure CLI-vel](storage-azure-cli.md) és az [Azure Storage erőforrás-szolgáltató REST API-jával](/rest/api/storagerp/storageaccounts) tervezzük támogatni a fájltárolás titkosításának engedélyezését. 
+    A [Storage szolgáltatás titkosításával](storage-service-encryption.md) kapcsolatos témakörben talál további információt az inaktív állapotban végzett titkosításról az Azure Storage-ban, és ha kérdése van az előzetes verzióról, írjon a következő címre: ssediscussions@microsoft.com.
 
 ## <a name="next-steps"></a>Következő lépések
 Az alábbi hivatkozások további információkat tartalmaznak az Azure File Storage-ról.
@@ -670,7 +683,7 @@ Az alábbi hivatkozások további információkat tartalmaznak az Azure File Sto
 * [Using Azure PowerShell with Azure Storage (Az Azure PowerShell és az Azure Storage együttes használata)](storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage (Az AzCopy használata a Microsoft Azure Storage szolgáltatással)](storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage (Az Azure parancssori felülete és az Azure Storage együttes használata)](storage-azure-cli.md#create-and-manage-file-shares)
-* [Azure File Storage-problémák hibaelhárítása](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Azure File Storage-problémák hibaelhárítása](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referencia
 * [Az Azure Storage .NET-hez készült ügyféloldali kódtára – referencia](https://msdn.microsoft.com/library/azure/dn261237.aspx)

@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: 
 author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 541849501335fb25d96cffa81b8119adc158cdd7
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
+ms.lasthandoff: 03/23/2017
+
 
 
 ---
@@ -48,18 +49,26 @@ A panelre úgy is beléphet, hogy a **További szolgáltatások** elemre kattint
 2. A panel tetején kattintson a **+Add** (+Hozzáadás) lehetőségre.
 3. Adjon meg az alkalmazáshoz egy olyan **nevet**, amely a felhasználók számára ismerteti az alkalmazást. Adja meg például a „Contoso B2C alkalmazás” nevet.
 4. Állítsa az **Include web app / web API** (Webappal/webes API-val együtt) kapcsolót **Yes** (Igen) állásba. A **válasz URL-címek** olyan végpontok, ahol az Azure AD B2C visszalép az alkalmazás által kért jogkivonatokhoz. Adja meg például a következőt: `https://localhost:44316/`.
-5. Kattintson a **Save** (Mentés) gombra az alkalmazás regisztrálásához.
-6. Kattintson az imént létrehozott alkalmazásra, és másolja le az alkalmazás globálisan egyedi **ügyfél-azonosítóját**, amelyet később a kódjában fog használni.
+5. Kattintson a **Create** (Létrehozás) gombra az alkalmazás regisztrálásához.
+6. Kattintson az imént létrehozott alkalmazásra, és másolja le az alkalmazás globálisan egyedi **ügyfél-azonosítóját**, amelyet később a kódjában fog használni. 
+7. Ha a webalkalmazás az Azure AD B2C által biztonságossá tett webes API-kat is meg fog hívni, ajánlott egy **Application Secret** (Alkalmazástitok) létrehozása is a **Keys** (Kulcsok) panel **Generate Key** (Kulcs létrehozása) gombjára kattintva.
 
+> [!NOTE]
+> Az **Application Secret** (Alkalmazástitok) fontos biztonsági hitelesítő adat, amelynek megfelelő biztonságáról gondoskodni kell.
+> 
+   
 
 ## <a name="register-a-web-api"></a>Webes API regisztrálása
 1. Kattintson az Azure Portal B2C funkciók panelén az **Applications** (Alkalmazások) lehetőségre.
 2. A panel tetején kattintson a **+Add** (+Hozzáadás) lehetőségre.
 3. Adjon meg az alkalmazáshoz egy olyan **nevet**, amely a felhasználók számára ismerteti az alkalmazást. Adja meg például a „Contoso B2C alkalmazás” nevet.
 4. Állítsa az **Include web app / web API** (Webappal/webes API-val együtt) kapcsolót **Yes** (Igen) állásba. A **válasz URL-címek** olyan végpontok, ahol az Azure AD B2C visszalép az alkalmazás által kért jogkivonatokhoz. Adja meg például a következőt: `https://localhost:44316/`.
-5. Kattintson a **Save** (Mentés) gombra az alkalmazás regisztrálásához.
-6. Kattintson az imént létrehozott alkalmazásra, és másolja le az alkalmazás globálisan egyedi **ügyfél-azonosítóját**, amelyet később a kódjában fog használni.
-
+5. Adjon meg egy **Alkalmazásazonosító URI-t**. Ez a webes API-hoz használt azonosító. Írja be például a következőt: „megjegyzések”. Ez alatta létrehozza a teljes azonosító URI-t. 
+6. Kattintson a **Create** (Létrehozás) gombra az alkalmazás regisztrálásához.
+7. Kattintson az imént létrehozott alkalmazásra, és másolja le az alkalmazás globálisan egyedi **ügyfél-azonosítóját**, amelyet később a kódjában fog használni.
+8. Kattintson a **Published scopes** (Közzétett hatókörök) elemre. Itt határozza meg a más alkalmazásoknak megadható engedélyeket (hatóköröket).
+9. Szükség szerint több hatókört is felvehet. Alapértelmezés szerint a „user_impersonation” hatókör van meghatározva. Ez lehetővé teszi az egyéb alkalmazások számára, hogy a bejelentkezett felhasználó nevében érjék el az API-t. Ha szeretné, ezt eltávolíthatja. 
+10. Kattintson a **Save** (Mentés) gombra.
 
 ## <a name="register-a-mobilenative-application"></a>Mobil-/natív alkalmazás regisztrálása
 1. Kattintson az Azure Portal B2C funkciók panelén az **Applications** (Alkalmazások) lehetőségre.
@@ -69,6 +78,11 @@ A panelre úgy is beléphet, hogy a **További szolgáltatások** elemre kattint
 5. Adjon meg egy **Átirányítási URI-t** egy egyéni sémával. Például: com.onmicrosoft.contoso.appnév://átirányítási/útvonal. Ellenőrizze, hogy [megfelelő átirányítási URI-t](#choosing-a-redirect-uri) választott-e.
 6. Kattintson a **Save** (Mentés) gombra az alkalmazás regisztrálásához.
 7. Kattintson az imént létrehozott alkalmazásra, és másolja le az alkalmazás globálisan egyedi **ügyfél-azonosítóját**, amelyet később a kódjában fog használni.
+8. Ha a natív alkalmazás az Azure AD B2C által biztonságossá tett webes API-kat is meg fog hívni, ajánlott egy **Application Secret** (Alkalmazástitok) létrehozása is a **Keys** (Kulcsok) panel **Generate Key** (Kulcs létrehozása) gombjára kattintva.
+
+> [!NOTE]
+> Az **Application Secret** (Alkalmazástitok) fontos biztonsági hitelesítő adat, amelynek megfelelő biztonságáról gondoskodni kell.
+> 
 
 ### <a name="choosing-a-redirect-uri"></a>Átirányítási URI kiválasztása
 A mobil-/natív alkalmazások átirányítási URI-jának kiválasztásakor két fontos szempontot kell megfontolnia: 

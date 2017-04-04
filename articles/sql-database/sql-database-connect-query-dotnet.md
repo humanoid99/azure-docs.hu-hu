@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/16/2017
+ms.date: 03/24/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c54ccef3098502c9fbaad13c5fe35ed15bf93f29
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 61cc9cf7bdb552932a4659103a4d7ba479471948
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -30,59 +30,80 @@ Ez a rövid útmutató az alábbi rövid útmutatók egyikében létrehozott er�
 
 - [DB létrehozása – portál](sql-database-get-started-portal.md)
 - [DB létrehozása – CLI](sql-database-get-started-cli.md)
-- [DB létrehozása – PowerShell](sql-database-get-started-powershell.md) 
 
 A kezdés előtt győződjön meg róla, hogy konfigurálta a fejlesztési környezetet a C#-hoz. Tekintse meg a [Visual Studio Community ingyenes telepítését ismertető](https://www.visualstudio.com/) oldalt vagy telepítse az [ADO.NET illesztőprogramot az SQL Serverhez](https://www.microsoft.com/net/download).
 
-## <a name="connect-to-database-and-query-data"></a>Csatlakozás az adatbázishoz és adatok lekérdezése
+## <a name="get-connection-information"></a>Kapcsolatadatok lekérése
 
 Kérje le a kapcsolati karakterláncot az Azure Portalon. A kapcsolati karakterlánccal csatlakozhat az Azure SQL adatbázishoz.
 
 1. Jelentkezzen be az [Azure portálra](https://portal.azure.com/).
 2. Válassza az **SQL-adatbázisok** elemet a bal oldali menüben, majd kattintson az új adatbázisra az **SQL-adatbázisok** oldalon. 
-3. Az adatbázis **Alapvető erőforrások** paneljében keresse meg a **Adatbázis-kapcsolati karakterláncok megjelenítése** elemet, majd kattintson rá.
-4. Másolja az **ADO.NET** kapcsolati karakterláncot.
+3. Az adatbázis **Alapvető erőforrások** paneljén tekintse meg a teljes kiszolgálónevet. 
 
     <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
 
-5. Nyissa meg a Visual Studiót, és hozzon létre egy konzolalkalmazást.
-6. Adja hozzá a ```using System.Data.SqlClient``` sort a kódfájlhoz ([System.Data.SqlClient névtér](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+4. Kattintson az: **Adatbázis-kapcsolati karakterláncok megjelenítése** elemre.
 
-7. Az [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) metódus és egy [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL utasítás együttes használatával lekérdezheti az adatokat az Azure SQL-adatbázisban.
+5. Tekintse át a teljes **ADO.NET** kapcsolati karakterláncot.
+
+    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
+
+## <a name="select-data"></a>Adatok kiválasztása
+
+1. A fejlesztési környezetben nyisson meg egy üres kódfájlt.
+2. Adja hozzá a ```using System.Data.SqlClient``` sort a kódfájlhoz ([System.Data.SqlClient névtér](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+
+3. Az [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) metódus és egy [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL utasítás együttes használatával lekérdezheti az adatokat az Azure SQL-adatbázisban. Adja meg a kiszolgálójának megfelelő értékeket.
 
     ```csharp
-    string strConn = "<connection string>";
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+    
     using (var connection = new SqlConnection(strConn))
     {
-   connection.Open();
+       connection.Open();
 
-    SqlCommand selectCommand = new SqlCommand("", connection);
-    selectCommand.CommandType = CommandType.Text;
+       SqlCommand selectCommand = new SqlCommand("", connection);
+       selectCommand.CommandType = CommandType.Text;
 
-    selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+       selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
         FROM [SalesLT].[ProductCategory] pc
         JOIN [SalesLT].[Product] p
         ON pc.productcategoryid = p.productcategoryid";
 
-    SqlDataReader reader = selectCommand.ExecuteReader();
+       SqlDataReader reader = selectCommand.ExecuteReader();
 
-    while (reader.Read())
-    {
-        // show data
-        Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
-    }
-    reader.Close();
+       while (reader.Read())
+       {
+          // show data
+          Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
+       }
+       reader.Close();
     }
     ```
 
 ## <a name="insert-data"></a>Adat beszúrása
 
-Az [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) metódus és egy [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL utasítás együttes használatával beszúrhatja az adatokat az Azure SQL-adatbázisba.
+Az [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) metódus és egy [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL utasítás együttes használatával beszúrhatja az adatokat az Azure SQL Database-be.
 
 ```csharp
-SqlCommand insertCommand = new SqlCommand("", connection);
-insertCommand.CommandType = CommandType.Text;
-insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand insertCommand = new SqlCommand("", connection);
+    insertCommand.CommandType = CommandType.Text;
+    insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
             ( [Name]
             , [ProductNumber]
             , [Color]
@@ -115,14 +136,23 @@ Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
 Az [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) metódus és egy [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL utasítás együttes használatával frissítheti az adatokat az Azure SQL-adatbázisban.
 
 ```csharp
-SqlCommand updateCommand = new SqlCommand("", connection);
-updateCommand.CommandType = CommandType.Text;
-updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
 
-int updatedrows = updateCommand.ExecuteNonQuery();
-Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand updateCommand = new SqlCommand("", connection);
+    updateCommand.CommandType = CommandType.Text;
+    updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
+    updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+    updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+
+    int updatedrows = updateCommand.ExecuteNonQuery();
+    Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 ```
 
 ## <a name="delete-data"></a>Adat törlése
@@ -130,6 +160,15 @@ Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 Az [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) metódus és egy [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL utasítás együttes használatával törölheti az adatokat az Azure SQL-adatbázisban.
 
 ```csharp
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
 SqlCommand deleteCommand = new SqlCommand("", connection);
 deleteCommand.CommandType = CommandType.Text;
 deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
@@ -154,10 +193,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+             string hostName = 'yourserver.database.windows.net';
+             string dbName = 'yourdatabase';
+             string user = 'yourusername';
+             string password = 'yourpassword';
 
-            string strConn = "<connection string>";
+             string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-            using (var connection = new SqlConnection(strConn))
+             using (var connection = new SqlConnection(strConn))
+
             {
                 connection.Open();
 

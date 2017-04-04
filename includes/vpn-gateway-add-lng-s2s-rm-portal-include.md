@@ -1,0 +1,10 @@
+1. A portál **Minden erőforrás** területén kattintson a **+Hozzáadás** gombra. A **Mindenben** panel keresőmezőjébe írja be a **Helyi hálózati átjáró** kifejezést, majd kattintson a keresés gombra. Ez visszaad egy listát. Kattintson a **Helyi hálózati átjáró** elemre a panel megnyitásához, majd kattintson a **Létrehozás** elemre a **Helyi hálózati átjáró létrehozása** panel megnyitásához.
+
+      ![helyi hálózati átjáró létrehozása](./media/vpn-gateway-add-lng-s2s-rm-portal-include/createlng.png)
+2. A **Helyi hálózati átjáró létrehozása** panelen adjon meg egy **Nevet** a helyi hálózati átjáróobjektumnak.
+3. Adjon meg egy érvényes nyilvános **IP-címet** azon VPN-eszköz vagy virtuális hálózati átjáró számára, amelyhez csatlakozni kíván.<br>Ez annak a VPN-eszköznek a nyilvános IP-címe, amelyhez csatlakozni kíván. Ez nem lehet a NAT mögött, és elérhetőnek kell lennie az Azure számára. *A saját értékeit használja, ne a képernyőképen látható értékeket*.
+4. A **Címtartomány** annak a hálózatnak a címtartományára utal, amelyet a helyi hálózat képvisel. Több címtartományt is felvehet. Ügyeljen arra, hogy az itt megadott címtartományok ne legyenek átfedésben olyan egyéb hálózatok címtartományaival, amelyekhez csatlakozni kíván. Az Azure a helyszíni VPN-eszköz IP-címéhez irányítja át a megadott címtartományt. *A saját értékeit használja itt, ne a képernyőképen látható értékeket*.
+5. Az **Előfizetés** résznél ellenőrizze, hogy a megfelelő előfizetés jelenik-e meg.
+6. Az **Erőforráscsoport** beállításnál válassza ki a használni kívánt erőforráscsoportot. Létrehozhat egy új erőforráscsoportot, vagy kiválaszthat egy korábban létrehozottat.
+7. A **Hely** beállításnál válassza ki a helyet, ahol az objektum létrejön. Érdemes ugyanazt a helyet kiválasztani, ahol a virtuális hálózat is található, de ez nem kötelező.
+8. A helyi hálózati átjáró létrehozásához kattintson a **Create** (Létrehozás) gombra.

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>A jelszókezelés első lépései
 > [!IMPORTANT]
-> **Azért van itt, mert problémák merültek fel a bejelentkezéssel kapcsolatban?** Ha igen, [így módosíthatja vagy állíthatja alaphelyzetbe a jelszavát](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Azért van itt, mert problémák merültek fel a bejelentkezéssel kapcsolatban?** Ha igen, [így módosíthatja vagy állíthatja alaphelyzetbe a jelszavát](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -375,7 +375,7 @@ Most, hogy letöltötte az Azure AD Connect eszközt, készen áll a jelszóviss
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>A jelszóvisszaírás engedélyezése a Windows PowerShell használatával
 1. A **Directory Sync számítógépén** nyisson meg egy új **emelt szintű Windows PowerShell-ablakot**.
 2. Ha a modul még nincs betöltve, írja be az `import-module ADSync` parancsot, hogy az Azure AD Connect-parancsmagokat betöltse az aktuális munkamenetbe.
-3. A rendszeren lévő Azure AD-összekötők listájának lekéréséhez futtassa a `Get-ADSyncConnector` parancsmagot, és tárolja az eredményeket a `$aadConnectorName` változóban, például `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. A rendszeren lévő Azure AD-összekötők listájának lekéréséhez futtassa a `Get-ADSyncConnector` parancsmagot, és tárolja az eredményeket a `$aadConnectorName` változóban, például `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`
 4. Az aktuális összekötő aktuális visszaírási állapotának lekéréséhez futtassa a következő parancsmagot:`Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. A jelszóvisszaírás engedélyezéséhez futtassa a következő parancsmagot:`Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -399,9 +399,9 @@ Miután engedélyezte a jelszóvisszaírást, ellenőriznie kell, hogy az Azure 
 
 #### <a name="why-do-i-need-to-do-this"></a>Miért van erre szükség?
 
-Annak érdekében, hogy a Jelszóvisszaíró megfelelően működjön, az Azure AD Connectet futtató gépnek képesnek kell lennie kimenő HTTPS-kapcsolatok létesítésére a **.servicebus.windows.net*, valamint adott, az Azure által használt IP-címek felé, amint azt a [Microsoft Azure Adatközpont IP-tartományainak listája](https://www.microsoft.com/download/details.aspx?id=41653) meghatározza.
+Annak érdekében, hogy a Jelszóvisszaíró megfelelően működjön, az Azure AD Connectet futtató gépnek képesnek kell lennie kommunikálni a jelszó-visszaállítási szolgáltatással és az Azure Service Busszal.
 
-Az Azure AD Connect eszközök **1.1.443.0-s** (legújabb) és újabb verziói esetében:
+Az Azure AD Connect eszközök **1.1.443.0**-s és újabb verziói esetében:
 
 - Az Azure AD Connect eszközök legújabb verziójának **kimenő HTTPS**-kapcsolatra van szüksége a következők eléréséhez:
     - *passwordreset.microsoftonline.com*
@@ -421,7 +421,7 @@ Az Azure AD Connect eszközök **1.0.8667.0**–**1.1.380.0** verziói esetében
         - Ha ebben a konfigurációban továbbra is használni szeretné a jelszóvisszaírást, biztosítania kell, hogy a hálózati berendezések hetente frissüljenek a Microsoft Azure Adatközpont IP-tartományainak legújabb IP-címeivel. Ezek az IP-tartományok egy minden szerdán (csendes-óceáni idő) frissülő, majd következő hétfőn (csendes-óceáni idő) hatályba lépő XML-fájlban érhetők el.
     - Szükséges lépések:
         - Az összes *.servicebus.windows.net címre mutató HTTPS-kapcsolat engedélyezése
-        - Engedélyezze az összes kimenő HTTPS-kapcsolatot minden IP-cím felé a Microsoft Azure Datacenter IP-tartományok listában, és frissítse ezt a konfigurációt hetente.
+        - Engedélyezze az összes kimenő HTTPS-kapcsolatot minden IP-cím felé a Microsoft Azure Datacenter IP-tartományok listában, és frissítse ezt a konfigurációt hetente. A lista letölthető [innen](https://www.microsoft.com/download/details.aspx?id=41653).
 
 > [!NOTE]
 > Ha a Jelszóvisszaírót a fenti útmutatást követve konfigurálta, és nem lát hibát az Azure AD Connect eseménynaplójában, de folyamatosan csatlakozási hibákat kap teszteléskor, akkor előfordulhat, hogy a környezetében lévő hálózati berendezés blokkolja a HTTPS-kapcsolatokat IP-címek felé. Előfordulhat például, hogy a kapcsolat engedélyezve van a *https://*.servicebus.windows.net* felé, a tartományon belül egy adott IP-cím felé mégis blokkolva van. Ennek megoldásához vagy úgy kell konfigurálnia a hálózati környezetet, hogy engedélyezze az összes kimenő HTTPS-kapcsolatot a 443-as porton keresztül bármely URL- vagy IP-cím felé (a fenti 1. lehetőség), vagy kérheti a hálózatkezelésért felelős csapat segítségét, hogy kifejezetten engedélyezzék a HTTPS-kapcsolatokat megadott IP-címek felé (a fenti 2. lehetőség).
@@ -495,7 +495,7 @@ Most, hogy engedélyezett a jelszóvisszaírás, tesztelheti a működését, ha
 ## <a name="next-steps"></a>Következő lépések
 Az alábbiakban láthatja az összes Azure AD-jelszóvisszaállítási dokumentációs oldal hivatkozását:
 
-* **Azért van itt, mert problémák merültek fel a bejelentkezéssel kapcsolatban?** Ha igen, [így módosíthatja vagy állíthatja alaphelyzetbe a jelszavát](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Azért van itt, mert problémák merültek fel a bejelentkezéssel kapcsolatban?** Ha igen, [így módosíthatja vagy állíthatja alaphelyzetbe a jelszavát](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Működés**](active-directory-passwords-how-it-works.md) – megismerheti a szolgáltatás hat különböző összetevőjét és azt, hogy ezek mire valók
 * [**Testreszabás**](active-directory-passwords-customize.md) – megtudhatja, hogyan szabhatja testre a szervezet által igényelt szolgáltatás kezelőfelületét és működését
 * [**Ajánlott eljárások**](active-directory-passwords-best-practices.md) – megtudhatja, hogyan helyezhet gyorsan üzembe és hogyan kezelhet hatékonyan jelszavakat a szervezetben

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -240,9 +240,9 @@ Az internetre mutató kimenő kapcsolat engedélyezett, mivel alapértelmezés s
 
 A jelen cikkben létrehozott összes erőforrás törléséhez hajtsa végre az alábbi lépéseket:
 
-1. A jelen cikkben létrehozott MyRG erőforráscsoport megtekintéséhez hajtsa végre a cikk [Erőforrások áttekintése](#review) című szakaszában ismertetett 1–3. lépést. Ismét tekintse át az erőforráscsoportban lévő erőforrásokat. Ha a MyRG erőforráscsoportot a fentebb ismertetett lépések mentén hozta létre, a 3. lépésnél található ábrán látható 12 erőforrás jelenik meg.
+1. A jelen cikkben létrehozott MyRG erőforráscsoport megtekintéséhez hajtsa végre a cikk [Erőforrások áttekintése](#review) című szakaszában ismertetett 1–3. lépést. Ismét tekintse át az erőforráscsoportban lévő erőforrásokat. Ha a MyRG erőforráscsoportot a fentebb ismertetett lépésekkel hozta létre, a 4. lépésnél található ábrán látható 12 erőforrás jelenik meg.
 2. A MyRG panelen kattintson a **Törlés** gombra.
-3. A portál megköveteli, hogy az erőforráscsoport törlésének megerősítéséhez beírja annak nevét. Ha a jelen cikk [Erőforrások áttekintése](#review) című szakaszának 3. lépésében feltüntetett erőforrásoktól eltérő erőforrások is megjelennek, kattintson a **Mégse** gombra. Ha csak a jelen cikk keretében létrehozott 12 erőforrás jelenik meg, adja meg a *MyRG* nevet az erőforráscsoport nevénél, majd kattintson a **Törlés** gombra. Az erőforráscsoport törlésével az abban foglalt összes erőforrás törölve lesz, ezért mindenképp ellenőrizze az erőforráscsoportok tartalmát azok törlése előtt. A portál törli az erőforráscsoportban lévő összes erőforrást, majd magát az erőforráscsoportot is. Ez a folyamat több percig is eltarthat.
+3. A portál megköveteli, hogy az erőforráscsoport törlésének megerősítéséhez beírja annak nevét. Ha a jelen cikk [Erőforrások áttekintése](#review) című szakaszának 4. lépésében feltüntetett erőforrásoktól eltérő erőforrások is megjelennek, kattintson a **Mégse** gombra. Ha csak a jelen cikk keretében létrehozott 12 erőforrás jelenik meg, adja meg a *MyRG* nevet az erőforráscsoport nevénél, majd kattintson a **Törlés** gombra. Az erőforráscsoport törlésével az abban foglalt összes erőforrás törölve lesz, ezért mindenképp ellenőrizze az erőforráscsoportok tartalmát azok törlése előtt. A portál törli az erőforráscsoportban lévő összes erőforrást, majd magát az erőforráscsoportot is. Ez a folyamat több percig is eltarthat.
 
 ## <a name="next-steps"></a>Következő lépések
 

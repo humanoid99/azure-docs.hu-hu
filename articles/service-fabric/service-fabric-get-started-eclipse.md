@@ -1,6 +1,6 @@
 ---
-title: "Az Azure Service Fabric Eclipse beépülő modulja használatának első lépései | Microsoft Docs"
-description: "Az Azure Service Fabric Eclipse beépülő modulja használatának első lépései."
+title: "Azure Service Fabric beépülő modul az Eclipse-hez | Microsoft Docs"
+description: "Bevezetés az Eclipse Service Fabric beépülő moduljának használatába."
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -15,124 +15,130 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b612259b97bf238bac28cb77bf26f684128dd882
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
+ms.lasthandoff: 03/22/2017
 
 
 ---
 
-# <a name="getting-started-with-eclipse-plugin-for-service-fabric-java-application-development"></a>Az Eclipse beépülő modul használatának első lépései Service Fabric Java-alkalmazás fejlesztéséhez
-Az Eclipse a Java-fejlesztők által egyik leggyakrabban használt IDE. Ebben a cikkben bemutatjuk, hogyan állíthatja be az Eclipse fejlesztői környezetet a Service Fabrickel való használathoz. A cikk segítséget nyújt a beépülő modul telepítéséhez, Service Fabric-alkalmazások létrehozásához és a Service Fabric-alkalmazás helyi vagy távoli Service Fabric-fürtön való üzembe helyezéséhez.
+# <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Az Eclipse Service Fabric beépülő moduljának Java alkalmazásfejlesztése
+Az Eclipse a Java-fejlesztők által leggyakrabban használt integrált fejlesztőkörnyezetek (IDE-k) közé tartozik. Ebben a cikkben azt ismertetjük, hogyan állíthatja be az Eclipse fejlesztői környezetet az Azure Service Fabrickel való használathoz. Megtudhatja, hogyan telepítheti a Service Fabric beépülő modult, hogyan hozhat létre Service Fabric-alkalmazást, és hogyan helyezhet üzembe Service Fabric-alkalmazásokat helyi vagy távoli Service Fabric-fürtön az Eclipse Neonon.
 
-## <a name="install-or-update-service-fabric-plugin-on-eclipse-neon"></a>A Service Fabric beépülő modul telepítése vagy frissítése az Eclipse Neonon
-A Service Fabric egy beépülő modult biztosít a **Java-fejlesztőknek készült Eclipse IDE-hez**, amely leegyszerűsítheti a Java-szolgáltatások létrehozásának és üzembe helyezésének folyamatát.
+## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>A Service Fabric beépülő modul telepítése vagy frissítése az Eclipse Neonon
+Telepíthet egy Service Fabric beépülő modult az Eclipse-en. A beépülő modul segíthet leegyszerűsíteni a Java-szolgáltatások létrehozásának és üzembe helyezésének folyamatát.
 
-1. Győződjön meg arról, hogy telepítve van a legújabb Eclipse **Neon** és a Buildship&1;.0.17-es vagy újabb verziója. A telepített összetevők verzióját a **Help => Installation Details** (Súgó => Telepítés részletei) lehetőség kiválasztásával ellenőrizheti. Az [itt][buildship-update] található utasítások alapján frissítheti a Buildshipet. A **Help => Check for Updates** (Súgó => Frissítések keresése) menüpontban ellenőrizheti, hogy az Eclipse Neon legújabb verziója van-e telepítve.
+1.  Gondoskodjon róla, hogy az Eclipse Neon és a Buildship legújabb verziója (1.0.17-es vagy újabb) legyen telepítve:
+    -   A telepített összetevők verziójának ellenőrzéséhez az Eclipse Neonban lépjen a **Help** > **Installation Details** (Súgó, Telepítés részletei) területre.
+    -   A Buildship frissítéséért lásd: [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Eclipse beépülő modulok a Gradle-hez).
+    -   Az Eclipse Neon frissítéseinek kereséséhez és telepítéséhez lépjen a **Help** > **Check for Updates** (Súgó, Frissítések keresése) területre.
 
-2. A Service Fabric beépülő modul telepítéséhez válassza a **Help => Install New Software...** (Súgó => Új szoftver telepítése) lehetőséget.
-  1. A Work with (Használat) szövegbeviteli mezőbe írja be a következőt: ``http://dl.windowsazure.com/eclipse/servicefabric``.
-  2. Kattintson az Add (Hozzáadás) parancsra.
+2.  A Service Fabric beépülő modul telepítéséhez az Eclipse Neonban lépjen a **Help** > **Install New Software** (Súgó, Új szoftver telepítése) területre.
+  1.    A **Work with** (Használat) mezőbe írja be a **http://dl.windowsazure.com/eclipse/servicefabric** címet.
+  2.    Kattintson az **Add** (Hozzáadás) parancsra.
+    ![Az Eclipse Neon Service Fabric beépülő modulja][sf-eclipse-plugin-install]
+  3.    Válassza ki a Service Fabric beépülő modult, majd kattintson a **Next** (Tovább) gombra.
+  4.    Végezze el a telepítés lépéseit, majd fogadja el a Microsoft szoftverlicenc-szerződését.
 
-  ![Eclipse Neon beépülő modul a Service Fabrichez][sf-eclipse-plugin-install]
-
-  3. Válassza ki a Service Fabric beépülő modult, majd kattintson a Next (Tovább) gombra.
-  4. Folytassa a telepítést, és fogadja el a végfelhasználói licencszerződést.
-
-Ha a Service Fabric Eclipse beépülő modul már telepítve van, győződjön meg arról, hogy a legújabb verziót használja. A **Help => Installation Details** (Súgó => Telepítés részletei) menüben ellenőrizheti, hogy vannak-e további frissítések. keresse meg a Service Fabric elemet a telepített beépülő modulok listájában, és kattintson a frissítés parancsra. Ha van függőben lévő frissítés, a rendszer lekéri és telepíti.
+Ha a Service Fabric beépülő modul már telepítve van, győződjön meg arról, hogy a legújabb verzióval rendelkezik. Az elérhető frissítések kereséséhez lépjen a **Help** > **Installation Details** (Súgó, Telepítés részletei) területre. A telepített beépülő modulok listájában válassza ki a Service Fabric elemet, majd kattintson az **Update** (Frissítés) parancsra. A rendszer telepíti az elérhető frissítéseket.
 
 > [!NOTE]
-> Ha a Service Fabric Eclipse beépülő moduljának telepítése vagy frissítése túl sok időt vesz igénybe az Eclipse-en, annak az az oka, hogy a mindenkori Eclipse megpróbálja lekérni az összes, az Eclipse-példánnyal regisztrált frissítési helyen történt új módosítás metaadatait. A gyorsításhoz használja ezt az apró trükköt: lépjen az **Available Software Sites** (Elérhető szoftverhelyek) beállításra, és törölje az összes beállítás jelölését a Service Fabric beépülő modul `http://dl.windowsazure.com/eclipse/servicefabric` helyére mutatón kívül.
->
+> Ha a Service Fabric beépülő modul telepítése vagy frissítése túl lassú, azt az Eclipse valamelyik beállítása okozhatja. Az Eclipse metaadatokat gyűjt az Eclipse-példányhoz regisztrált frissítési helyek összes módosításáról. Ahhoz, hogy fel tudja gyorsítani a Service Fabric beépülő modul frissítéseinek keresési és telepítési folyamatát, lépjen az **Available Software Sites** (Elérhető szoftverhelyek) területre. Törölje az összes hely jelölőnégyzetét a Service Fabric beépülő modul helyére (http://dl.windowsazure.com/eclipse/servicefabric) mutató jelölőnégyzet kivételével.
 
-## <a name="create-service-fabric-application-using-eclipse"></a>Service Fabric-alkalmazás létrehozása az Eclipse segítségével
+## <a name="create-a-service-fabric-application-in-eclipse"></a>Service Fabric-alkalmazás létrehozása az Eclipse-ben
 
-1. Válassza a **File => New => Other** (Fájl => Új => Egyéb) lehetőséget. Válassza a **Service Fabric Project** (Service Fabric-projekt) lehetőséget. Kattintson a **Tovább** gombra.
+1.  Az Eclipse Neonban lépjen a **File** > **New** > **Other** (Fájl, Új, Egyéb) lehetőségre. Válassza a **Service Fabric Project** (Service Fabric-projekt) lehetőséget, majd kattintson a **Next** (Tovább) gombra.
 
     ![Service Fabric – Új projekt, 1. oldal][create-application/p1]
 
-2. Nevezze el a projektet. Kattintson a **Tovább** gombra.
+2.  Adja meg a projekt nevét, majd kattintson a **Next** (Tovább) gombra.
 
     ![Service Fabric – Új projekt, 2. oldal][create-application/p2]
 
-3. Az elérhető sablonok közül válasszon szolgáltatássablont (aktor, állapot nélküli, tároló vagy vendég által futtatható). Kattintson a **Next** (Tovább) gombra.
+3.  A sablonok listájában válassza a **Service Template** (Szolgáltatássablon) elemet. Válassza ki a szolgáltatássablon típusát (Actor, Stateless, Container, Guest Binary – aktor, állapot nélküli, tároló, vendég bináris), majd kattintson a **Next** (Tovább) gombra.
 
     ![Service Fabric – Új projekt, 3. oldal][create-application/p3]
 
-4. Ezen az oldalon adja meg a szolgáltatás nevét és/vagy a szükséges szolgáltatásadatokat, majd kattintson a **Befejezés** gombra.
+4.  Adja meg a szolgáltatás nevét és a szolgáltatás részleteit, majd kattintson a **Finish** (Befejezés) gombra.
 
     ![Service Fabric – Új projekt, 4. oldal][create-application/p4]
 
-5. Az első Service Fabric-projekt létrehozásakor a rendszer rákérdez, hogy szeretné-e beállítani a Service Fabric-perspektívát. A folytatáshoz válassza a **yes** (Igen) lehetőséget.
+5. Az első Service Fabric-projekt létrehozásakor az **Open Associated Perspective** (Társított perspektíva megnyitása) párbeszédpanelen kattintson a **Yes** (Igen) gombra.
 
     ![Service Fabric – Új projekt, 5. oldal][create-application/p5]
 
-6. A sikeres létrehozás után a projekt így jelenik meg:
+6.  Így néz ki az új projekt:
 
     ![Service Fabric – Új projekt, 6. oldal][create-application/p6]
 
-## <a name="build-and-deploy-the-service-fabric-application-using-eclipse"></a>Service Fabric-alkalmazás felépítése és üzembe helyezése az Eclipse segítségével
+## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Service Fabric-alkalmazás felépítése és üzembe helyezése az Eclipse-ben
 
-* Kattintson a jobb gombbal a fentiekben létrehozott Service Fabric-alkalmazásra. A helyi menüben válassza a **Service Fabric** lehetőséget. Ekkor megjelenik egy almenü több lehetőséggel. Ez a következőképpen néz ki:
+1.  Kattintson a jobb gombbal az új Service Fabric-alkalmazásra, majd válassza a **Service Fabric** lehetőséget.
 
-    ![Service Fabric helyi menü][publish/RightClick]
+    ![Service Fabric – helyi menü][publish/RightClick]
 
-  Ha a felépítési, újraépítési és tisztítási beállításokra kattint, a rendszer végrehajtja a kívánt műveleteket.
-  - A **Build Application** (Alkalmazás buildelése) tisztítás nélkül készíti el az alkalmazásbuildet
-  - A **Rebuild Application** (Alkalmazás újrabuildelése) egy tiszta buildet épít az alkalmazásból
-  - A **Clean Application** (Alkalmazás tisztítása) törli az alkalmazásból a létrehozott összetevőket
+2. Az almenüben válassza ki a kívánt beállítást:
+    -   Az alkalmazás tisztítás nélküli kiépítéséhez kattintson a **Build Application** (Alkalmazás buildelése) parancsra.
+    -   Az alkalmazás tiszta buildjének kiépítéséhez kattintson a **Rebuild Application** (Alkalmazás újrabuildelése) parancsra.
+    -   A kiépített összetevők törléséhez az alkalmazásból kattintson a **Clean Application** (Alkalmazás tisztítása) parancsra.
 
+3.  Ebből a menüből üzembe helyezheti vagy közzéteheti az alkalmazását, illetve visszavonhatja annak üzembe helyezését:
+    -   A helyi fürtre való üzembe helyezéshez kattintson a **Deploy Application** (Alkalmazás üzembe helyezése) parancsra.
+    -   A **Publish Application** (Alkalmazás közzététele) párbeszédpanelen válasszon egy közzétételi profilt:
+        -  **Local.json**
+        -  **Cloud.json**
 
-* Ebből a menüből üzembe helyezheti, vagy közzéteheti az alkalmazását, illetve megszüntetheti annak üzembe helyezését.
-  - A **Deploy Application** (Alkalmazás üzembe helyezése) a helyi fürtön végzi el az üzembe helyezést
-  - A **Publish Application...** (Alkalmazás közzététele) rákérdez, hogy a ``Local.json`` vagy a ``Cloud.json`` közzétételi profilt választja. Ezek a JSON-fájlok a helyi vagy a felhőbeli (Azure-) fürthöz való csatlakozáshoz szükséges információk (például csatlakozási végpontok és biztonsági információk) tárolására szolgálnak.
+     Ezek a JavaScript Object Notation (JSON-) fájlok a helyi vagy a felhőbeli (Azure-) fürthöz való csatlakozáshoz szükséges információk (például csatlakozási végpontok és biztonsági információk) tárolására szolgálnak.
 
-  ![Service Fabric helyi menü][publish/Publish]
+  ![A Service Fabric közzétételi menüje][publish/Publish]
 
-* Egy másik módszerrel is üzembe helyezheti Service Fabric-alkalmazását Eclipse futtatási konfigurációkkal.
+A Service Fabric-alkalmazások üzembe helyezésének másik módszere, ha Eclipse futtatási konfigurációkat használ.
 
-  1. Válassza a **Run => Run Configurations** (Futtatás => Konfigurációk futtatása) elemet. Válassza a **ServiceFabricDeployer** futtatási konfigurációt a **Grade Project** területen.
-  2. A jobb oldali ablaktábla **Arguments** (Argumentumok) lapján a **publishProfile** értékeként adja meg a **local** (helyi) vagy a **cloud** (felhő) értéket. Az alapértelmezett beállítás a **local** (helyi). Távoli/felhőbeli fürtre történő üzembe helyezéshez válassza a **cloud** (felhő) beállítást.
-  3. Töltse be a megfelelő információkat a közzétételi profilokba a `Local.json` vagy a `Cloud.json` megfelelő módon történő szerkesztésével, végponti adatok és biztonsági hitelesítő adatok megadásával, ha vannak.
-  4. Győződjön meg arról, hogy a jobb oldali panelen a **Grade Project** területen található **Working Directory** (Munkamappa) az üzembe helyezni kívánt alkalmazásra mutat. Ha nem, kattintson a **Workspace...** (Munkaterület) gombra, és válassza ki a kívánt alkalmazást.
-  5. Kattintson az **Apply** (Alkalmaz), majd a **Run** (Futtatás) lehetőségre.
+  1.    Lépjen a **Run** > **Run Configurations** (Futtatás, Konfigurációk futtatása) területre.
+  2.    A **Gradle Project** (Gradle-projekt) területen válassza a **ServiceFabricDeployer** futtatási konfigurációt.
+  3.    A jobb oldali ablaktáblán, az **Arguments** (Argumentumok) lapon a **publishProfile** értékeként válassza a **local** (helyi) vagy a **cloud** (felhő) értéket.  Az alapértelmezett érték a **local** (helyi). Távoli vagy felhőalapú fürtbe végzett üzembe helyezéshez válassza a **cloud** (felhő) értéket.
+  4.    Ahhoz, hogy a megfelelő információk legyenek betöltve a közzétételi profilokba, szükség szerint szerkessze a **Local.json** vagy a **Cloud.json** fájlt. Hozzáadhat vagy frissíthet végpontrészleteket és biztonsági hitelesítő adatokat.
+  5.    Győződjön meg arról, hogy a **Working Directory** (Munkakönyvtár) az üzembe helyezni kívánt alkalmazásra mutat. Az alkalmazás módosításához kattintson a **Workspace** (Munkaterület) gombra, és válassza ki a kívánt alkalmazást.
+  6.    Kattintson az **Apply** (Alkalmaz), majd a **Run** (Futtatás) gombra.
 
-Néhány másodpercen belül megtörténik az alkalmazás felépítése és üzembe helyezése. Az állapotát megfigyelheti a Service Fabric Explorerből.  
+Néhány másodpercen belül megtörténik az alkalmazás felépítése és üzembe helyezése. Az üzembe helyezés állapotát a Service Fabric Explorerben követheti nyomon.  
 
-## <a name="add-new-service-fabric-service-to-your-service-fabric-application"></a>Új Service Fabric-szolgáltatás hozzáadása a Service Fabric-alkalmazáshoz
+## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Service Fabric-szolgáltatás hozzáadása a Service Fabric-alkalmazáshoz
 
-Az alábbi lépésekkel adhat hozzá új Service Fabric-szolgáltatást meglévő Service Fabric-alkalmazáshoz:
+Ha Service Fabric-szolgáltatást szeretne hozzáadni egy meglévő Service Fabric-alkalmazáshoz, végezze el a következő lépéseket:
 
-1. Kattintson a jobb gombbal a projektre, amelyhez hozzá kíván adni egy szolgáltatást. A megnyíló helyi menüből válassza a **Service Fabric** lehetőséget. Ekkor megjelenik egy almenü több lehetőséggel.
+1.  Kattintson a jobb gombbal a projektre, amelyhez hozzá szeretne adni egy szolgáltatást, majd kattintson a **Service Fabric** elemre.
 
     ![Service Fabric – Szolgáltatás hozzáadása, 1. oldal][add-service/p1]
 
-2. Válassza a **Add ServiceFabric Service** (ServiceFabric-szolgáltatás hozzáadása) lehetőséget. Ez végigvezeti a szolgáltatás projekthez adásának lépésein.
-3. Válassza ki a projekthez hozzáadni kívánt szolgáltatássablont, majd kattintson a **Next** (Tovább) gombra.
+2.  Kattintson az **Add Service Fabric Service** (Service Fabric-szolgáltatás hozzáadása) parancsra, és végezze el a szolgáltatás hozzáadásának lépéseit.
+3.  Válassza ki a projekthez hozzáadni kívánt szolgáltatássablont, majd kattintson a **Next** (Tovább) gombra.
 
     ![Service Fabric – Szolgáltatás hozzáadása, 2. oldal][add-service/p2]
 
-4. Adja meg a szolgáltatás nevét (és a többi szükséges adatot), majd kattintson a lenti **Add Service** (Szolgáltatás hozzáadása) gombra.  
+4.  Adja meg a szolgáltatás nevét (és a többi szükséges adatot), majd kattintson az **Add Service** (Szolgáltatás hozzáadása) gombra.  
 
     ![Service Fabric – Szolgáltatás hozzáadása, 3. oldal][add-service/p3]
 
-5. A szolgáltatás sikeres hozzáadása után a teljes projektstruktúra a következőhöz hasonló:
+5.  A szolgáltatás hozzáadása után a teljes projektstruktúra a következőhöz hasonlóan néz ki:
 
     ![Service Fabric – Szolgáltatás hozzáadása, 4. oldal][add-service/p4]
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>A Service Fabric Java-alkalmazásának frissítése
 
-Tegyük fel, hogy a Service Fabric Eclipse beépülő moduljával létrehozta az ``App1`` projektet, üzembe is helyezte a beépülő modullal, és létrehozta az ``App1AppicationType`` alkalmazástípusú és 1.0-s alkalmazásverziójú ``fabric:/App1Application`` nevű alkalmazást. Most leállítás nélkül szeretné frissíteni az alkalmazást.
+Frissítési forgatókönyv esetén tegyük fel, hogy az **App1** projektet hozta létre a Service Fabric beépülő modullal az Eclipse-ben. A projektet a beépülő modullal helyezte üzembe a **fabric:/App1Application** nevű alkalmazás létrehozásához. Az alkalmazás típusa **App1AppicationType**, a verziója pedig 1.0. A rendelkezésre állás megszakítása nélkül szeretné frissíteni az alkalmazást.
 
-Végezze el a módosítást az alkalmazáson, és építse újra a módosított szolgáltatást.  Frissítse a módosított szolgáltatás jegyzékfájlját (``ServiceManifest.xml``) a szolgáltatás frissített verzióival (és a megfelelő Code, Config vagy Data értékkel). Módosítsa az alkalmazás jegyzékfájlját is (``ApplicationManifest.xml``) az alkalmazás frissített verziószámával és a módosított szolgáltatással.  
+Először végezzen módosítást az alkalmazáson, majd építse újra a módosított szolgáltatást. Frissítse a módosított szolgáltatás jegyzékfájlját (ServiceManifest.xml) a szolgáltatás frissített verzióival (és a megfelelő Code, Config vagy Data értékkel). Módosítsa az alkalmazás jegyzékfájlját is (ApplicationManifest.xml) az alkalmazás frissített verziószámával és a módosított szolgáltatással.  
 
-Az alkalmazás Eclipse-szel való frissítéséhez létrehozhat egy duplikált futtatási konfigurációt, és a segítségével frissítheti az alkalmazását akkor és úgy, ahogy szeretné. Ehhez kövesse az alábbi lépéseket:
-1. Válassza a **Run => Run Configurations** (Futtatás => Konfigurációk futtatása) elemet. A bal oldali ablaktáblán kattintson a **Grade Project** bal oldalán lévő kis nyílra.
-2. Kattintson a jobb gombbal a **ServiceFabricDeployer** elemre, és válassza a **Duplicate** (Megkettőzés) lehetőséget. Adjon egy új nevet a konfigurációnak, például: **ServiceFabricUpgrader**.
-3. A jobb oldali ablaktáblán, az **Arguments** (Argumentumok) lapon módosítsa a **-Pconfig='deploy'** értéket **-Pconfig=upgrade** értékre, majd kattintson az **Apply** (Alkalmaz) gombra.
-4. Ezzel létrehozott és mentett egy futtatási konfigurációt az alkalmazása frissítéséhez, amelyen bármikor **végrehajthatja** a parancsot. Ez biztosítja, hogy a legújabb frissített alkalmazástípus-verzió legyen lekérve az alkalmazás jegyzékfájljából.
+Ha az Eclipse Neonnal szeretné frissíteni az alkalmazást, létrehozhat egy duplikált futtatási konfigurációs profilt, amelyet aztán szükség szerint az alkalmazás frissítésére használhat.
 
-Mostantól megfigyelheti az alkalmazásfrissítést a Service Fabric Explorer segítségével. Az alkalmazás néhány percen belül frissült volna.
+1.  Lépjen a **Run** > **Run Configurations** (Futtatás, Konfigurációk futtatása) területre. A bal oldali ablaktáblában kattintson a **Gradle Project** (Gradle-projekt) bal oldalán található kis nyílra.
+2.  Kattintson a jobb gombbal a **ServiceFabricDeployer** elemre, majd válassza a **Duplicate** (Megkettőzés) parancsot. Adjon egy új nevet a konfigurációnak, például **ServiceFabricUpgrader**.
+3.  A jobb oldali ablaktáblán, az **Arguments** (Argumentumok) lapon módosítsa a **-Pconfig='deploy'** értéket **-Pconfig='upgrade'** értékre, majd kattintson az **Apply** (Alkalmaz) gombra.
+
+Ez a folyamat olyan futtatási konfigurációs profilt hoz létre és ment el, amellyel bármikor frissítheti az alkalmazást. Az alkalmazás jegyzékfájljából a legújabb frissített alkalmazástípus-verziót is lekéri.
+
+Az alkalmazás frissítése eltarthat néhány percig. Az alkalmazás frissítésének folyamatát a Service Fabric Explorerben követheti nyomon.
 
 <!-- Images -->
 

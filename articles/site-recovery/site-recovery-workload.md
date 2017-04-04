@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -130,6 +130,19 @@ A Site Recovery szolgáltatással az alábbi módokon biztosíthatja az SAP véd
 * Leegyszerűsíti az SAP-fejlesztést és tesztelést, mivel segítségével az éleshez hasonló, igény szerinti másolat hozható létre az alkalmazások teszteléséhez és a hibakereséséhez.
 
 [Itt részletesen tájékozódhat](http://aka.ms/asr-sap) az SAP védelméről.
+
+## <a name="protect-iis"></a>Az IIS védelme
+A Site Recovery szolgáltatással az alábbi módokon biztosíthatja az üzemelő IIS-példány védelmét:
+
+Az Azure Site Recovery úgy gondoskodik a vészhelyreállításról, hogy a környezet kritikus összetevőit replikálja egy offline távoli helyre, vagy egy, a Microsoft Azure-hoz hasonló nyilvános felhőbe. Mivel a rendszer a webkiszolgálóval és az adatbázissal együtt replikálja a virtuális gépet a helyreállítási helyen, nincs szükség a konfigurációs fájlok vagy tanúsítványok külön biztonsági mentésére. A feladatátvétel után módosult környezeti változóktól függő alkalmazásleképezések és -kötések a vészhelyreállítás tervekbe integrált szkriptekkel frissíthetők. A virtuális gépek csak feladatátvétel esetén kerülnek a helyreállítási helyre. Az Azure Site Recovery a végpontok közötti feladatátvétel összehangolását is elősegíti az alábbi képességek biztosításával:
+
+-    A virtuális gépek leállításának és indításának sorrendbe állítása a különböző szinteken.
+-    Szkriptek hozzáadása az alkalmazásfüggőségek és -kötések frissítésének biztosításához a virtuális gépek elindítása után. A szkriptek a DNS-kiszolgáló frissítésére is használhatók, hogy a helyreállítási helyre mutasson.
+-    IP-címek lefoglalása a virtuális gépekhez a feladatátvétel előtt az elsődleges és a helyreállítási hálózat leképezésével, és olyan szkriptek használata, amelyeket feladatátvétel után nem kell frissíteni.
+-    Egykattintásos feladatátvétel lehetővé tétele a webkiszolgálók több webalkalmazása számára. Ezzel áttekinthetővé tehetők a vészhelyzet esetén végrehajtandó műveletek.
+-    Lehetőség a helyreállítási tervek tesztelésére egy DR-részletezések számára elkülönített környezetben.
+
+[Itt részletesen tájékozódhat](https://aka.ms/asr-iis) az IIS webfarm védelméről.
 
 ## <a name="next-steps"></a>Következő lépések
 [Előfeltételek ellenőrzése](site-recovery-prereq.md) 

@@ -3,8 +3,8 @@ title: Azure AD B2C | Microsoft Docs
 description: "Hogyan lehet OAuth 2.0 hitelesítési hozzáférési jogkivonat általi védelemmel és az Azure Active Directory B2C alkalmazásával .NET-alapú webes API-t készíteni?"
 services: active-directory-b2c
 documentationcenter: .net
-author: dstrockis
-manager: mbaldwin
+author: parakhj
+manager: krassk
 editor: 
 ms.assetid: 7146ed7f-2eb5-49e9-8d8b-ea1a895e1966
 ms.service: active-directory-b2c
@@ -12,168 +12,157 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 03/17/2017
+ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1062af9abfd167dd251621a43943dea399aed027
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 3dd207805c1a8f53c6cc74da08cc9378609581c5
+ms.lasthandoff: 03/23/2017
 
 
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET webes API készítése
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Az Azure Active Directory (Azure AD) B2C segítségével védetté tehet egy webes API-t OAuth 2.0 hozzáférési jogkivonatok használatával. Ezek a jogkivonatok engedélyezik az Azure AD B2C-t alkalmazó ügyfélalkalmazások számára az API hitelesítését. Ebből a cikkből megtudhatja, hogyan hozhat létre egy .NET Model-View-Controller (MVC) „feladatlista” API-t, amellyel a felhasználók CRUD-feladatokat végezhetnek el. A webes API-t az Azure AD B2C látja el védelemmel, így csak a hitelesített felhasználók kezelhetik a feladatlistájukat.
+Az Azure Active Directory (Azure AD) B2C segítségével védetté tehet egy webes API-t OAuth 2.0 hozzáférési jogkivonatok használatával. Ezek a jogkivonatok teszik lehetővé az ügyfélalkalmazások számára a hitelesítést az API felé. Ebből a cikkből megtudhatja, hogyan hozhat létre egy .NET MVC „feladatlista” API-t, amellyel az ügyfélalkalmazása felhasználói CRUD-feladatokat végezhetnek el. A webes API-t az Azure AD B2C látja el védelemmel, így csak a hitelesített felhasználók kezelhetik a feladatlistájukat.
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Azure AD B2C címtár létrehozása
+
 Ahhoz, hogy használni tudja az Azure AD B2C-t, előbb létre kell hoznia egy címtárat vagy bérlőt. A címtárban tárolhatja az összes felhasználót, alkalmazást, csoportot és sok minden mást. Ha még nem tette meg, [hozzon létre most egy B2C-címtárat](active-directory-b2c-get-started.md), mielőtt továbblépne ebben az útmutatóban.
 
-## <a name="create-an-application"></a>Alkalmazás létrehozása
-A következő lépésben hozzon létre egy alkalmazást a B2C-címtárban. Ez biztosítja az alkalmazással történő biztonságos kommunikációhoz szükséges információkat az Azure AD számára. Az alkalmazást a következő [utasítások](active-directory-b2c-app-registration.md) alapján hozza létre. Ügyeljen arra, hogy:
+> [!NOTE]
+> Az ügyfélalkalmazásnak és a webes API-nak ugyanazt az Azure AD B2C könyvtárat kell használnia.
+>
+
+## <a name="create-a-web-api"></a>Webes API létrehozása
+
+A következő lépésben hozzon létre egy webes API-alkalmazást a B2C-címtárban. Ez biztosítja az alkalmazással történő biztonságos kommunikációhoz szükséges információkat az Azure AD számára. Az alkalmazást a következő [utasítások](active-directory-b2c-app-registration.md) alapján hozza létre. Ügyeljen arra, hogy:
 
 * Az alkalmazás tartalmazzon egy **webalkalmazást** vagy **webes API-t**.
-* A webalkalmazáshoz használja az **átirányítási egységes erőforrás-azonosítót** `https://localhost:44316/`. Ez a webalkalmazás ügyféloldalának alapértelmezett helye ehhez a kódmintához.
-* Másolja be az alkalmazáshoz hozzárendelt **alkalmazásazonosítót**. Erre később még szüksége lesz.
+* A webapphoz használja a `https://localhost:44332/` **URI-átirányítást**. Ez a webalkalmazás ügyféloldalának alapértelmezett helye ehhez a kódmintához.
+* Másolja az alkalmazáshoz rendelt **alkalmazásazonosítót**. Erre később még szüksége lesz.
+* Adjon meg egy alkalmazásazonosítót az **Alkalmazásazonosító URI** mezőben.
+* Adjon hozzá engedélyeket a **Közzétett hatókörök** menüből.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## <a name="create-your-policies"></a>Házirendek létrehozása
-Az Azure AD B2C-ben minden felhasználói élményt [házirendek](active-directory-b2c-reference-policies.md) határoznak meg. Az ügyfél ebben a kódmintában három identitásélményt tartalmaz: regisztráció, bejelentkezés és profilszerkesztés. Mindegyik típushoz létre kell hoznia egy házirendet a [házirendek áttekintésével foglalkozó cikkben](active-directory-b2c-reference-policies.md#create-a-sign-up-policy) leírtak szerint. A három házirend létrehozásakor ügyeljen arra, hogy:
+## <a name="create-your-policies"></a>Szabályzatok létrehozása
 
-* Az identitásszolgáltatók paneljén válassza a **User ID sign-up** (Regisztrálás felhasználói azonosítóval) vagy az **Email sign-up** (Regisztrálás e-mail címmel) lehetőséget.
-* A regisztrációs házirendben válassza ki a **megjelenítendő nevet** és az egyéb regisztrációs attribútumokat.
+Az Azure AD B2C-ben a felhasználói élményeket [szabályzatok](active-directory-b2c-reference-policies.md) határozzák meg. Létre kell hoznia egy házirendet az Azure AD B2C-vel való kommunikációhoz. Javasoljuk a kombinált regisztrálási/bejelentkezési házirend használatát a [házirendek áttekintésével foglalkozó cikkben](active-directory-b2c-reference-policies.md) leírtak szerint. A házirend létrehozásakor ügyeljen arra, hogy:
+
+* A házirendben válassza ki a **megjelenítendő nevet** és az egyéb regisztrációs attribútumokat.
 * Alkalmazási jogcímnek minden házirend esetén válassza ki a **megjelenítendő nevet** és az **objektumazonosítót**. Kiválaszthat egyéb jogcímeket is.
-* Az egyes házirendek létrehozása után másolja be a házirend**nevét**. A házirendek nevére később még szüksége lesz.
+* Az egyes házirendek létrehozása után másolja a házirend **nevét**. A szabályzat nevére később még szüksége lesz.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-A három házirend sikeres létrehozása után készen áll az alkalmazás elkészítésére.
+A házirend sikeres létrehozása után készen áll az app elkészítésére.
 
 ## <a name="download-the-code"></a>A kód letöltése
-Az oktatóanyag kódjának [karbantartása a GitHubon történik](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). A minta menet közbeni létrehozásához [letöltheti a projektvázát tartalmazó .zip-fájlt](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). A vázprojektet klónozhatja is:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
-```
+Az oktatóanyag kódjának kezelése a [GitHubon](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi) történik. A minta klónozásához futtassa a következőt:
 
-A kész alkalmazás [.zip fájlként](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) vagy `complete` az adott adattár ágában is elérhető.
-
-Miután letöltötte a mintakódot, nyissa meg a Visual Studio .sln fájlt a kezdéshez. A megoldásfájl két projektet tartalmaz: `TaskWebApp` és `TaskService`. A `TaskWebApp` egy MVC-webalkalmazás, amellyel a felhasználó kommunikál. A `TaskService` az alkalmazás webes API háttérszolgáltatása, amely tárolja a felhasználók feladatlistáit.
-
-## <a name="configure-the-task-web-app"></a>A feladathoz tartozó webalkalmazás konfigurálása
-Ha a felhasználó kommunikál a(z) `TaskWebApp` projekttel, akkor az ügyfél kérelmeket küld az Azure AD-hoz, és megkapja a `TaskService` webes API hívásához használandó jogkivonatokat. A felhasználói bejelentkezéshez és a jogkivonatok megkapásához meg kell adnia `TaskWebApp` bizonyos információkat az alkalmazásról. A `TaskWebApp` projektben nyissa meg a projekt gyökérkönyvtárában található `web.config` fájlt, és cserélje le az `<appSettings>` szakaszban szereplő értékeket.  Az `AadInstance`, `RedirectUri` és `TaskServiceUrl` értékét nem kell módosítania.
-
-```
-  <appSettings>
-    <add key="webpages:Version" value="3.0.0.0" />
-    <add key="webpages:Enabled" value="false" />
-    <add key="ClientValidationEnabled" value="true" />
-    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
-    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
-    <add key="ida:RedirectUri" value="https://localhost:44316/" />
-    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
-    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
-    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
-    <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
-  </appSettings>
+```console
+git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
 ```
 
-Ez a cikk nem tárgyalja a `TaskWebApp` ügyfél létrehozását.  Ha tudni szeretné, hogyan hozhat létre webalkalmazást az Azure AD B2C-vel, tekintse meg a [.NET-alapú webalkalmazásokról szóló oktatóanyagunkat](active-directory-b2c-devquickstarts-web-dotnet.md).
+Miután letöltötte a mintakódot, nyissa meg a Visual Studio .sln fájlt a kezdéshez. A megoldásfájl két projektet tartalmaz: `TaskWebApp` és `TaskService`. A `TaskWebApp` egy MVC-webalkalmazás, amellyel a felhasználó kommunikál. A `TaskService` az alkalmazás webes API háttérszolgáltatása, amely tárolja a felhasználók feladatlistáit. Ez a cikk csak a `TaskService` alkalmazást ismerteti. Ha tudni szeretné, hogyan hozhatja létre a `TaskWebApp` alkalmazást az Azure AD B2C-vel, tekintse meg a [.NET-alapú webappokról szóló oktatóanyagunkat](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+
+### <a name="update-the-azure-ad-b2c-configuration"></a>Az Azure AD B2C konfiguráció frissítése
+
+A minta úgy van konfigurálva, hogy a bemutató bérlőnk házirendjeit és ügyfél-azonosítóját használja. Ha a saját bérlőjét szeretné használni, tegye a következőt:
+
+1. Nyissa meg a `web.config` fájlt a `TaskService` projektben, és a következőképpen cserélje le az értékeket:
+    * Az `ida:Tenant` helyett szerepeljen a bérlő neve
+    * Az `ida:ClientId` helyett szerepeljen a webes API-alkalmazás azonosítója
+    * Az `ida:SignUpSignInPolicyId` helyett szerepeljen a „regisztrálási vagy bejelentkezési” házirend neve
+
+2. Nyissa meg a `web.config` fájlt a `TaskWebApp` projektben, és a következőképpen cserélje le az értékeket:
+    * Az `ida:Tenant` helyett szerepeljen a bérlő neve
+    * Az `ida:ClientId` helyett szerepeljen a webapp alkalmazásazonosítója
+    * Az `ida:ClientSecret` helyett szerepeljen a webapp titkos kulcsa
+    * Az `ida:SignUpSignInPolicyId` helyett szerepeljen a „regisztrálási vagy bejelentkezési” házirend neve
+    * Az `ida:EditProfilePolicyId` helyett szerepeljen a „profil szerkesztése” házirend neve
+    * Az `ida:ResetPasswordPolicyId` helyett szerepeljen a „Jelszó alaphelyzetbe állítása” házirend neve
+
 
 ## <a name="secure-the-api"></a>Az API védelme
-Ha egy ügyfél hívja az API-t a felhasználók nevében, biztonságossá teheti az API-t `TaskService` az OAuth 2.0 tulajdonosi jogkivonatok használatával. Az API a Microsoft Open Web Interface .NET (OWIN) könyvtárra történő alkalmazásával elfogadhat és érvényesíthet jogkivonatokat.
+
+Ha egy ügyfél hívja az API-t, biztonságossá teheti az API-t (pl. `TaskService`) az OAuth 2.0 tulajdonosi jogkivonatok használatával. Ez biztosítja, hogy az API felé irányuló kérések csak akkor legyenek érvényesek, ha a kérés rendelkezik tulajdonosi jogkivonattal. Az API a Microsoft Open Web Interface .NET (OWIN) könyvtár használatával tudja elfogadni és érvényesíteni a tulajdonosi jogkivonatokat.
 
 ### <a name="install-owin"></a>Az OWIN telepítése
-Első lépésként telepítse az OWIN OAuth hitelesítési folyamatot:
 
-```
+Első lépésként telepítse az OWIN OAuth hitelesítési folyamatot a Visual Studio csomagkezelő konzoljával.
+
+```Console
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TaskService
 PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TaskService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
-### <a name="enter-your-b2c-details"></a>Adja meg a B2C-re vonatkozó információkat
-Nyissa meg a(z) `TaskService` projekt gyökérkönyvtárában található `web.config` fájlt, és cserélje le a(z) `<appSettings>` szakaszban szereplő értékeket. Ezeket az értékeket fogja használni a teljes API és OWIN könyvtár.  Az `AadInstance` értékét nem kell módosítania.
-
-```
-  <appSettings>
-    <add key="webpages:Version" value="3.0.0.0" />
-    <add key="webpages:Enabled" value="false" />
-    <add key="ClientValidationEnabled" value="true" />
-    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
-    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
-    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
-    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
-    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
-    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
-  </appSettings>
-```
+Ez telepíti az OWIN közbenső szoftvert, amely fogadja és érvényesíti a tulajdonosi jogkivonatokat.
 
 ### <a name="add-an-owin-startup-class"></a>OWIN indítási osztály hozzáadása
-A `Startup.cs` nevű `TaskService` projekthez adjon hozzá egy OWIN indítási osztályt.  Kattintson a jobb gombbal a projektre, válassza az **Add** (Hozzáadás), majd a **New Item** (Új elem) lehetőséget, és keresse meg az OWIN elemet.
 
-```C#
+Adjon hozzá egy OWIN indítási osztályt a `Startup.cs` nevű API-hoz.  Kattintson a jobb gombbal a projektre, válassza az **Add** (Hozzáadás), majd a **New Item** (Új elem) lehetőséget, és keresse meg az OWIN elemet. Az OWIN közbenső szoftver meghívja a `Configuration(…)` metódust az alkalmazás indulásakor.
+
+A mintánkban módosítottuk az osztálydeklarációt `public partial class Startup` értékre, és implementáltuk az `App_Start\Startup.Auth.cs` fájlban lévő osztály másik részét. A `Configuration` metóduson belül hozzáadtunk egy hívást a `ConfigureAuth` metódusra, amely a `Startup.Auth.cs` fájlban van definiálva. A módosítás után a `Startup.cs` a következőképpen néz ki:
+
+```CSharp
 // Startup.cs
 
-// Change the class declaration to "public partial class Startup" - we’ve already implemented part of this class for you in another file.
 public partial class Startup
 {
     // The OWIN middleware will invoke this method when the app starts
     public void Configuration(IAppBuilder app)
     {
+        // ConfigureAuth defined in other part of the class
         ConfigureAuth(app);
     }
 }
 ```
 
 ### <a name="configure-oauth-20-authentication"></a>OAuth 2.0 típusú hitelesítés konfigurálása
-Nyissa meg a(z) `App_Start\Startup.Auth.cs` fájlt, és hajtsa végre a(z) `ConfigureAuth(...)` módszert:
 
-```C#
+Nyissa meg a(z) `App_Start\Startup.Auth.cs` fájlt, és hajtsa végre a(z) `ConfigureAuth(...)` módszert. A következő módon nézhet ki például:
+
+```CSharp
 // App_Start\Startup.Auth.cs
 
-public partial class Startup
-{
-    // These values are pulled from web.config
-    public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
-    public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
-    public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-    public static string signUpPolicy = ConfigurationManager.AppSettings["ida:SignUpPolicyId"];
-    public static string signInPolicy = ConfigurationManager.AppSettings["ida:SignInPolicyId"];
-    public static string editProfilePolicy = ConfigurationManager.AppSettings["ida:UserProfilePolicyId"];
-
-    public void ConfigureAuth(IAppBuilder app)
-    {   
-        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(signUpPolicy));
-        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(signInPolicy));
-        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(editProfilePolicy));
-    }
-
-    public OAuthBearerAuthenticationOptions CreateBearerOptionsFromPolicy(string policy)
+ public partial class Startup
     {
-        TokenValidationParameters tvps = new TokenValidationParameters
-        {
-            // This is where you specify that your API only accepts tokens from its own clients
-            ValidAudience = clientId,
-            AuthenticationType = policy,
-        };
+        // These values are pulled from web.config
+        public static string AadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
+        public static string Tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+        public static string ClientId = ConfigurationManager.AppSettings["ida:ClientId"];
+        public static string SignUpSignInPolicy = ConfigurationManager.AppSettings["ida:SignUpSignInPolicyId"];
+        public static string DefaultPolicy = SignUpSignInPolicy;
 
-        return new OAuthBearerAuthenticationOptions
+        /*
+         * Configure the authorization OWIN middleware.
+         */
+        public void ConfigureAuth(IAppBuilder app)
         {
-            // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
-            AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, policy))),
-        };
+            TokenValidationParameters tvps = new TokenValidationParameters
+            {
+                // Accept only those tokens where the audience of the token is equal to the client ID of this app
+                ValidAudience = ClientId,
+                AuthenticationType = Startup.DefaultPolicy
+            };
+
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+            {
+                // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
+                AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(AadInstance, Tenant, DefaultPolicy)))
+            });
+        }
     }
-}
 ```
 
 ### <a name="secure-the-task-controller"></a>Feladatvezérlő védelme
+
 Az alkalmazás OAuth 2.0 típusú hitelesítés használatára történő konfigurálása után, a webes API-t biztonságossá teheti úgy, hogy egy `[Authorize]` címkét ad hozzá a feladatvezérlőhöz. A feladatvezérlőben történik a feladatlisták kezelése, így osztályszinten kell biztonságossá tenni az egész vezérlőt. Az egyes műveletekre vonatkozóan is hozzáadhatja a(z) `[Authorize]` címkét a részletesebb vezérlés érdekében.
 
-```C#
+```CSharp
 // Controllers\TasksController.cs
 
 [Authorize]
@@ -184,9 +173,10 @@ public class TasksController : ApiController
 ```
 
 ### <a name="get-user-information-from-the-token"></a>Felhasználói adatok beolvasása a jogkivonatból
+
 A `TasksController` egy olyan adatbázisban tárolja a feladatokat, ahol minden feladathoz hozzá van rendelve egy felhasználó, aki a feladat „tulajdonosa”. A tulajdonos azonosítása a felhasználói **objektumazonosítóval** történik. (Ezért kellett az alkalmazás jogcímeként objektumazonosítót hozzáadnia minden házirendben.)
 
-```C#
+```CSharp
 // Controllers\TasksController.cs
 
 public IEnumerable<Models.Task> Get()
@@ -197,26 +187,29 @@ public IEnumerable<Models.Task> Get()
 }
 ```
 
+### <a name="validate-the-permissions-in-the-token"></a>A jogkivonat engedélyeinek érvényesítése
+
+Általános követelmény a webes API-khoz a jogkivonatban jelen lévő „hatókörök” érvényesítése. Ez biztosítja, hogy a felhasználó hozzájárult a feladatlista szolgáltatáshoz való hozzáféréshez szükséges engedélyekhez.
+
+```CSharp
+public IEnumerable<Models.Task> Get()
+{
+    if (ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/scope").Value != "read")
+    {
+        throw new HttpResponseException(new HttpResponseMessage {
+            StatusCode = HttpStatusCode.Unauthorized,
+            ReasonPhrase = "The Scope claim does not contain 'read' or scope claim not found"
+        });
+    }
+    ...
+}
+```
+
 ## <a name="run-the-sample-app"></a>Mintaalkalmazás futtatása
-Végezetül készítse el és futtassa a következőket: `TaskWebApp` és `TaskService`. Regisztráljon az alkalmazásra e-mail-címmel vagy felhasználónévvel. Hozzon létre feladatokat a felhasználói feladatlistában, és figyelje meg, hogy azok megmaradnak a API-ban azután is, ha leállította, majd újraindította az adott ügyfelet.
+
+Végezetül készítse el és futtassa a következőket: `TaskWebApp` és `TaskService`. Hozzon létre feladatokat a felhasználói feladatlistában, és figyelje meg, hogy azok megmaradnak a API-ban azután is, ha leállította, majd újraindította az adott ügyfelet.
 
 ## <a name="edit-your-policies"></a>Házirendek szerkesztése
-Miután az Azure AD B2C használatával biztonságossá tett egy API-t, kísérletezhet az alkalmazás-házirendek szerkesztésével, és megtekintheti ennek az API-ra gyakorolt hatásait (vagy a hatás hiányát). Módosíthatja a házirendekben az alkalmazás jogcímét és a webes API-n hozzáférhető felhasználói adatokat. Minden hozzáadott jogcím elérhető lesz a .NET MVC webes API számára a(z) `ClaimsPrincipal` objektumban az ebben a cikkben leírtak szerint.
 
-<!--
-
-## Next steps
-
-You can now move onto more advanced B2C topics. You may try:
-
-[Call a web API from a web app]()
-
-[Customize the UX of your B2C app]()
-
--->
-
-
-
-<!--HONumber=Dec16_HO4-->
-
+Miután az Azure AD B2C használatával biztonságossá tett egy API-t, kísérletezhet a bejelentkezési/regisztrálási szabályzattal, és megtekintheti ennek az API-ra gyakorolt hatásait (vagy a hatás hiányát). Módosíthatja a házirendekben az alkalmazás jogcímét és a webes API-n hozzáférhető felhasználói adatokat. Minden hozzáadott jogcím elérhető lesz a .NET MVC webes API számára a(z) `ClaimsPrincipal` objektumban az ebben a cikkben leírtak szerint.
 

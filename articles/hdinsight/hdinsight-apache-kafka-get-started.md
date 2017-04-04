@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 
 ms.topic: hero-article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f592dc23938c436e803c7a0d8f7fd2dd5b4185c8
-ms.openlocfilehash: 3b645725b88b33e7283ce2bf89383b285d75cddc
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1c7a95354358d91859ce9d2019cef93b6662811f
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Az Apache Kafka (előzetes verzió) használatának első lépései a HDInsightban
@@ -34,11 +36,7 @@ Ennek az Apache Kafka-oktatóanyagnak a sikeres befejezéséhez az alábbiakra v
 
 * **Azure-előfizetés**. Lásd: [Ingyenes Azure-fiók létrehozása](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **SSH- és SCP-ismeretek**. Az SSH és az SCP a HDInsighttal történő használatáról további információkat az alábbi dokumentumokban talál:
-  
-   * **Linux-, Unix-, OS X- és Windows 10-ügyfelek esetén**: Lásd: [Az SSH használata a HDInsightra épülő Linux-alapú Hadooppal Linux, Unix vagy OS X rendszerben, valamint a Bash on Windows 10-ben](hdinsight-hadoop-linux-use-ssh-unix.md)
-   
-   * **Windows-ügyfelek esetén**: Lásd: [Az SSH (PuTTY) használata a HDInsightra épülő Linux-alapú Hadooppal Windows rendszerben](hdinsight-hadoop-linux-use-ssh-windows.md) című cikket.
+* **SSH- és SCP-ismeretek**. További információk: [Az SSH használata HDInsighttal](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) vagy azzal egyenértékű, például az OpenJDK.
 
@@ -107,16 +105,9 @@ Cserélje le az **SSHUSER** elemet a fürt létrehozásakor megadott SSH-felhasz
 
 Ha a rendszer kéri, írja be az SSH-fiókhoz használt jelszót.
 
-> [!NOTE]
-> Ha olyan Windows-verziót használ, amely nem tartalmazza az SSH parancsot, lásd [az SSH (PuTTY) használata a HDInsightra épülő Linux-alapú Hadooppal Windows rendszerben](hdinsight-hadoop-linux-use-ssh-windows.md) című cikket. Ez a Windows rendszerű számítógépekhez készült PuTTY SSH-ügyfél használatát ismerteti.
+További információk: [Az SSH használata HDInsighttal](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Az SSH a HDInsighttal történő használatáról további információkat az alábbi dokumentumokban talál:
-
-* [Az SSH használata a HDInsightra épülő Linux-alapú Hadooppal Linux, Unix vagy OS X rendszerben, valamint a Bash on Windows 10-ben](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Az SSH (PuTTY) használata a HDInsightra épülő Linux-alapú Hadooppal Windows rendszerben](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-##<a name="a-idgetkafkainfoaget-the-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>A Zookeeper és a közvetítő gazdagép információinak lekérése
+##<a id="getkafkainfo"></a>A Zookeeper és a közvetítő gazdagép információinak lekérése
 
 A Kafka használata során két gazdagép értékeit kell ismernie: a *Zookeeper*-gazdagépekét és a *Közvetítő* gazdagépekét. A Kafka API és a Kafkában elérhető számos segédprogram használja ezeket a gazdagépeket.
 
@@ -350,10 +341,5 @@ A jelen dokumentumban megismerkedett az Apache Kafka HDInsightban való használ
 * [A MirrorMaker használata a Kafka replikájának HDInsighton való létrehozásához](hdinsight-apache-kafka-mirroring.md)
 * [Az Apache Storm használata a HDInsighton futó Kafkával](hdinsight-apache-storm-with-kafka.md)
 * [Az Apache Spark használata a Kafkával a HDInsighton](hdinsight-apache-spark-with-kafka.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

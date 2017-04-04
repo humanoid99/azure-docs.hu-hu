@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 12/27/2016
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: fc73eedae7ec9664da714567f47a543e625cd023
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -38,17 +38,20 @@ A Service Fabric nem fut natív módon az OS X-en. A helyi Service Fabric-fürt 
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 >[!NOTE]
->  A Vagrant és a VirtualBox kölcsönösen támogatott verzióját kell használnia. A Vagrant kiszámíthatatlan módon viselkedhet egy nem támogatott VirtualBox-verzión.
+> A Vagrant és a VirtualBox kölcsönösen támogatott verzióját kell használnia. A Vagrant kiszámíthatatlan módon viselkedhet egy nem támogatott VirtualBox-verzión.
 >
 
 ## <a name="create-the-local-vm"></a>A helyi virtuális gép létrehozása
 Egy 5 csomópontos Service Fabric-fürtöt tartalmazó virtuális gép létrehozásához hajtsa végre a következő lépéseket:
 
-1. Klónozza a **Vagrantfile**-adattárat
+1. A `Vagrantfile` adattár klónozása
 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
+    Ezzel a lépéssel lekéri a virtuálisgép-konfigurációt tartalmazó `Vagrantfile` fájlt valamint azt a helyet, ahonnan a virtuális gép le lett töltve.
+
+   
 2. Navigáljon az adattár helyi klónjához
 
     ```bash
@@ -61,7 +64,7 @@ Egy 5 csomópontos Service Fabric-fürtöt tartalmazó virtuális gép létrehoz
    * 3 GB lefoglalt memória
    * A 192.168.50.50 IP-címre konfigurált privát gazdagép-hálózat, amely átengedi a Mac-gazdagépről érkező forgalmat
 
-     A Vagrantfile-lal bármelyik beállítást módosíthatja és egyéb konfigurációkat adhat a virtuális géphez. A konfigurációs beállítások teljes listájáért tekintse meg a [Vagrant dokumentációját](http://www.vagrantup.com/docs).
+     A `Vagrantfile`-lal bármelyik beállítást módosíthatja, és más konfigurációkat adhat a virtuális géphez. A konfigurációs beállítások teljes listájáért tekintse meg a [Vagrant dokumentációját](http://www.vagrantup.com/docs).
 4. Virtuális gép létrehozása
 
     ```bash
@@ -72,19 +75,24 @@ Egy 5 csomópontos Service Fabric-fürtöt tartalmazó virtuális gép létrehoz
 
     ![A fürt beállításának megkezdése a virtuális gép kiépítése után][cluster-setup-script]
 
+>[!TIP]
+> Ha a virtuális gép letöltése hosszú ideig tart, letöltheti a wget vagy a curl használatával, vagy egy böngészőből a `Vagrantfile` fájlban található **config.vm.box_url** által megadott hivatkozásra lépve. Miután letöltötte helyileg, szerkessze a `Vagrantfile`-t, hogy arra a helyi elérési útra mutasson, ahová a rendszerképet letöltötte. Ha a rendszerképet például a /home/users/test/azureservicefabric.tp8.box helyre töltötte le, állítsa a **config.vm.box_url** címet erre az elérési útra.
+>
+
 5. Keresse fel a Service Fabric Explorert a http://192.168.50.50:19080/Explorer címen (feltéve, hogy megtartotta az alapértelmezett magánhálózati IP-címet) a fürt megfelelő beállításának teszteléséhez.
 
     ![A Service Fabric Explorer a Mac gazdagépről megtekintve][sfx-mac]
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Az Eclipse Neonhoz készült Service Fabric beépülő modul telepítése
 
-A Service Fabric egy beépülő modult biztosít a **Java Eclipse Neon IDE-hez**, amely leegyszerűsítheti a Java-szolgáltatások összeállításának, létrehozásának és üzembe helyezésének folyamatát. A Service Fabric Eclipse beépülő modul telepítéséhez és frissítéséhez érdemes az ebben az általános [dokumentációban](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon) szereplő telepítési lépéseket követnie.
+A Service Fabric egy beépülő modult biztosít a **Java Eclipse Neon IDE-hez**, amely leegyszerűsítheti a Java-szolgáltatások összeállításának, létrehozásának és üzembe helyezésének folyamatát. A Service Fabric Eclipse beépülő modul telepítéséhez és frissítéséhez érdemes az ebben az általános [dokumentációban](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) szereplő telepítési lépéseket követnie.
 
 ## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>A Service Fabric Eclipse beépülő modul használata Mac gépen
 
-Győződjön meg arról, hogy elvégezte a [Service Fabric Eclipse beépülő modul dokumentációjában](service-fabric-get-started-eclipse.md) szereplő lépéseket. A Service Fabric Java-alkalmazás Mac-gazdagépen vagrant-guest tároló használatával történő összeállításának, létrehozásának és üzembe helyezésének lépései nagyrészt megegyeznek az általános dokumentációban szereplőkkel. Egyes pontokban azonban eltérnek attól, és ezekre az alábbiakban külön felhívjuk a figyelmét.
-* Mivel a Service Fabric Java-alkalmazás összeépítéshez szüksége lesz a Service Fabric-kódtárakra, az Eclipse-projektet egy megosztott elérési úton kell létrehozni. Alapméretezés szerint a ``Vagrantfile``-t tartalmazó gazdagép elérési útján található tartalmak a ``/vagrant`` elérési úton vannak megosztva a vendéggépen.
-* Éppen ezért, ha a ``Vagrantfile`` a ``~/home/john/allprojects/`` elérési úton található, akkor a ``MyActor`` Service Fabric-projektet a ``~/home/john/allprojects/MyActor`` helyen kell létrehoznia, és az Eclipse-munkaterületének elérési útja a ``~/home/john/allprojects`` lesz.
+Győződjön meg arról, hogy elvégezte a [Service Fabric Eclipse beépülő modul dokumentációjában](service-fabric-get-started-eclipse.md) szereplő lépéseket. Service Fabric Java-alkalmazások Mac-gazdagépen vagrant-vendégtároló használatával történő összeállításának, létrehozásának és üzembe helyezésének lépései nagyrészt megegyeznek az általános dokumentációban szereplőkkel, a következők kivételével:
+
+* Mivel a Service Fabric Java-alkalmazáshoz szükségesek a Service Fabric-könyvtárak, az Eclipse-projektet megosztott elérési úton kell létrehozni. Alapméretezés szerint a ``Vagrantfile``-t tartalmazó gazdagép elérési útján található tartalmak a ``/vagrant`` elérési úton vannak megosztva a vendéggépen.
+* Ha a ``Vagrantfile`` például a ``~/home/john/allprojects/`` elérési úton található, akkor a ``MyActor`` Service Fabric-projektet a ``~/home/john/allprojects/MyActor`` helyen kell létrehoznia, és az Eclipse-munkaterületének elérési útja a ``~/home/john/allprojects`` lesz.
 
 ## <a name="next-steps"></a>Következő lépések
 <!-- Links -->

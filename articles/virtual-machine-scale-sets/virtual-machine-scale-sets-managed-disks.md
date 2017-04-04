@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: db84d2b03ad1542a898c2c452e62a3f7ef7e6af8
-ms.openlocfilehash: 4824a8a24a7e43bc8e8112303f20d916e67b6aff
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -56,10 +57,5 @@ A felügyelt adatlemezek méretezési csoportokkal való használatáról [ebben
 
 A nagyméretű méretezési csoportok használatának elkezdéséről [ebben a cikkben](./virtual-machine-scale-sets-placement-groups.md) olvashat.
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

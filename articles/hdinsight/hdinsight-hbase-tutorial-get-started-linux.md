@@ -9,16 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: bdc00541e55ea68f0b18456f8fa1a1ac51116d69
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -64,7 +65,7 @@ Az alábbi eljárás egy Azure Resource Manager-sablont használ egy 3.4 verzió
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Táblák létrehozása és adatok beszúrása
-Az SSH-val HBase-fürtökhöz csatlakozhat, majd a HBase-rendszerhéjjal Hbase-táblákat hozhat létre, adatokat szúrhat be, és adatokat kérdezhet le. Az SSH használatával kapcsolatos információkért lásd: [Az SSH használata a HDInsight-ra épülő Linux-alapú Hadooppal Linux, Unix vagy OS X rendszeren](hdinsight-hadoop-linux-use-ssh-unix.md) és [Az SSH használata a HDInsightra épülő Linux-alapú Hadooppal Windows rendszeren](hdinsight-hadoop-linux-use-ssh-windows.md).
+Az SSH-val HBase-fürtökhöz csatlakozhat, majd a HBase-rendszerhéjjal Hbase-táblákat hozhat létre, adatokat szúrhat be, és adatokat kérdezhet le. További információ: [Az SSH használata HDInsighttal](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 A legtöbbek számára az adatok táblázatos formátumban jelennek meg:
 
@@ -223,6 +224,11 @@ A HBase táblákban lévő adatokat a Hive eszközzel kérdezheti le. Ez a szaka
         -v
 
 További információ a HBase REST-ről: [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest) (Apache HBase referencia-útmutató).
+
+>
+> [!NOTE]
+> A HBase nem támogatja a Thriftet a HDInsightban.
+>
 
 ## <a name="check-cluster-status"></a>A fürt állapotának ellenőrzése
 A HBase a HDInsightban a fürtök megfigyelésére szolgáló webes felhasználói felülettel kapható. A webes felhasználói felülettel a régiók statisztikáit vagy információit kérheti le.

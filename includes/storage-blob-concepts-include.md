@@ -14,7 +14,7 @@ A Blob szolgáltatás az alábbi összetevőkből áll:
 
 ![Blob-architektúra](./media/storage-blob-concepts-include/blob1.png)
 
-* **Tárfiók:** Minden Azure Storage-hozzáférés tárfiókon keresztül valósítható meg. Ez a tárfiók lehet **általános célú tárfiók** vagy **Blob Storage-fiók**, amely kifejezetten objektumok/blobok tárolására szolgál. További információ a tárolási fiókokról: [Azure Storage-fiók](../articles/storage/storage-create-storage-account.md).
+* **Tárfiók:** Minden Azure Storage-hozzáférés tárfiókon keresztül valósítható meg. Ez a tárfiók lehet **általános célú tárfiók** vagy **Blob Storage-fiók**, amely kifejezetten objektumok/blobok tárolására szolgál. További információk: [Tudnivalók az Azure Storage-fiókokról](../articles/storage/storage-create-storage-account.md).
 * **Tároló:** A tárolók blobkészletek csoportosítását biztosítják. Az összes blobnak tárolóban kell lennie. Egy fiók korlátlan számú tárolót tartalmazhat. Egy tároló korlátlan számú blob tárolására használható. Vegye figyelembe, hogy a tároló neve csak kisbetűket tartalmazhat.
 * **Blob:** Bármilyen típusú és bármekkora méretű fájl. Az Azure Storage háromféle blobot biztosít: blokkblobokat, lapblobokat és hozzáfűző blobokat.
   
@@ -22,10 +22,5 @@ A Blob szolgáltatás az alábbi összetevőkből áll:
   
     A *lapblobok* akár 1 TB méretűek is lehetnek, és hatékonyabbak a gyakori írási/olvasási műveletek esetén. Az Azure virtuális gépek lapblobokat használnak operációs rendszerként és adatlemezként.
   
-    A tárolók és blobok elnevezésével kapcsolatos részletekért lásd: [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx) (Tárolók, blobok és metaadatok elnevezése és hivatkozása).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+    A tárolók és blobok elnevezésével kapcsolatos részletekért lásd: [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) (Tárolók, blobok és metaadatok elnevezése és hivatkozása).
 
