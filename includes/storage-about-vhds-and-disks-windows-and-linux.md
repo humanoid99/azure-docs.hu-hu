@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Lemezek adatmegőrzési állapota 
-
-Az alábbi táblázat az Azure virtuális gépeken található különböző lemezek különböző állapotait mutatja be, valamint azt, hogy az egyes állapotokban megőrzi-e a rendszer az adatokat.
-
-| Lemez | Indítás | Leállítás/<br>Felszabadítás | Szünet | Újra-<br>indítás | Le-<br>állítás | Törlés | Hiba | Átméretezés | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| Operációsrendszer-lemez | Igen | Igen  | Igen | Igen | Igen  | Nem | Nem  | Igen | 
-| RAM  | Igen | Igen | Igen | Igen | Nem   | Nem | Nem | Nem | 
-| Helyi ideiglenes lemez | Igen | Nem | Igen | Nem | Nem  | Nem | Nem | Nem | 
-| Csatlakoztatott adatlemez | Igen | Igen | Igen | Igen | Igen  | Igen | Igen | Igen | 
 
 ## <a name="about-vhds"></a>Tudnivalók a VHD-kről
 
@@ -41,7 +31,7 @@ Az SSD-kre épülő Premium Storage nagy teljesítményű, kis késleltetésű l
 
 ### <a name="unmanaged-disks"></a>Nem felügyelt lemezek
 
-A nem felügyelt lemez a virtuális gépek által használt hagyományos lemeztípus. Az ilyen lemezekkel létrehozhatja a saját tárfiókját, és a lemez létrehozásakor azt a tárfiókot adhatja meg. Ügyeljen arra, hogy ne helyezzen túl sok lemezt ugyanabba a tárfiókba, mert azzal túllépheti a tárfiók [skálázási célértékeit](../articles/storage/storage-scalability-targets.md) (pl.&20;&000; IOPS), amivel korlátozhatja a virtuális gépeket. Nem felügyelt lemezek esetén Önnek kell felmérnie, hogyan maximalizálhatja egy vagy több tárfiók kihasználtságát, hogy a virtuális gépeiből a lehető legjobb teljesítményt hozza ki.
+A nem felügyelt lemez a virtuális gépek által használt hagyományos lemeztípus. Az ilyen lemezekkel létrehozhatja a saját tárfiókját, és a lemez létrehozásakor azt a tárfiókot adhatja meg. Ügyeljen arra, hogy ne helyezzen túl sok lemezt ugyanabba a tárfiókba, mert azzal túllépheti a tárfiók [skálázási célértékeit](../articles/storage/storage-scalability-targets.md) (pl. 20 000 IOPS), amivel korlátozhatja a virtuális gépeket. Nem felügyelt lemezek esetén Önnek kell felmérnie, hogyan maximalizálhatja egy vagy több tárfiók kihasználtságát, hogy a virtuális gépeiből a lehető legjobb teljesítményt hozza ki.
 
 ### <a name="managed-disks"></a>Felügyelt lemezek 
 
@@ -63,7 +53,3 @@ A következő tábla összehasonlítja a Prémium és a Standard szintet a nem f
 | Lemezméret | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Nem felügyelt lemezek: 1 GB – 1 TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Lemezenkénti maximális átviteli sebesség | 200 MB/s | 60 MB/s |
 | Lemezenkénti maximális IOPS-érték | 5000 IOPS | 500 IOPS |
-
-<!--HONumber=Feb17_HO3-->
-
-

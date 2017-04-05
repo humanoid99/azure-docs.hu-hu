@@ -128,7 +128,6 @@
 
 ## Eszközök kezelése
 ### [Eszközök regisztrálása](active-directory-device-registration-overview.md)
-#### [Automatikus regisztráció kezelése](active-directory-device-registration.md)
 #### [Telepítés](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Helyszíni üzembe helyezés](active-directory-device-registration-on-premises-setup.md)
 #### [Gyakori kérdések](active-directory-device-registration-faq.md)
@@ -161,7 +160,6 @@
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Klasszikus portál](active-directory-application-proxy-publish.md)
 
-#### [PingAccess Azure AD-hez](application-proxy-ping-access.md)
 #### [Biztonság](application-proxy-security-considerations.md)
 #### [Hálózatok](application-proxy-network-topology-considerations.md)
 #### [Távoli asztal](application-proxy-publish-remote-desktop.md)
@@ -174,7 +172,8 @@
 #### [Egyéni tartományok](active-directory-application-proxy-custom-domains.md)
 #### [Hozzáférés az alkalmazásokhoz](active-directory-appssoaccess-whatis.md)
 ##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Egyszeri bejelentkezés](active-directory-application-proxy-sso-using-kcd.md)
+#### [Egyszeri bejelentkezés KCD-vel](active-directory-application-proxy-sso-using-kcd.md)
+#### [Egyszeri bejelentkezés fejlécekkel](application-proxy-ping-access.md)
 #### [Jogcímbarát alkalmazások](active-directory-application-proxy-claims-aware-apps.md)
 #### [Natív ügyfélalkalmazások](active-directory-application-proxy-native-client.md)
 #### [Egyéni kezdőlap](application-proxy-office365-app-launcher.md)

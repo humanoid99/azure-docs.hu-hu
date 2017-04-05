@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 463e2a8af1fd319b396c6a769896344cac5f9f32
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -213,7 +213,7 @@ Az Azure Backup a következő operációs rendszerek biztonsági mentését tám
 
 **Azure VM Backup esetében:**
 
-* **Linux**: Az Azure Backup az [Azure által támogatott disztribúciókat](../virtual-machines/virtual-machines-linux-endorsed-distros.md) támogatja, a Core OS Linux kivételével.  Egyéb saját Linux-disztribúciók is működtethetők, ha a virtuális gép ügynöke elérhető a virtuális gépen, és a rendszer támogatja a Pythont.
+* **Linux**: Az Azure Backup az [Azure által támogatott disztribúciókat](../virtual-machines/linux/endorsed-distros.md) támogatja, a Core OS Linux kivételével.  Egyéb saját Linux-disztribúciók is működtethetők, ha a virtuális gép ügynöke elérhető a virtuális gépen, és a rendszer támogatja a Pythont.
 * **Windows Server**: A Windows Server 2008 R2-nél régebbi verziók nem támogatottak.
 
 

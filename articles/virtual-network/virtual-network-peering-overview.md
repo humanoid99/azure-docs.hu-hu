@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ A virtuális hálózatok közötti társviszony-létesítés követelményei és
 * A virtuális hálózati társviszony két virtuális hálózat között jön létre, de nem származik belőle tranzitív kapcsolat a tárviszonyok között. Ha például az A virtuális hálózat társviszonyban áll a B virtuális hálózattal, és a B hálózat társviszonyban áll a C virtuális hálózattal, az *nem* jelenti azt, hogy társviszony van az A virtuális hálózat és a C virtuális hálózat között.
 * Társviszonyt létesíthet két különböző előfizetésben található virtuális hálózat között, ha a társviszony-létesítést mindkét előfizetés esetében engedélyezi egy rendszergazdai engedéllyel rendelkező felhasználó, és az előfizetések ugyanahhoz az Active Directory-bérlőhöz vannak társítva.
 * Virtuális hálózatok társviszonyba állíthatók, ha mindkettő a Resource Manager-alapú üzemi modellel lett létrehozva, vagy ha az egyik a Resource Manager-alapú üzemi modellel, a másik pedig a klasszikus üzemi modellel lett létrehozva. Két, a klasszikus üzembehelyezési modellel létrehozott virtuális hálózat azonban nem hozható egymással társviszonyba. Ha különböző üzembehelyezési modellekkel létrehozott virtuális hálózatok között szeretne társviszonyt létesíteni, akkor a virtuális hálózatoknak *ugyanabban* az előfizetésben kell lenniük. A *különböző* előfizetésekhez tartozó, különböző üzembehelyezési modellel létrehozott virtuális hálózatok társviszonyba állítása **előzetes** verzióban érhető el. További részleteket a [Társviszony-létesítés virtuális hálózatok között a Powershell használatával](virtual-networks-create-vnetpeering-arm-ps.md) című részben talál.
-* Bár a virtuális társhálózatokba tartozó virtuális gépek kommunikációjára nem vonatkoznak külön sávszélesség-korlátozások, a virtuális gépekre méretalapú sávszélességkorlát érvényes. Ha többet szeretne megtudni a különböző méretű virtuális gépek maximális hálózati sávszélességével kapcsolatban, olvassa el a [windowsos](../virtual-machines/virtual-machines-windows-sizes.md) vagy a [linuxos](../virtual-machines/virtual-machines-linux-sizes.md) virtuális gépek méretéről szóló cikkeket.
+* Bár a virtuális társhálózatokba tartozó virtuális gépek kommunikációjára nem vonatkoznak külön sávszélesség-korlátozások, a virtuális gépekre méretalapú sávszélességkorlát érvényes. Ha többet szeretne megtudni a különböző méretű virtuális gépek maximális hálózati sávszélességével kapcsolatban, olvassa el a [windowsos](../virtual-machines/windows/sizes.md) vagy a [linuxos](../virtual-machines/linux/sizes.md) virtuális gépek méretéről szóló cikkeket.
 
 ![Alapszintű virtuális társhálózati viszony](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Az egy virtuális hálózat esetében létesíthető társviszonyok mennyiségé
 ## <a name="pricing"></a>Díjszabás
 Egy névleges díj vonatkozik a társhálózati viszonyt használó bejövő és kimenő forgalomra. További tájékoztatás a [díjszabási lapon](https://azure.microsoft.com/pricing/details/virtual-network) olvasható.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>Következő lépések
 További információ az alábbiakkal történő virtuális társhálózati viszony létrehozásáról:
 
 * [Azure Portal](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Azure Resource Manager-sablon](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e4f47341554e2de514c8be2f5c85983d09bbb760
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -34,7 +34,7 @@ A következő kép egy tárolószolgáltatási fürt architektúráját mutatja 
 ![Egy Azure-beli Kubernetes-fürt képe](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## <a name="prerequisites"></a>Előfeltételek
-Az útmutatás feltételezi, hogy telepítette és beállította a következőt: [Azure CLI 2.0](/cli/azure/install-az-cli2). SSH RSA nyilvános kulccsal is rendelkeznie kell a következő helyen: `~/.ssh/id_rsa.pub`. Ha nincs ilyen kulcsa, tekintse meg az [OS X és Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) vagy a [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) rendszerhez készült útmutató lépéseit.
+Az útmutatás feltételezi, hogy telepítette és beállította a következőt: [Azure CLI 2.0](/cli/azure/install-az-cli2). SSH RSA nyilvános kulccsal is rendelkeznie kell a következő helyen: `~/.ssh/id_rsa.pub`. Ha nincs ilyen kulcsa, tekintse meg az [OS X és Linux](../virtual-machines/linux/mac-create-ssh-keys.md) vagy a [Windows](../virtual-machines/linux/ssh-from-windows.md) rendszerhez készült útmutató lépéseit.
 
 
 

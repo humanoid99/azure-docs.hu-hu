@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ Adatlemez az Azure parancssori felület _az vmss disk attach_ parancsával adhat
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> A különböző méretű virtuális gépek eltérő korlátokkal rendelkeznek a csatlakoztatott meghajtók támogatott számát illetően. Új lemez hozzáadása előtt ellenőrizze a [virtuális gép méretjellemzőit](../virtual-machines/virtual-machines-windows-sizes.md).
+> A különböző méretű virtuális gépek eltérő korlátokkal rendelkeznek a csatlakoztatott meghajtók támogatott számát illetően. Új lemez hozzáadása előtt ellenőrizze a [virtuális gép méretjellemzőit](../virtual-machines/windows/sizes.md).
 
 Úgy is hozzáadhat lemezt, hogy hozzáad egy új bejegyzést a _dataDisks_ tulajdonsághoz a méretezési csoport definíciójának _storageProfile_ szakaszában, majd alkalmazza a módosítást. Ennek teszteléséhez keressen egy már létező méretezésicsoport-definíciót az [Azure Resource Explorer](https://resources.azure.com/) alatt. Válassza ki a _Szerkesztés_ elemet, és adjon hozzá egy új lemezt az adatlemezek listájához. Például a fenti példa használata esetén:
 ```json
@@ -106,10 +107,5 @@ A csatlakoztatott lemezek méretezési csoportok esetében való támogatásána
 
 Az Azure Portal kezdetben csak korlátozott támogatást biztosít a méretezési csoportok csatlakoztatott adatlemezei számára. A követelményektől függően Azure-sablonok, a parancssori felület, a PowerShell, SDK-k és a REST API használatával is kezelheti a csatlakoztatott lemezeket.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

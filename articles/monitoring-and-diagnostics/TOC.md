@@ -4,6 +4,7 @@
 ## [Riasztások](monitoring-overview-alerts.md)
 ## [Automatikus méretezés](monitoring-overview-autoscale.md)
 ## [Tevékenységnapló](monitoring-overview-activity-logs.md)
+## [Műveletcsoportok](monitoring-action-groups.md)
 ## [Diagnosztikai naplók](monitoring-overview-of-diagnostic-logs.md)
 ## [Partnerintegrációk](monitoring-partners.md)
 ## [Azure Diagnostics](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [Webhookok és e-mailes értesítések beállítása az automatikus méretezésben](insights-autoscale-to-webhook-email.md)
 ## A tevékenységnapló használata
 ### [Események megtekintése a tevékenységnaplóban](insights-debugging-with-events.md)
-### [Webhook beállítása a tevékenységnapló egy riasztásához](insights-auditlog-to-webhook-email.md)
+### [Riasztások beállítása egy tevékenységnapló eseményéhez](monitoring-activity-log-alerts.md)
 ### [Tevékenységnapló archiválása](monitoring-archive-activity-log.md)
 ### [Tevékenységnapló streamelése az Event Hubs szolgáltatásba](monitoring-stream-activity-logs-event-hubs.md)
 ### [Auditálási műveletek a Resource Managerben](../azure-resource-manager/resource-group-audit.md)
+### [Tevékenységnapló-riasztások létrehozása a Resource Managerrel](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## Szolgáltatási értesítések
+### [Szolgáltatási értesítések megtekintése](monitoring-service-notifications.md)
+### [Riasztások beállítása szolgáltatási értesítésekhez](monitoring-activity-log-alerts-on-service-notifications.md)
+## Műveletcsoportok
+### [Információ a webhook sémáról](monitoring-activity-log-alerts-webhook.md)
+### [Az SMS-riasztás viselkedése](monitoring-sms-alert-behavior.md)
+### [Riasztási arány korlátozása](monitoring-alerts-rate-limiting.md)
+### [Műveletcsoportok létrehozása a Resource Managerrel](monitoring-create-action-group-with-resource-manager-template.md)
 ## Diagnosztikai naplók kezelése
 ### [Archívum](monitoring-archive-diagnostic-logs.md)
 ### [Streamelés az Event Hubs felé](monitoring-stream-diagnostic-logs-to-event-hubs.md)

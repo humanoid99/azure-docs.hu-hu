@@ -24,7 +24,7 @@ Ismerkedjen meg a Virtual Network (VNet) használatával, amely saját hálózat
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-overview">
+        <a href="/azure/virtual-network/virtual-networks-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,7 @@ Ismerkedjen meg a Virtual Network (VNet) használatával, amely saját hálózat
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-pportal">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-pportal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -78,7 +78,7 @@ Ismerkedjen meg a Virtual Network (VNet) használatával, amely saját hálózat
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-ps">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-ps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -96,7 +96,7 @@ Ismerkedjen meg a Virtual Network (VNet) használatával, amely saját hálózat
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-cli">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

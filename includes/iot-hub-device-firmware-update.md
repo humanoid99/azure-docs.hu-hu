@@ -1,23 +1,25 @@
-## <a name="create-a-simulated-device-app"></a>Szimulált eszközalkalmazás létrehozása
-Ebben a szakaszban:
+## <a name="create-a-simulated-device-app"></a>Create a simulated device app
+In this section, you:
 
-* Egy Node.js-konzolalkalmazást hoz létre, amely a felhő által meghívott közvetlen metódusra válaszol
-* Aktivál egy szimulált belsővezérlőprogram-frissítést
-* A jelentett tulajdonságok használatával ikereszköz-lekérdezéseket engedélyez az eszközök azonosítására és utolsó belsővezérlőprogram-frissítésük időpontjának megállapítására
+* Create a Node.js console app that responds to a direct method called by the cloud
+* Trigger a simulated firmware update
+* Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
-1. Hozzon létre egy **manageddevice** nevű üres mappát.  A **manageddevice** mappában hozzon létre egy package.json fájlt úgy, hogy beírja a következő parancsot a parancssorba. Fogadja el az összes alapértelmezett beállítást:
+Step 1: Create an empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-2. Telepítse az **azure-iot-device** és az **azure-iot-device-mqtt** eszközoldali SDK-csomagokat. Ehhez futtassa a parancssorban a következő parancsot a **manageddevice** mappában:
+
+Step 2: At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Egy szövegszerkesztővel hozzon létre egy **dmpatterns_fwupdate_device.js** fájlt a **manageddevice** mappában.
 
-4. Adja hozzá a következő require utasításokat a **dmpatterns_fwupdate_device.js** fájl elejéhez:
+Step 3: Using a text editor, create a **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
+
+Step 4: Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
    
     ```
     'use strict';
@@ -25,13 +27,14 @@ Ebben a szakaszban:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Adjon hozzá egy **connectionString** változót, és ezzel hozzon létre egy **Ügyfél** példányt. Cserélje le a `{yourdeviceconnectionstring}` helyőrzőt az „Eszközidentitás létrehozása” szakaszban korábban feljegyzett kapcsolati sztringre:
+Step 5: Add a **connectionString** variable and use it to create a **Client** instance. Replace the `{yourdeviceconnectionstring}` placeholder with the connection string you previously made a note of in the "Create a device identity" section previously:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Adja hozzá a jelentett tulajdonságok frissítésére szolgáló alábbi függvényt:
+
+Step 6: Add the following function that is used to update reported properties:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -47,7 +50,8 @@ Ebben a szakaszban:
       });
     };
     ```
-7. Adja hozzá a vezérlőprogram-rendszerkép letöltését és alkalmazását szimuláló alábbi függvényeket:
+
+Step 7: Add the following functions that simulate downloading and applying the firmware image:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -69,7 +73,8 @@ Ebben a szakaszban:
       callback(error);
     }
     ```
-8. Adja hozzá a vezérlőprogram-frissítés állapotát a jelentett tulajdonságok alapján **waiting** értékre állító alábbi függvényt. Az eszközök általában értesülnek ez elérhető frissítésekről, és egy rendszergazdai házirendnek megfelelően elkezdik letölteni és alkalmazni a frissítést. Ebben a függvényben kell futnia a házirendet engedélyező logikának. Az egyszerűség kedvéért a minta négy másodpercig települ, mielőtt továbblépne a belső vezérlőprogram rendszerképének letöltésére:
+
+Step 8: Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample waits for four seconds before proceeding to download the firmware image:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -84,7 +89,8 @@ Ebben a szakaszban:
       setTimeout(callback, 4000);
     };
     ```
-9. Adja hozzá a belsővezérlőprogram-frissítés állapotát a jelentett tulajdonságok alapján **downloading** értékre állító alábbi függvényt. A függvény ezután szimulálja a belső vezérlőprogram letöltését, és végül frissíti a belsővezérlőprogram-frissítés állapotát **downloadFailed** vagy **downloadComplete** értékre:
+
+Step 9: Add the following function that updates the firmware update status through the reported properties to **downloading**. The function then simulates a firmware download and finally updates the firmware update status to either **downloadFailed** or **downloadComplete**:
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -121,7 +127,8 @@ Ebben a szakaszban:
       }, 4000);
     }
     ```
-10. Adja hozzá a belsővezérlőprogram-frissítés állapotát a jelentett tulajdonságok alapján **applying** értékre állító alábbi függvényt. A függvény ezután szimulálja a belső vezérlőprogram rendszerképének alkalmazását, és végül frissíti a belsővezérlőprogram-frissítés állapotát **applyFailed** vagy **applyComplete** értékre:
+
+Step 10: Add the following function that updates the firmware update status through the reported properties to **applying**. The function then simulates applying the firmware image and finally updates the firmware update status to either **applyFailed** or **applyComplete**:
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -158,7 +165,8 @@ Ebben a szakaszban:
       }, 4000);
     }
     ```
-11. Adja hozzá a **firmwareUpdate** közvetlen metódust kezelő és a többfázisú belsővezérlőprogram-frissítési folyamatot inicializáló alábbi függvényt:
+
+Step 11: Add the following function that handles the **firmwareUpdate** direct method and initiates the multi-stage firmware update process:
     
     ```
     var onFirmwareUpdate = function(request, response) {
@@ -193,7 +201,8 @@ Ebben a szakaszban:
       });
     }
     ```
-12. Végül adja hozzá az IoT Hubhoz való csatlakozásra szolgáló alábbi kódot:
+
+Step 12: Finally, add the following code that connects to your IoT hub:
     
     ```
     client.open(function(err) {
@@ -208,10 +217,6 @@ Ebben a szakaszban:
     ```
 
 > [!NOTE]
-> Az egyszerűség kedvéért ez az oktatóanyag nem valósít meg semmilyen újrapróbálkozási házirendet. Az éles kódban újrapróbálkozási házirendeket is meg kell valósítania (például egy exponenciális leállítást) az MSDN-cikkben ([Transient Fault Handling][lnk-transient-faults]) leírtak szerint.
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 > 
-
-<!--HONumber=Feb17_HO1-->
-
-

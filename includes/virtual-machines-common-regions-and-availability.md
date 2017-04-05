@@ -81,14 +81,14 @@ Az Azure-ban a virtuális gépek rendszerképből jönnek létre. A rendszerkép
 
 Az Azure Marketplace rendszerképeivel létrehozott virtuális gép tulajdonképpen sablonokkal készül. Az Azure Resource Manager-sablonok deklaratív JavaScript Object Notation- (JSON-) fájlok, amelyek felhasználásával összetett alkalmazáskörnyezeteket lehet létrehozni virtuális gépek, tárterületek, virtuális hálózatok stb. bevonásával. Tudjon meg többet az [Azure Resource Manager-sablonok használatáról](../articles/azure-resource-manager/resource-group-overview.md), illetve ismerje meg, [hogyan hozhat létre saját sablont](../articles/resource-group-authoring-templates.md).
 
-Az [Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) és az [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) használatával saját, egyéni rendszerképeket is létrehozhat, illetve feltölthet, így gyorsan és egyszerűen hozhat létre az igényeinek megfelelő, egyedi virtuális gépeket.
+Az [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) és az [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) használatával saját, egyéni rendszerképeket is létrehozhat, illetve feltölthet, így gyorsan és egyszerűen hozhat létre az igényeinek megfelelő, egyedi virtuális gépeket.
 
 ## <a name="availability-sets"></a>Rendelkezésre állási csoportok
 A rendelkezésre állási csoport a virtuális gépek logikus csoportosítását jelenti, ami lehetővé teszi az Azure számára az alkalmazás felépítésének megértését a redundancia és a rendelkezésre állás biztosításához. Két vagy annál több virtuális gépet már ajánlott egy rendelkezésre állási csoporton belül létrehozni, hogy az alkalmazás rendelkezésre állása a lehető legjobb legyen, és a [99,95%-os Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) teljesüljön. Ha az önálló virtuális gép [Azure Premium Storage](../articles/storage/storage-premium-storage.md) csomagot használ, az Azure SLA a nem tervezett karbantartási események során is érvényben van. A rendelkezésre állási csoport két további csoportosítást is tartalmaz, amelyek védelmet nyújtanak az esetleges hardverhibák ellen, illetve lehetővé teszik a frissítések biztonságos alkalmazását. Ez a tartalék tartományok, illetve a frissítési tartományok csoportja.
 
 ![A frissítési és tartalék tartományokat tartalmazó konfiguráció elméleti rajza](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Tudjon meg többet a [Linux-alapú virtuális gépek](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), illetve a [Windows-alapú virtuális gépek](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) rendelkezésre állásának kezeléséről.
+Tudjon meg többet a [Linux-alapú virtuális gépek](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), illetve a [Windows-alapú virtuális gépek](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) rendelkezésre állásának kezeléséről.
 
 ### <a name="fault-domains"></a>Tartalék tartományok
 A tartalék tartomány a mögöttes hardverelemek logikus csoportja, ahol az áramforrás és a hálózati kapcsoló közös, a helyszíni adatközpontok állványaihoz hasonlóan. Amikor rendelkezésre állási csoporton belül hoz létre virtuális gépeket, az Azure platform automatikusan elosztja ezeket a tartalék tartományok között. Ez a módszer korlátozza a potenciális hardvermeghibásodások, hálózatkimaradások vagy a tápellátás megszakadásának hatását.
@@ -101,9 +101,4 @@ A frissítési tartomány a mögöttes hardverelemek logikus csoportja, amelyen 
 
 ## <a name="next-steps"></a>Következő lépések
 Mostantól a saját Azure-környezetében is használhatja ezeket a rendelkezésre állási és redundanciával kapcsolatos szolgáltatásokat. Javasoljuk, hogy tájékozódjon [az Azure rendelkezésre állásával kapcsolatos ajánlott eljárásokról](../articles/best-practices-availability-checklist.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

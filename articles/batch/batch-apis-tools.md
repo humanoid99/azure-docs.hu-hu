@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b886bab44f11354ba60ae06c6d1d671e01316d48
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 405cb202e2b6da0dd24e6f7b8ed55ce8c56e0fe1
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/21/2017
 
 A párhuzamos számítási feladatok Azure Batch használatával végzett feldolgozása általában programozott módon történik az egyik [Batch API-val](#batch-development-apis). Az Ön által készített ügyfélalkalmazások vagy szolgáltatások a Batch API-k használatával kommunikálhatnak a Batch szolgáltatással. A Batch API-kkal számítási csomópontok készletét, virtuális gépeket vagy felhőszolgáltatásokat hozhat létre és felügyelhet. Ezt követően pedig a feladatok és tevékenységek ütemezésével futtathatja őket ezeken a csomópontokon. 
 
-Hatékonyan dolgozhat fel nagyméretű számítási feladatokat a szervezet számára, vagy szolgáltatási előtérrendszert nyújthat az ügyfeleknek, hogy feladatokat és tevékenységeket futtathassanak – igény szerint vagy ütemterv alapján – egyetlen, több száz vagy akár több ezer csomóponton. Az Azure Batch szolgáltatást a nagyobb munkafolyamatok részeként is felügyelheti olyan eszközökkel, mint például az [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
+Hatékonyan dolgozhat fel nagyméretű számítási feladatokat a szervezet számára, vagy szolgáltatási előtérrendszert nyújthat az ügyfeleknek, hogy feladatokat és tevékenységeket futtathassanak – igény szerint vagy ütemterv alapján – egyetlen, több száz vagy akár több ezer csomóponton. Az Azure Batch szolgáltatást a nagyobb munkafolyamatok részeként is felügyelheti olyan eszközökkel, mint például az [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
 > Amikor készen áll a Batch API megismerésére, az általa nyújtott szolgáltatások alaposabb elsajátítása érdekében tekintse meg [Az Azure Batch funkcióinak áttekintése](batch-api-basics.md) című témakört.
@@ -56,7 +56,7 @@ Az alkalmazások és szolgáltatások közvetlen REST API-hívásokat hajthatnak
 A fejlesztői API-k által biztosított funkciók szintén elérhetők a parancssori eszközök használatával: 
 
 * [Batch PowerShell-parancsmagok][batch_ps]: Az [Azure PowerShell](/powershell/azureps-cmdlets-docs) modulban található Azure Batch-parancsmagokkal felügyelheti a Batch-erőforrásokat a PowerShell használatával.
-* [Azure CLI](../cli-install-nodejs.md): Az Azure parancssori felület (Azure CLI) egy többplatformos eszközkészlet, amely rendszerhéjparancsokat biztosít sok Azure-szolgáltatással, például a Batch szolgáltatással való interakcióhoz.
+* [Azure CLI](/cli/azure/overview): Az Azure parancssori felület (Azure CLI) egy többplatformos eszközkészlet, amely rendszerhéjparancsokat biztosít sok Azure-szolgáltatással, például a Batch szolgáltatással való interakcióhoz.
 
 ## <a name="batch-resource-management"></a>Batch-erőforráskezelés
 
@@ -98,7 +98,7 @@ Noha nem kötelező a Batch szolgáltatással létrehozni a megoldásokat, itt m
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
-[batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
+[batch_ps]: /powershell/resourcemanager/azurerm.batch/v2.7.0/azurerm.batch
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples

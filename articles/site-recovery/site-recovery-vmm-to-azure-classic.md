@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -274,7 +274,7 @@ A kiszolgálók, felhők és hálózatok megfelelő konfigurálását követően
     ![Virtuális gépek ellenőrzése](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. A virtuális gép **Configure** (Konfiguráció) lapján a következő hálózati tulajdonságok módosíthatók.
 
-* **Hálózati adapterek száma a cél virtuális gépen** – A hálózati adapterek számát a cél virtuális gépek mérete határozza meg. A különböző méretű virtuális gépek által támogatott adapterek számát a [virtuális gépek méreteit leíró cikkből](../virtual-machines/virtual-machines-linux-sizes.md) ismerheti meg. Amikor módosítja a virtuális gép méretét, és menti a beállításokat, a **Konfiguráció** lap következő megnyitásakor látni fogja, hogy a hálózati adapterek száma megváltozott. A cél virtuális gépeken működő hálózati adapterek száma a forrás virtuális gépeken minimálisan használandó adapterszám és a kiválasztott virtuális gép mérete által támogatott maximális hálózatiadapter-szám lesz, azaz:
+* **Hálózati adapterek száma a cél virtuális gépen** – A hálózati adapterek számát a cél virtuális gépek mérete határozza meg. A különböző méretű virtuális gépek által támogatott adapterek számát a [virtuális gépek méreteit leíró cikkből](../virtual-machines/linux/sizes.md) ismerheti meg. Amikor módosítja a virtuális gép méretét, és menti a beállításokat, a **Konfiguráció** lap következő megnyitásakor látni fogja, hogy a hálózati adapterek száma megváltozott. A cél virtuális gépeken működő hálózati adapterek száma a forrás virtuális gépeken minimálisan használandó adapterszám és a kiválasztott virtuális gép mérete által támogatott maximális hálózatiadapter-szám lesz, azaz:
 
   * Ha a forrásgépen működő hálózati adapterek száma kisebb vagy egyenlő a célgép méretéhez engedélyezett adapterek számával, a célon ugyanannyi adapter fog működni, mint a forráson.
   * Ha a forrás virtuális gépek adaptereinek száma meghaladja a célmérethez engedélyezett maximumot, a rendszer a célmérethez engedélyezett maximális számot fogja használni.

@@ -14,7 +14,7 @@ Kétféle virtuálisgép-konfiguráció létezik: többpéldányos és egypéld�
 
 A többpéldányos konfiguráció redundanciát biztosít a fizikai gépek, a teljesítmény és a hálózat terén, és ez az ajánlott konfiguráció az alkalmazás rendelkezésre állásának biztosításához. A rendelkezésre állási csoportban található összes virtuális gépnek ugyanazt a célt kell szolgálnia az alkalmazásban.
 
-További információ a virtuális gépek magas rendelkezésre állásra való konfigurálásáról: [Windows rendszerű virtuális gépek rendelkezésre állásának kezelése](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vagy [Linux rendszerű virtuális gépek rendelkezésre állásának kezelése](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+További információ a virtuális gépek magas rendelkezésre állásra való konfigurálásáról: [Windows rendszerű virtuális gépek rendelkezésre állásának kezelése](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vagy [Linux rendszerű virtuális gépek rendelkezésre állásának kezelése](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Ezzel szemben az egypéldányos konfiguráció különálló, rendelkezésre állási csoportba nem tartozó virtuális gépekhez használható. Ezek a virtuális gépek nem felelnek meg a szolgáltatói szerződésnek (SLA), amely szerint legalább két virtuális gépet kell ugyanabban a rendelkezésre állási csoportban üzembe helyezni.
 
@@ -28,7 +28,7 @@ A többpéldányos konfigurációfrissítés feltételezi, hogy minden virtuáli
 A mögöttes Azure platform a rendelkezésre állási csoportban lévő mindegyik virtuális gépnek kioszt egy frissítési tartományt és egy tartalék tartományt. Minden frissítési tartomány olyan virtuális gépek csoportjából áll, amelyek ugyanabban az időtartományban indulnak újra. A tartalék tartományok azonos tápforrással és hálózati kapcsolóval rendelkező virtuális gépek csoportjai.
 
 
-További tudnivalók a frissítési tartományokról és a tartalék tartományokról: [Több virtuális gép rendelkezésre állási csoportba konfigurálása a redundancia biztosítása érdekében](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+További tudnivalók a frissítési tartományokról és a tartalék tartományokról: [Több virtuális gép rendelkezésre állási csoportba konfigurálása a redundancia biztosítása érdekében](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 A rendelkezésre állás fenntartása érdekében frissítés közben az Azure frissítési tartományonként végzi el a karbantartást, és egyszerre csak egy tartományt frissít. A karbantartás a frissítési tartományokban található összes virtuális gép leállításából, a frissítés gazdagépekre való alkalmazásából és a virtuális gépek újraindításából áll. Ha a tartományban befejeződött a karbantartás, az Azure megismétli a folyamatot a következő frissítési tartománnyal, és a folyamat addig folytatódik, amíg nem frissül minden tartomány.
 
@@ -101,4 +101,4 @@ Az aktuális régiópárokat a következő táblázatban tekintheti meg:
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

@@ -65,6 +65,7 @@
 ### [Élelmiszer-vizsgálati eredmények előrejelzése](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Webhelynaplók elemzése](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Mély tanulás a Caffe használatával](hdinsight-deep-learning-caffe-spark.md)
+### [Használat a Microsoft Cognitive Toolkittel](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Zeppelin notebookok használata](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter notebookkernelek](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Külső csomagok használata Jupyterrel, cellafunkciók használatával](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -141,9 +142,8 @@
 #### [A REST használata alkalmazások telepítéséhez](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [HDInsight-alkalmazások közzététele az Azure Marketplace-en](hdinsight-apps-publish-applications.md)
 ## Biztonságos
+### [SSH használata a HDInsighttal](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [SSH-alagútkezelés használata](hdinsight-linux-ambari-ssh-tunnel.md)
-### [SSH használata a Linux, Unix és OS X rendszerekből](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [SSH használata a Windows operációs rendszerből](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [Adatokhoz hozzáférésének korlátozása](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## Kezelés
 ### [Linux-fürtök létrehozása](hdinsight-hadoop-provision-linux-clusters.md)
@@ -171,6 +171,8 @@
 ### [Fürt- és szolgáltatásportok, valamint URI-k](hdinsight-hadoop-port-settings-for-services.md)
 ### [Áttelepítés Resource Manager fejlesztői eszközökre](hdinsight-hadoop-development-using-azure-resource-manager.md)
 ### [Rendelkezésre állás és megbízhatóság](hdinsight-high-availability-linux.md)
+### [A HDInsight-fürt frissítése újabb verzióra](hdinsight-upgrade-cluster.md)
+### [Az operációs rendszer javításai a HDInsight-fürthöz](hdinsight-os-patching.md)
 ## Hibaelhárítás
 ### [Linux-tippek](hdinsight-hadoop-linux-information.md)
 ### [Kibocsátási megjegyzések](hdinsight-release-notes.md)
@@ -195,16 +197,7 @@
 # Kapcsolódó
 ## Windows-fürtök
 ### [Windows-fürtök áttelepítése Linux-fürtökre](hdinsight-migrate-from-windows-to-linux.md)
-### [Első lépések a Hadoopban](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Első lépések a Stormban](hdinsight-apache-storm-tutorial-get-started.md)
-### [Első lépések a HBase-ben](hdinsight-hbase-tutorial-get-started.md)
 ### [Hadoop MapReduce-minták futtatása](hdinsight-run-samples.md)
-### [Hadoop-fürtök létrehozása](hdinsight-provision-clusters.md)
-#### [Az Azure Portal használata](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [A .NET SDK használata](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Az Azure parancssori felület használata](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Azure PowerShell használata](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Resource Manager-sablonok használata](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [A Solr használata fürtökön](hdinsight-hadoop-solr-install-linux.md)
 ### [A Giraph használata nagyméretű gráfok feldolgozásához](hdinsight-hadoop-giraph-install.md)
 ### [Az Oozie használata a munkafolyamatokhoz](hdinsight-use-oozie.md)
@@ -212,7 +205,6 @@
 ### [A Maven használata Java-alkalmazások létrehozásához](hdinsight-hbase-build-java-maven.md)
 ### [A Tez felhasználói felület használata a Tez-feladatok hibakereséséhez](hdinsight-debug-tez-ui.md)
 ### [Testreszabás szkriptműveletekkel](hdinsight-hadoop-customize-cluster.md)
-### [Rendelkezésre állás és megbízhatóság](hdinsight-high-availability.md)
 ### [YARN-alkalmazásnaplók elérése](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Az Apache Phoenix és az SQuirreL használata](hdinsight-hbase-phoenix-squirrel.md)
 ### [Filmajánlók létrehozása a Mahout használatával](hdinsight-mahout.md)

@@ -17,7 +17,7 @@ Az NC-példányok az NVIDIA által gyártott Tesla K80 kártyát használják. A
 
 **Támogatott operációs rendszerek**
 
-* Windows Server 2016, Windows Server 2012 R2 – lásd [az N-sorozat illesztőinek Windows esetében történő beállítását](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) ismertető cikket
+* Windows Server 2016, Windows Server 2012 R2 – lásd [az N-sorozat illesztőinek Windows esetében történő beállítását](../articles/virtual-machines/windows/n-series-driver-setup.md) ismertető cikket
 
 ## <a name="nc-instances"></a>NC-példányok
 
@@ -34,8 +34,8 @@ Az NC-példányok az NVIDIA által gyártott Tesla K80 kártyát használják. A
 
 **Támogatott operációs rendszerek**
 
-* Windows Server 2016, Windows Server 2012 R2 – lásd [az N-sorozat illesztőinek Windows esetében történő beállítását](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) ismertető cikket
-* Ubuntu 16.04 LTS – lásd [az N-sorozat illesztőinek Linux rendszer esetében történő beállítását](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md) ismertető cikket
+* Windows Server 2016, Windows Server 2012 R2 – lásd [az N-sorozat illesztőinek Windows esetében történő beállítását](../articles/virtual-machines/windows/n-series-driver-setup.md) ismertető cikket
+* Ubuntu 16.04 LTS – lásd [az N-sorozat illesztőinek Linux rendszer esetében történő beállítását](../articles/virtual-machines/linux/n-series-driver-setup.md) ismertető cikket
 
 <br>
 

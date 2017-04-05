@@ -1,13 +1,14 @@
 # Áttekintés
 ## [Mi az Application Gateway?](application-gateway-introduction.md)
 ## [Application Gateway – gyakori kérdések](application-gateway-faq.md)
-## [Web application firewall (Webalkalmazási tűzfal)](application-gateway-webapplicationfirewall-overview.md)
+## [Web application firewall (Webalkalmazási tűzfal)](application-gateway-web-application-firewall-overview.md)
+### [Alapvető szabálykészletek és szabályok](application-gateway-crs-rulegroups-rules.md)
 ## [Állapotfigyelés](application-gateway-probe-overview.md)
 ## [URL-útválasztás](application-gateway-url-route-overview.md)
 ## [Többhelyes kapcsolat](application-gateway-multi-site-overview.md)
 ## [Végpontok közötti SSL-szolgáltatások](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Szolgáltatási korlátozások](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Szolgáltatási korlátozások](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Bevezetés
 ## Application Gateway létrehozása
 ### Nyilvános
@@ -23,6 +24,8 @@
 ## Webalkalmazási tűzfal konfigurálása
 ### [Portál](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## Webalkalmazási tűzfalszabályok testreszabása
+### [Portal](application-gateway-customize-waf-rules-portal.md)
 ## Az SSL-alapú kiszervezés konfigurálása
 ### [Portál](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)

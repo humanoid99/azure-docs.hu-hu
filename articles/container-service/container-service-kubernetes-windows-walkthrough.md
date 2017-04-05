@@ -18,9 +18,9 @@ ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ Minden virtuális gép ugyanazon a privát virtuális hálózaton található, �
 ## <a name="prerequisites"></a>Előfeltételek
 
 
-* **Nyilvános SSH RSA-kulcs**: Ha a portálon vagy valamelyik Azure-beli gyorsindítási sablonnal végzi az üzembe helyezést, meg kell adnia az Azure Container Service virtuális gépeivel történő hitelesítésre szolgáló SSH RSA nyilvános kulcsot. A Secure Shell (SSH) RSA-kulcsok létrehozásával kapcsolatban lásd az [OS X és Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) vagy a [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) rendszerhez készült útmutatót. 
+* **Nyilvános SSH RSA-kulcs**: Ha a portálon vagy valamelyik Azure-beli gyorsindítási sablonnal végzi az üzembe helyezést, meg kell adnia az Azure Container Service virtuális gépeivel történő hitelesítésre szolgáló SSH RSA nyilvános kulcsot. A Secure Shell (SSH) RSA-kulcsok létrehozásával kapcsolatban lásd az [OS X és Linux](../virtual-machines/linux/mac-create-ssh-keys.md) vagy a [Windows](../virtual-machines/linux/ssh-from-windows.md) rendszerhez készült útmutatót. 
 
 * **Egyszerű szolgáltatás ügyfél-azonosítója és kulcsa**: További információ és útmutatás: [Tudnivalók a Kubernetes-fürthöz tartozó egyszerű szolgáltatásról](container-service-kubernetes-service-principal.md).
 

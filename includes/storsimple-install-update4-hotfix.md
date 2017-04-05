@@ -1,50 +1,50 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-#### <a name="to-download-hotfixes"></a>Gyorsjavítások letöltése
+#### <a name="to-download-hotfixes"></a>To download hotfixes
 
-Hajtsa végre a következő lépéseket a szoftverfrissítés a Microsoft Update katalógusból történő letöltéséhez.
+Perform the following steps to download the software update from the Microsoft Update Catalog.
 
-1. Indítsa el az Internet Explorert, és keresse fel a [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com) címet.
-2. Ha most használja először a Microsoft Update katalógust ezen a számítógépen, kattintson a **Telepítés** gombra, amikor a rendszer a Microsoft Update katalógus beépülő moduljának telepítésére kéri.
+1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
 
-    ![Katalógus telepítése](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+    ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. A Microsoft Update katalógus keresőmezőjében adja meg a letölteni kívánt gyorsjavítás tudásbázis- (KB-) számát (például: **4011839**), majd kattintson a **Keresés** gombra.
+3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **4011839**, and then click **Search**.
    
-    Megjelenik a tételszerű gyorsjavítás, például. **A StorSimple 8000 sorozat összegző szoftvercsomag-frissítésének 4.0-s verziója**.
+    The hotfix listing appears, for example, **Cumulative Software Bundle Update 4.0 for StorSimple 8000 Series**.
    
-    ![Keresés a katalógusban](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. Kattintson az **Add** (Hozzáadás) parancsra. Ezzel a frissítést hozzáadja a kosárhoz.
-5. Keressen a fenti táblázatban felsorolt további gyorsjavításokra (**4011841**), és adja mindegyiket a kosárhoz.
-6. Kattintson a **Kosár megtekintése** gombra.
-7. Kattintson a **Letöltés** gombra. Adja meg vagy **tallózással** válassza ki a helyet, ahová a fájlokat le szeretné tölteni. A frissítések a megadott helyre lesznek letöltve, azon belül az egyes frissítések nevével egyező nevű almappákba. A mappa átmásolható egy, az eszközről elérhető hálózati megosztásra is.
+    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
+4. Click **Add**. The update is added to the basket.
+5. Search for any additional hotfixes listed in the table above (**4011841**), and add each to the basket.
+6. Click **View Basket**.
+7. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
 > [!NOTE]
-> A gyorsjavításoknak mindkét vezérlőről elérhetőknek kell lenniük a potenciális hibaüzenetek a társ > vezérlő irányú észleléséhez.
+> The hotfixes must be accessible from both controllers to detect any potential error messages from the peer > controller.
 >
-> A gyorsjavításokat 3 különböző mappába kell másolni. Az eszközszoftver frissítését a _FirstOrderUpdate_ mappába, az összes többi, zavart nem okozó frissítést a _SecondOrderUpdate_ mappába, a karbantartási módú frissítéseket pedig a _ThirdOrderUpdate_ mappába kell másolni.
+> The hotfixes must be copied in 3 separate folders. For example, the device software update can be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates could be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates copied in _ThirdOrderUpdate_ folder.
 
-#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Normál módú gyorsjavítások telepítése és ellenőrzése
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>To install and verify regular mode hotfixes
 
-A normál módú gyorsjavítások telepítéséhez és ellenőrzéséhez hajtsa végre az alábbi lépéseket. Ha már telepítette ezeket a klasszikus Azure portál segítségével, folytassa a [karbantartási módú gyorsjavítások telepítésének és ellenőrzésének](#to-install-and-verify-maintenance-mode-hotfixes) lépésével.
+Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure classic portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. A gyorsjavítások telepítéséhez nyissa meg a Windows PowerShell felületét a StorSimple-eszköz soros konzoljában. Kövesse [a PuTTY a soros konzolhoz való csatlakozáshoz történő használatát](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console) ismertető részletes útmutatásokat. A parancssorban nyomja le az **Enter** billentyűt.
-2. Válassza az **1. lehetőséget** a teljes körű hozzáféréssel való bejelentkezéshez az eszközbe. Javasoljuk, hogy előbb a passzív vezérlőre telepítse a gyorsjavítást.
-3. A gyorsjavítás telepítéséhez írja be a következőt a parancssorba:
+1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
+2. Select **Option 1** to log on to the device with full access. We recommend that you install the hotfix on the passive controller first.
+3. To install the hotfix, at the command prompt, type:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    A fenti parancsban a megosztás elérési útjában DNS-cím helyett inkább IP-címet adjon meg. A hitelesítési paramétert csak akkor kell használni, ha egy hitelesített megosztáshoz kíván hozzáférni.
+    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share.
    
-    Javasoljuk, hogy a megosztások elérése során használja a hitelesítési paramétert. Még a „mindenki” számára elérhető megosztások sem elérhetőek a nem hitelesített felhasználók számára.
+    We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
    
-    Amikor a rendszer kéri, adja meg a jelszót.
+    Supply the password when prompted.
    
-    Alább látható egy példa az elsőrendű frissítések telepítésének kimenetére.
+    A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \FirstOrderUpdate\ -Credential contoso\John
+        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
         Confirm
    
@@ -54,10 +54,10 @@ A normál módú gyorsjavítások telepítéséhez és ellenőrzéséhez hajtsa 
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
         ````
-4. Írja be az **Y** karaktert, amikor a rendszer kéri, hogy erősítse meg a gyorsjavítás telepítését.
-5. A frissítést a `Get-HcsUpdateStatus` parancsmag használatával figyelheti. A frissítés előbb a passzív vezérlőn lesz végrehajtva. Miután a passzív vezérlő frissítve lett, az azt követő feladatátvétel során a frissítés a másik vezérlőre is alkalmazva lesz. A frissítés akkor fejeződött be, ha mindkét vezérlő frissítve lett.
+4. Type **Y** when prompted to confirm the hotfix installation.
+5. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
    
-    Az alábbi kimeneti példa azt mutatja, hogy a frissítés még folyamatban van. A `RunInprogress` értéke `True`, ha a frissítés folyamatban van.
+    The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
 
     ```
     Controller0>Get-HcsUpdateStatus
@@ -68,7 +68,7 @@ A normál módú gyorsjavítások telepítéséhez és ellenőrzéséhez hajtsa 
     Controller1Events   :
     ```
    
-     Az alábbi kimeneti példa azt mutatja, hogy a frissítés befejeződött. A `RunInProgress` értéke `False`, ha a frissítés befejeződött.
+     The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -80,41 +80,41 @@ A normál módú gyorsjavítások telepítéséhez és ellenőrzéséhez hajtsa 
     ```
 
     > [!NOTE] 
-    > Alkalmanként a parancsmag `False` értéket jelenít meg, amikor a frissítés még folyamatban van. A gyorsjavítás befejezéséhez várjon néhány percet, majd futtassa újra a parancsot, és ellenőrizze, hogy a `RunInProgress` értéke `False`. Ha így van, a gyorsjavítás befejeződött.
+    > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
 
-1. A szoftverfrissítés befejeztét követően ellenőrizze a rendszerszoftverek verzióját. Típus:
+1. After the software update is complete, verify the system software versions. Type:
    
     `Get-HcsSystem`
    
-    A következő verziónak kell megjelennie:
+    You should see the following versions:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
    *  `HcsSoftwareVersion: 6.3.9600.17820`
    
-    Ha a verziószám nem változik a frissítés telepítését követően, ez azt jelzi, hogy a gyorsjavítás nem lett telepítve. Ha ezt látja, további segítségért forduljon a [Microsoft támogatási szolgálatához](../articles/storsimple/storsimple-contact-microsoft-support.md).
+    If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
      
     > [!IMPORTANT]
-    > A további frissítések végrehajtása előtt újra kell indítania az aktív vezérlőt a `Restart-HcsController` parancsmaggal.
+    > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates.
      
-7. A másodrendű frissítések telepítéséhez hajtsa ismét végre a 3–5. lépést. Több frissítés végrehajtásához egyszerűen futtassa a `Start-HcsHotfix cmdlet` parancsmagot, és jelölje ki a mappát, ahol a másodrendű frissítések találhatók. A parancsmag végrehajtja a mappában található összes frissítést. Ha valamely frissítés már telepítve lett, a frissítési logika észleli ezt, és nem alkalmazza újra az adott frissítést. Miután az összes gyorsjavítás telepítve lett, használja a `Get-HcsSystem` parancsmagot. A verziónak a következőknek kell lennie:
+7. Repeat steps 3-5 to install the second order updates. **For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder.** If an update is already installed, the update logic will detect that and not apply that update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
    * `Lsisas2Version: 2.0.78.00`
 
 
-#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Karbantartási módú gyorsjavítások telepítése és ellenőrzése
-A lemezfirmware-frissítések telepítéséhez használja a KB4011837 jelű csomagot. Ezek működési zavart okozó frissítések, amelyeknek a végrehajtása körülbelül 30 percet vesz igénybe. Ha úgy dönt, ezeket egy karbantartási időszakban is telepítheti, ha csatlakozik az eszköz soros konzoljához.
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>To install and verify maintenance mode hotfixes
+Use KB4011837 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
 
-Vegye figyelembe, hogy amennyiben a lemezfirmware már naprakész, nem szükséges telepítenie ezeket a frissítéseket. Futtassa a `Get-HcsUpdateAvailability` parancsmagot az eszköz soros konzoljáról, és ellenőrizze, hogy vannak-e elérhető frissítések, és azok zavart okozó (karbantartási módú) vagy zavart nem okozó (normál módú) frissítések-e.
+Note that if your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
 
-A lemezfirmware-frissítések telepítéséhez kövesse az alábbi utasításokat.
+To install the disk firmware updates, follow the instructions below.
 
-1. Helyezze az eszközt karbantartási módba. **Ügyeljen arra, hogy ne a Windows PowerShell távoli eljáráshívás segítségével csatlakozzon az eszközhöz a karbantartási módban. Ehelyett futtassa az alábbi parancsmagot az eszközvezérlőn, miközben az eszköz soros konzolján keresztül csatlakozik az eszközhöz.** Típus:
+1. Place the device in the maintenance mode. **Note that you should not use Windows PowerShell remoting when connecting to a device in maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console.** Type:
    
     `Enter-HcsMaintenanceMode`
    
-    Az alábbiakban egy példa látható a kimenetre.
+    A sample output is shown below.
    
         Controller0>Enter-HcsMaintenanceMode
         Checking device state...
@@ -136,12 +136,12 @@ A lemezfirmware-frissítések telepítéséhez kövesse az alábbi utasításoka
         [4] Change language
         Please enter your choice>
    
-    Ekkor mindkét vezérlő újraindul karbantartási módban.
-2. A lemezfirmware-frissítés telepítéséhez írja be a következőt:
+    Both the controllers then restart into maintenance mode.
+2. To install the disk firmware update, type:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    Az alábbiakban egy példa látható a kimenetre.
+    A sample output is shown below.
    
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\ThirdOrderUpdates\ -Credential contoso\john
         Enter Password:
@@ -150,16 +150,16 @@ A lemezfirmware-frissítések telepítéséhez kövesse az alábbi utasításoka
         This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
-3. A telepítési folyamatot a `Get-HcsUpdateStatus` parancs használatával figyelheti. A frissítés akkor fejeződött be, ha a `RunInProgress` `False` értékre vált.
-4. Miután befejeződött a telepítés, a vezérlő, amelyre a karbantartási módú gyorsjavítás telepítve lett, újraindul. Jelentkezzen be az 1. lehetőséggel teljes hozzáféréssel, és ellenőrizze a lemezfirmware verzióját. Típus:
+3. Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
+4. After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Log in as option 1 with full access and verify the disk firmware version. Type:
    
    `Get-HcsFirmwareVersion`
    
-   A várt lemezfirmware-verzió a következő:
+   The expected disk firmware versions are:
    
    `XMGJ, XGEG, KZ50, F6C2, VR08, N002, 0106`
    
-   Az alábbiakban egy példa látható a kimenetre.
+   A sample output is shown below.
    
        -----------------------MAINTENANCE MODE------------------------
        Microsoft Azure StorSimple Appliance Model 8600
@@ -242,14 +242,9 @@ A lemezfirmware-frissítések telepítéséhez kövesse az alábbi utasításoka
               WD:WD4001FYYG-01SL3:VR08
               WD:WD4001FYYG-01SL3:VR08
    
-    Futtassa a `Get-HcsFirmwareVersion` parancsot a második vezérlőn annak ellenőrzéséhez, hogy a szoftververzió frissítve lett-e. Ezután kiléphet a karbantartási módból. Ehhez írja be a következő parancsot mindkét eszközvezérlő esetében:
+    Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. To do so, type the following command for each device controller:
    
    `Exit-HcsMaintenanceMode`
 
-5. A vezérlők újraindulnak, miután kilépett a karbantartási módból. A lemezfirmware-frissítések sikeres alkalmazását követően, miután az eszköz kilépett a karbantartási módból, térjen vissza a klasszikus Azure portálhoz. Vegye figyelembe, hogy a portálon esetleg még 24 órán keresztül nem jelenik meg, hogy a karbantartási módú frissítések telepítve lettek.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+5. The controllers restart when you exit maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
 

@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 003d975f57d63bcb95d6b0de9dcfaf8816fcdd6f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
+ms.lasthandoff: 04/03/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Docker-alapú tárolóüzemeltetési megoldás üzembe helyezése az Azure Portal használatával
@@ -38,7 +38,7 @@ Háttér-információk: [Az Azure Container Service bemutatása](container-servi
 
 * **Azure-előfizetés**: Ha nem rendelkezik előfizetéssel, regisztrálhat az [ingyenes próbaverzióra](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-* **Nyilvános SSH RSA-kulcs**: Ha a portálon vagy valamelyik Azure gyorsindítási sablonnal végzi az üzembe helyezést, meg kell adnia az Azure Container Service virtuális gépeivel történő hitelesítésre szolgáló nyilvános kulcsot. A Secure Shell (SSH) RSA-kulcsok létrehozásával kapcsolatban lásd az [OS X és Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) vagy a [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) rendszerhez készült útmutatót. 
+* **Nyilvános SSH RSA-kulcs**: Ha a portálon vagy valamelyik Azure gyorsindítási sablonnal végzi az üzembe helyezést, meg kell adnia az Azure Container Service virtuális gépeivel történő hitelesítésre szolgáló nyilvános kulcsot. A Secure Shell (SSH) RSA-kulcsok létrehozásával kapcsolatban lásd az [OS X és Linux](../virtual-machines/linux/mac-create-ssh-keys.md) vagy a [Windows](../virtual-machines/linux/ssh-from-windows.md) rendszerhez készült útmutatót. 
 
 * **Egyszerű szolgáltatás ügyfél-azonosítója és kulcsa** (csak Kubernetes esetében): Az Azure Active Directory egyszerű szolgáltatásainak létrehozásával kapcsolatos további információkért és útmutatóért lásd: [Tudnivalók a Kubernetes-fürthöz tartozó egyszerű szolgáltatásról](container-service-kubernetes-service-principal.md).
 

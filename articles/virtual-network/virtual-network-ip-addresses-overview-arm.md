@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3de0b167d0ad32de17093caf7e66a6d08f5c1c61
-ms.openlocfilehash: 762b048056752abd24328433ceb57de492dbf884
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -71,7 +72,7 @@ Megadhat egy DNS-tartománynév címkét a nyilvános IP-cím erőforráshoz, am
 >
 
 ### <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
-A nyilvános IP-címet társíthatja egy [Windows](../virtual-machines/virtual-machines-windows-about.md) vagy [Linux](../virtual-machines/virtual-machines-linux-about.md) virtuális géppel, ha hozzárendeli a **hálózati adapteréhez**. Több hálózati adapterrel rendelkező virtuális gépek esetén csak az *elsődleges* hálózati adapterhez végezhet hozzárendelést. Hozzárendelhet egy dinamikus vagy egy statikus méretű nyilvános IP-címet az egyes virtuális gépekhez.
+A nyilvános IP-címet társíthatja egy [Windows](../virtual-machines/windows/about.md) vagy [Linux](../virtual-machines/virtual-machines-linux-about.md) virtuális géppel, ha hozzárendeli a **hálózati adapteréhez**. Több hálózati adapterrel rendelkező virtuális gépek esetén csak az *elsődleges* hálózati adapterhez végezhet hozzárendelést. Hozzárendelhet egy dinamikus vagy egy statikus méretű nyilvános IP-címet az egyes virtuális gépekhez.
 
 ### <a name="internet-facing-load-balancers"></a>Internetkapcsolattal rendelkező terheléselosztók
 A nyilvános IP-címet társíthatja egy [Azure Load Balancerrel](../load-balancer/load-balancer-overview.md), ha hozzárendeli a terheléselosztó **előtér**-konfigurációjához. Ez a nyilvános IP-cím terheléselosztásos virtuális IP-címként (VIP) szolgál majd. Hozzárendelhet egy dinamikus vagy egy statikus nyilvános IP-címet a terheléselosztó előtérrendszerhez. Több nyilvános IP-címet is hozzárendelhet egy terheléselosztó előtérrendszerhez, ami olyan [több virtuális IP-címes](../load-balancer/load-balancer-multivip.md) forgatókönyveket tesz lehetővé, mint az SSL-alapú webhelyek több-bérlős környezetei.
@@ -115,7 +116,7 @@ Statikus magánhálózati IP-címeket általában a következő esetekben szokta
 * Más alkalmazások/erőforrások által IP-címen keresztül elért erőforrások esetén.
 
 ### <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
-A magánhálózati IP-cím egy [Windows-](../virtual-machines/virtual-machines-windows-about.md) vagy [Linux-](../virtual-machines/virtual-machines-linux-about.md)virtuális gép **hálózati adapteréhez** van rendelve. Több hálózati adapterrel rendelkező virtuális gép esetében mindegyik adapterhez külön lesz egy magánhálózati IP-cím rendelve. A lefoglalási módszert hálózati adapter esetében meghatározhatja dinamikusként vagy statikusként is.
+A magánhálózati IP-cím egy [Windows-](../virtual-machines/windows/about.md) vagy [Linux-](../virtual-machines/virtual-machines-linux-about.md)virtuális gép **hálózati adapteréhez** van rendelve. Több hálózati adapterrel rendelkező virtuális gép esetében mindegyik adapterhez külön lesz egy magánhálózati IP-cím rendelve. A lefoglalási módszert hálózati adapter esetében meghatározhatja dinamikusként vagy statikusként is.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Belső DNS-állomásnév feloldása (virtuális gép esetén)
 Minden Azure VM alapértelmezés szerint az [Azure által felügyelt DNS-kiszolgálókkal](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) van konfigurálva, ha nem konfigurál kifejezetten egyéni DNS-kiszolgálókat. Ezek a DNS-kiszolgálók belső névfeloldást biztosítanak az egyazon VNeten található virtuális gépek számára.
@@ -146,9 +147,4 @@ A nyilvános IP-címek kapcsán névleges díjak merülhetnek fel. Ha többet sz
 * [Statikus nyilvános IP-címmel rendelkező virtuális gép telepítése az Azure Portal használatával](virtual-network-deploy-static-pip-arm-portal.md)
 * [Statikus nyilvános IP-címmel rendelkező virtuális gép telepítése sablon használatával](virtual-network-deploy-static-pip-arm-template.md)
 * [Statikus magánhálózati IP-címmel rendelkező virtuális gép telepítése az Azure Portal használatával](virtual-networks-static-private-ip-arm-pportal.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

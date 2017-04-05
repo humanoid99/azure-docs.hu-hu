@@ -60,7 +60,7 @@ Ismerje meg, hogy a Batch hogyan használható a nagy léptékű párhuzamos és
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

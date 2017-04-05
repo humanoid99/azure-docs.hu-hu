@@ -52,7 +52,7 @@
 ### [AD-replikáció állapota](log-analytics-ad-replication-status.md)
 ### [Riasztáskezelés](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
-### [Kapacitáskezelés](log-analytics-capacity.md)
+### [Kapacitás és teljesítmény](log-analytics-capacity.md)
 ### [Változáskövetés](log-analytics-change-tracking.md)
 ### [Tárolók](log-analytics-containers.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)

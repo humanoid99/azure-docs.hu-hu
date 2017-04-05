@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -98,7 +98,7 @@ Az alábbi táblázat tartalmazza a Linuxot támogató Azure Backup-összetevők
 Az Azure Backup szolgáltatás a Premium Storage virtuális gépek védelmét is biztosítja. Az Azure Premium Storage egy SSD-alapú tárolási szolgáltatás, amely a nagy I/O-igényű számítási feladatok ellátására készült. A Premium Storage a virtuális gépek számítási feladataihoz kínál vonzó megoldást. Részletesebb áttekintés talál a [Premium Storage szolgáltatást mint az Azure virtuális gépek számítási feladataihoz használható nagy teljesítményű tárterületet](../storage/storage-premium-storage.md) ismertető cikkben.
 
 ### <a name="back-up-premium-storage-vms"></a>A Premium Storage virtuális gépek biztonsági mentése
-Premium Storage virtuális gépek biztonsági mentésekor a Backup szolgáltatás átmeneti, „AzureBackup-” nevű előkészítési helyet hoz létre a Premium Storage-fiókban. Az előkészítési hely megegyezik a helyreállítási pont pillanatképének méretével. Győződjön meg róla, hogy elég szabad hely áll rendelkezésre a tárfiókban az átmeneti előkészítési hely számára. További információért tekintse meg a [Premium Storage korlátozásaival](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) foglalkozó témakört. A biztonsági mentési feladat befejezése után a rendszer törli az előkészítési helyet. Az előkészítési helyhez használt tároló ára megfelel a [Premium Storage díjszabásnak](../storage/storage-premium-storage.md#pricing-and-billing).
+Premium Storage virtuális gépek biztonsági mentésekor a Backup szolgáltatás átmeneti, „AzureBackup-” nevű előkészítési helyet hoz létre a Premium Storage-fiókban. Az előkészítési hely megegyezik a helyreállítási pont pillanatképének méretével. Győződjön meg róla, hogy elég szabad hely áll rendelkezésre a tárfiókban az átmeneti előkészítési hely számára. További információért tekintse meg a [Premium Storage korlátozásaival](../storage/storage-premium-storage.md#scalability-and-performance-targets) foglalkozó témakört. A biztonsági mentési feladat befejezése után a rendszer törli az előkészítési helyet. Az előkészítési helyhez használt tároló ára megfelel a [Premium Storage díjszabásnak](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Ne módosítsa vagy szerkessze az előkészítési helyet.

@@ -4,6 +4,7 @@
 # Első lépések
 ## [Méretezési csoport üzembe helyezése a portálon](virtual-machine-scale-sets-portal-create.md)
 ## [Méretezési csoport üzembe helyezése a PowerShell-lel vagy az Azure CLI-vel](virtual-machine-scale-sets-create.md)
+## [Automatikus méretezést végző alkalmazás üzembe helyezése sablon használatával](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Útmutató
 ## Tervezés és kialakítás

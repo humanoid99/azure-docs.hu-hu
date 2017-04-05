@@ -16,7 +16,7 @@ Az Alapvető beállítások panelen felügyeleti információkat kell megadni a 
 
 2. Adjon meg egy **felhasználónevet** és egy erős **jelszót**, amelyeket a helyi fióknak a virtuális gépen való létrehozásához használ a szolgáltatás. A helyi fiókkal jelentkezhet be a virtuális gépre és kezelheti azt. A példában a felhasználónév az _azureuser_.
 
- A jelszónak 8–123 karakter hosszúnak kell lennie, és meg kell felelnie a következő négy összetettségi feltétel közül háromnak: egy kisbetű, egy nagybetű, egy szám és egy különleges karakter. További információk a [felhasználónév- és jelszókövetelményekről](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ A jelszónak 8–123 karakter hosszúnak kell lennie, és meg kell felelnie a következő négy összetettségi feltétel közül háromnak: egy kisbetű, egy nagybetű, egy szám és egy különleges karakter. További információk a [felhasználónév- és jelszókövetelményekről](../articles/virtual-machines/windows/faq.md).
 
 3. Az **Előfizetés** nem kötelező. Gyakori beállítás a „használatalapú fizetés”.
 

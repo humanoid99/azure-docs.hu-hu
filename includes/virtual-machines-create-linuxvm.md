@@ -37,7 +37,7 @@
     ```
    
    > [!NOTE]
-   > Linuxos virtuális gép esetén meg kell adnia az `-e` kapcsolót a `vm create` parancsban. A virtuális gép létrehozása után nem lehet engedélyezni az SSH-t. További részletek az SSH-val kapcsolatban: [SSH használata Linuxon az Azure-on](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   > Linuxos virtuális gép esetén meg kell adnia az `-e` kapcsolót a `vm create` parancsban. A virtuális gép létrehozása után nem lehet engedélyezni az SSH-t. További részletek az SSH-val kapcsolatban: [SSH használata Linuxon az Azure-on](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 5. Az `azure vm show` parancs használatával ellenőrizheti a virtuális gép attribútumait. Az alábbi példa felsorolja a `myVM` nevű virtuális géppel kapcsolatos információkat:
 
@@ -53,9 +53,4 @@
 
 ## <a name="next-steps"></a>Következő lépések
 További részletek az Azure CLI 1.0 virtuális gépekre vonatkozó parancsairól: [Az Azure CLI 1.0 használata a klasszikus üzembehelyezési API-val](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

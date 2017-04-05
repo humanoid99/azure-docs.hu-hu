@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 295203755487ace6193d97737be635d4a61fe337
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 6d88b7c5ad96a1c7cfb60bde3c9d952b654adb9f
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -170,13 +170,13 @@ Ha elképzeli, hogy a rétegek külön életciklusokkal rendelkeznek, akkor a h�
 
 A sablonok tervezésével kapcsolatos további javaslatokért lásd: [Minták Azure Resource Manager-sablonok tervezéséhez](best-practices-resource-manager-design-templates.md). A beágyazott sablonokkal kapcsolatos további információkért lásd: [Kapcsolt sablonok használata az Azure Resource Manager eszközben](resource-group-linked-templates.md).
 
-A telepítés automatizálásáról négyrészes cikksorozatot tartalmaz az [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Alkalmazástelepítés automatizálása Azure virtuális számítógépeken) című fejezet. A sorozat kitér az alkalmazásarchitektúrára, a hozzáférésre és biztonságra, rendelkezésre állásra és méretezésre valamint az alkalmazások telepítésére.
+A telepítés automatizálásáról négyrészes cikksorozatot tartalmaz az [Automating application deployments to Azure Virtual Machines](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Alkalmazástelepítés automatizálása Azure virtuális számítógépeken) című fejezet. A sorozat kitér az alkalmazásarchitektúrára, a hozzáférésre és biztonságra, rendelkezésre állásra és méretezésre valamint az alkalmazások telepítésére.
 
 Az Azure Resource Manager a függőségek elemzésével biztosítja, hogy az erőforrások a megfelelő sorrendben jöjjenek létre. Ha egy erőforrás egy másik erőforráshoz tartozó értéket használ fel (például egy virtuális gép, amely egy tárfiókot igényel a lemezekhez), akkor beállíthat egy függőséget. További információ: [Függőségek meghatározása az Azure Resource Manager sablonokban](resource-group-define-dependencies.md).
 
 A sablonokat az infrastruktúra frissítésére is használhatja. Hozzáadhat például egy erőforrást a megoldáshoz, valamint hozzáadhat konfigurációs szabályokat a már telepített erőforrásokhoz. Ha a sablon egy erőforrás létrehozását határozza meg, de az adott erőforrás már létezik, az Azure Resource Manager az új eszköz létrehozása helyett frissítést végez. Az Azure Resource Manager frissíti a meglévő eszközt, hogy az állapota olyan legyen, mintha új lenne.  
 
-A Resource Manager bővítményeket biztosít olyan forgatókönyvek esetére, amikor további műveletek szükségesek, például egy adott szoftver telepítése, amelyet nem tartalmaz a beállítás. Ha már használ valamilyen konfigurációfelügyeleti szolgáltatást, mint a DSC, Chef vagy Puppet, bővítmények segítségével folytathatja a munkát az adott szolgáltatással. További információ a virtuális gépi bővítményekről: [A virtuális gépi bővítmények és funkcióik áttekintése](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+A Resource Manager bővítményeket biztosít olyan forgatókönyvek esetére, amikor további műveletek szükségesek, például egy adott szoftver telepítése, amelyet nem tartalmaz a beállítás. Ha már használ valamilyen konfigurációfelügyeleti szolgáltatást, mint a DSC, Chef vagy Puppet, bővítmények segítségével folytathatja a munkát az adott szolgáltatással. További információ a virtuális gépi bővítményekről: [A virtuális gépi bővítmények és funkcióik áttekintése](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Végül a sablon az alkalmazás forráskódjának részévé válik. Elhelyezheti a forráskódraktárban, és frissítheti az alkalmazás továbbfejlesztésekor. A sablont a Visual Studio eszközben szerkesztheti.
 

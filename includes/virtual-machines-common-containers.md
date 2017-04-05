@@ -2,7 +2,7 @@ Az Azure felhőmegoldásai virtuális gépekre (fizikai számítógép hardverel
 
 Az Azure a következő, a Dockerre jellemző előnyöket biztosítja:
 
-* [Számos](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [különböző](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), az adott helyzetnek megfelelő lehetőség tárolók Docker-gazdagépeinek létrehozására.
+* [Számos](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [különböző](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), az adott helyzetnek megfelelő lehetőség tárolók Docker-gazdagépeinek létrehozására.
 * Az [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) vezénylők alkalmazásával olyan tárológazdagép-fürtöket hoz létre, mint például a **Marathon** és a **Swarm**.
 * Az [Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) és [erőforráscsoport-sablonok](../articles/resource-group-authoring-templates.md) segítségével a legösszetettebb elosztott alkalmazások üzembe helyezése és frissítése is leegyszerűsíthető.
 * Integráció jogvédett és nyílt forráskódú konfigurációkezelési eszközök széles választékával.
@@ -92,19 +92,19 @@ Ezek a képességek aztán olyan, a virtuális gépek tömeges létrehozásának
 Az Azure mostanában adta ki az [Azure erőforrás-kezelés](../articles/resource-manager-deployment-model.md) REST API-ját, illetve az egyszerűbb használat érdekében frissítette a PowerShellt és az Azure CLI-t. Teljes alkalmazástopológiákat helyezhet üzembe, módosíthat vagy telepíthet újra az [Azure Resource Manager-sablonokkal](../articles/resource-group-authoring-templates.md) és az Azure erőforrás-kezelés API-jával, illetve a következők segítségével:
 
 * a [sablonokat használó Azure Portal](https://github.com/Azure/azure-quickstart-templates)&mdash; – tipp: használja a „DeployToAzure” gombot;
-* az [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json);
-* az [Azure PowerShell-modulok](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* az [Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json);
+* az [Azure PowerShell-modulok](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Azure virtuális gépek és tárolók teljes csoportjainak üzembe helyezése és kezelése
 Számos népszerű rendszeren helyezhet üzembe teljes virtuálisgép-csoportokat és telepítheti a Dockert (vagy egyéb, Linux-tárolókat üzemeltető rendszert) automatizálható csoportként. Közvetlen hivatkozásokat az alábbi, [tárolókkal és eszközökkel](#containers-and-vm-technologies) foglalkozó szakaszban talál. Kisebb vagy nagyobb mértékben számos további rendszer is képes kezelni az ilyen üzembe helyezéseket, a lista tehát nem tekinthető teljesnek. A lista egyes elemeinek hasznossága a felhasználó készségeitől és az adott alkalmazási helyzettől függ.
 
-A Docker saját virtuálisgép-létrehozási ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)), valamint a Docker és a tároló közötti terheléselosztást vezérlő fürtkezelő eszközökkel ([Swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) is rendelkezik. Ezen kívül az [Azure Docker VM-bővítmény](https://github.com/Azure/azure-docker-extension/blob/master/README.md) alapértelmezés szerint támogatja a [`docker-compose`](https://docs.docker.com/compose/) parancsot, amellyel a konfigurált alkalmazástárolók több tárolón is üzembe helyezhetők.
+A Docker saját virtuálisgép-létrehozási ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)), valamint a Docker és a tároló közötti terheléselosztást vezérlő fürtkezelő eszközökkel ([Swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) is rendelkezik. Ezen kívül az [Azure Docker VM-bővítmény](https://github.com/Azure/azure-docker-extension/blob/master/README.md) alapértelmezés szerint támogatja a [`docker-compose`](https://docs.docker.com/compose/) parancsot, amellyel a konfigurált alkalmazástárolók több tárolón is üzembe helyezhetők.
 
 Mindezek mellett kipróbálhatja a [Mesosphere Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/) rendszerét is. A DCOS alapjául a nyílt forráskódú [Mesos](http://mesos.apache.org/) „elosztottrendszer-kernel” szolgál, amelynek segítségével adatközpontját egyetlen címezhető szolgáltatásként kezelheti. A DCOS több fontos rendszerhez (többek között a [Sparkhoz](http://spark.apache.org/) és a [Kafkához](http://kafka.apache.org/)) való beépített csomagokkal, valamint beépített szolgáltatásokkal (többek között a [Marathon](https://mesosphere.github.io/marathon/) tárolóvezérlő rendszerrel és a [Chronos](https://mesos.github.io/chronos/) elosztott ütemezővel) rendelkezik. A Mesost a Twitter, az AirBnb és egyéb webes vállalkozások tapasztalatai alapján fejlesztették ki. A **Swarm** vezénylési motorként is használható.
 
 A [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) szintén egy nyílt forráskódú virtuálisgép- és tárolócsoport-kezelési rendszer, amely a Google tapasztalatai alapján lett összeállítva. [A megfelelő hálózati támogatás biztosításához a Kubernetes és a Weave együtt](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave) is használható.
 
-A [Deis](http://deis.io/overview/) egy olyan nyílt forráskódú „szolgáltatásként nyújtott platform” (PaaS), amelynek segítségével leegyszerűsíthető az alkalmazások üzembe helyezése és kezelése a saját kiszolgálóin. Egy egyszerűsített, Heroku típusú munkafolyamattal rendelkező PaaS biztosításához a Deis a Docker és a CoreOS platformokra épül. Így egyszerűen [létrehozhat egy 3 csomópontot tartalmazó Azure virtuálisgép-csoportot és telepítheti a Deist](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) az Azure-on, majd [telepíthet egy Hello World Go alkalmazást](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
+A [Deis](http://deis.io/overview/) egy olyan nyílt forráskódú „szolgáltatásként nyújtott platform” (PaaS), amelynek segítségével leegyszerűsíthető az alkalmazások üzembe helyezése és kezelése a saját kiszolgálóin. Egy egyszerűsített, Heroku típusú munkafolyamattal rendelkező PaaS biztosításához a Deis a Docker és a CoreOS platformokra épül. Így egyszerűen [létrehozhat egy 3 csomópontot tartalmazó Azure virtuálisgép-csoportot és telepítheti a Deist](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) az Azure-on, majd [telepíthet egy Hello World Go alkalmazást](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
 A [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), egy optimalizált tárhelyszükségletű, Docker-támogatással és saját, [rkt](https://github.com/coreos/rkt) nevű tárolórendszerrel ellátott Linux-disztribúció is rendelkezik egy [Fleet](https://coreos.com/using-coreos/clustering/) nevű tárolócsoport-kezelési eszközzel.
 
@@ -144,13 +144,13 @@ Docker-eszközök:
 
 A Docker a Microsoft Azure-on:
 
-* [Docker VM-bővítmény Linuxhoz az Azure-on](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Docker VM-bővítmény Linuxhoz az Azure-on](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Docker VM-bővítmény – Használati útmutató](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 * [A Docker VM-bővítmény használata az Azure parancssori felületével (Azure CLI)](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Az Azure Portal Docker VM-bővítményének használata](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [A docker-machine használata az Azure-on](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [A docker-machine használata az Azure-on](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Swarm szolgáltatással kiegészülő Docker használata az Azure-on](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Bevezetés a Docker és a Docker Compose használatába az Azure-on](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Bevezetés a Docker és a Docker Compose használatába az Azure-on](../articles/virtual-machines/linux/docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Docker-gazdagép gyors létrehozása Azure erőforráscsoport-sablonnal az Azure-on](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 * [Beépített `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys)-támogatás a tartalmazott alkalmazásokhoz
 * [Magán Docker-beállításjegyzék létrehozása az Azure-on](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -164,7 +164,7 @@ Konfigurálás, fürtfelügyelet és tárolóvezénylés:
 * [CoreOS-flotta](https://coreos.com/using-coreos/clustering/)
 * Deis
 
-  * [3 csomópontot tartalmazó Azure virtuálisgép-csoport létrehozása, a Deis telepítése és a Hello World Go alkalmazás elindítása](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [3 csomópontot tartalmazó Azure virtuálisgép-csoport létrehozása, a Deis telepítése és a Hello World Go alkalmazás elindítása](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Kubernetes
 
   * [Teljes útmutató az automatizált Kubernetes-fürtök üzembe helyezéséhez a CoreOS és a Weave használatával](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)

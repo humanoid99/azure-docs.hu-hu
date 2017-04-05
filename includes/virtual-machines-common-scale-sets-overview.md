@@ -23,7 +23,7 @@ Ha egy Virtuálisgép-méretezési csoportban növelni vagy csökkenteni szeretn
 
 Ha a kapacitás módosításához újraalkalmaz egy sablont, akkor lehetőség van egy sokkal kisebb, csak a termékváltozatot és a frissített kapacitást tartalmazó sablon megadására. Erre itt talál példát: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Az automatikusan méretezett méretezési csoportok létrehozásának lépéseiről bővebben az [Automatically Scale Machines in a Virtual Machine Scale Set](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Gépek automatikus méretezése egy virtuálisgép-méretezési csoportban) című témakörben olvashat.
+Az automatikusan méretezett méretezési csoportok létrehozásának lépéseiről bővebben az [Automatically Scale Machines in a Virtual Machine Scale Set](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Gépek automatikus méretezése egy virtuálisgép-méretezési csoportban) című témakörben olvashat.
 
 ## <a name="monitoring-your-vm-scale-set"></a>Virtuálisgép-méretezési csoport figyelése
 Jelenleg az [Azure Resource Explorer](https://resources.azure.com) használatával javasoljuk a virtuálisgép-méretezési csoportok megtekintését. A virtuálisgép-méretezési csoportok a Microsoft.Compute erőforrásai, vagyis ezen a webhelyen tekintheti meg őket az alábbi hivatkozások kibontásával:
@@ -115,9 +115,4 @@ Ez a szakasz a virtuálisgép-méretezési csoportok használatának néhány ti
 **K.** Használhatók virtuálisgép-méretezési csoportokat Azure rendelkezésre állási csoportokkal?
 
 **V.** Igen. A virtuálisgép-méretezési csoport egy implicit rendelkezésre állási csoport 3 tartalék és 5 frissítési tartománnyal. A virtualMachineProfile alatt nincs szükség további konfigurálásra. A jövőbeli kiadásokban valószínűsíthető, hogy a virtuálisgép-méretezési csoportok több bérlőre terjednek majd ki, de ez idő szerint egy méretezési csoport csak egyetlen rendelkezésre állási csoportot jelent.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

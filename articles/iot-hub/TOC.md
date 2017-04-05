@@ -100,9 +100,17 @@
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
 #### [Eszközök felhőalapú üzenetkezelése az iothub-explorerrel](iot-hub-explorer-cloud-device-messaging.md)
 #### [IoT Hub-üzenetek mentése Azure-adattárba](iot-hub-store-data-in-azure-table-storage.md)
+#### [Adatmegjelenítés a Power BI-ban](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Adatmegjelenítés a Web Apps használatával](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Időjárás-előrejelzés az Azure Machine Learning használatával](iot-hub-weather-forecast-machine-learning.md)
+
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Eszközök felhőalapú üzenetkezelése az iothub-explorerrel](iot-hub-explorer-cloud-device-messaging.md)
 #### [IoT Hub-üzenetek mentése Azure-adattárba](iot-hub-store-data-in-azure-table-storage.md)
+#### [Adatmegjelenítés a Power BI-ban](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Adatmegjelenítés a Web Apps használatával](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Időjárás-előrejelzés az Azure Machine Learning használatával](iot-hub-weather-forecast-machine-learning.md)
+
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### 1. lecke: Az eszköz konfigurálása

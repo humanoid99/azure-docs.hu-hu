@@ -65,10 +65,11 @@
 #### [Piactéri termék létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)
 #### [Egyéni virtuálisgép-rendszerkép hozzáadása](azure-stack-add-vm-image.md)
 #### [Linux rendszerű virtuális gépek üzembe helyezése](azure-stack-linux.md)
-### Számlázás és költséghelyi elszámolás
-#### [A számlázás és a költséghelyi elszámolás áttekintése](azure-stack-billing-and-chargeback.md)
-#### [Szolgáltatói erőforrás-használati API](azure-stack-provider-resource-api.md)
-#### [Bérlői erőforrás-használati API](azure-stack-tenant-resource-usage-api.md)
+### Használat és számlázás
+#### [Áttekintés](azure-stack-billing-and-chargeback.md)
+#### [Jelentéskészítés a használati adatokról](azure-stack-usage-reporting.md)
+#### [Szolgáltatói használati API](azure-stack-provider-resource-api.md)
+#### [Bérlői használati API](azure-stack-tenant-resource-usage-api.md)
 #### [Használat – gyakori kérdések](azure-stack-usage-related-faq.md)
 
 # Szolgáltatások használata

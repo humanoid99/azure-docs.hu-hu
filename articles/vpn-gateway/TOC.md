@@ -23,6 +23,7 @@
 ## Virtuális hálózatok közötti kapcsolat konfigurálása
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [(Klasszikus) Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Klasszikus portál (klasszikus)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Virtuális hálózatok közötti kapcsolat konfigurálása üzemi modellek között
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [VPN Gateway-kapcsolat ellenőrzése](vpn-gateway-verify-connection-resource-manager.md)
 ## [VPN Gateway alaphelyzetbe állítása](vpn-gateway-resetgw-classic.md)
 ## VPN Gateway törlése
+### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasszikus)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Önaláírt főtanúsítványok létrehozása pont–hely (P2S) kapcsolatok esetén](vpn-gateway-certificates-point-to-site.md)

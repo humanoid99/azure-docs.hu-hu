@@ -30,8 +30,8 @@
 #### [Csak az újgenerációs tűzfalon keresztül haladjon a forgalom](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Az SQL-szolgáltatással kapcsolatos ajánlások](security-center-sql-service-recommendations.md)
-#### [SQL-adatbázis naplózásának engedélyezése](security-center-enable-auditing-on-sql-databases.md)
-#### [SQL Serverek naplózásának engedélyezése](security-center-enable-auditing-on-sql-servers.md)
+#### [Naplózás és fenyegetésészlelés engedélyezése az SQL-adatbázisokon](security-center-enable-auditing-on-sql-databases.md)
+#### [Naplózás és fenyegetésészlelés engedélyezése az SQL-kiszolgálókon](security-center-enable-auditing-on-sql-servers.md)
 #### [Transzparens adattitkosítás engedélyezése](security-center-enable-transparent-data-encryption.md)
 
 ### [A virtuális gépre vonatkozó javaslatok](security-center-virtual-machine-recommendations.md)
@@ -74,8 +74,3 @@
 ## [Szolgáltatás áttekintése](https://azure.microsoft.com/services/security-center/)
 ## [Szolgáltatási hírek](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videók](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

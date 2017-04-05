@@ -23,18 +23,12 @@
 ## Társhálózati konfiguráció létrehozása és módosítása
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (klasszikus)](expressroute-howto-routing-classic.md)
 ## Virtuális hálózat összekapcsolása egy ExpressRoute-kapcsolatcsoporttal
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (klasszikus)](expressroute-howto-linkvnet-classic.md)
-## Az ExpressRoute virtuális hálózati átjáróinak konfigurálása
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (klasszikus)](expressroute-howto-add-gateway-classic.md)
-## Egyidejű helyek közötti VPN Gateway- és ExpressRoute-kapcsolatok létrehozása
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (klasszikus)](expressroute-howto-coexist-classic.md)
-## [Kapcsolatcsoportok áttelepítése klasszikusról Resource Manager-alapúra](expressroute-howto-move-arm.md)
+## [Az ExpressRoute virtuális hálózati átjáróinak konfigurálása](expressroute-howto-add-gateway-resource-manager.md)
+## [Párhuzamos ExpressRoute- és párhuzamos telephelyközi kapcsolatok konfigurálása](expressroute-howto-coexist-resource-manager.md)
+## [Kapcsolatcsoportok módosítása klasszikusról Resource Manager-alapúra](expressroute-howto-move-arm.md)
 ## Útválasztó konfigurálása ExpressRoute-hoz
 ### [Útválasztó konfigurálása](expressroute-config-samples-routing.md)
 ### [Útválasztó-konfigurációs minták NAT-hoz](expressroute-config-samples-nat.md)

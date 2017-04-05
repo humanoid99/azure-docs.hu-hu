@@ -4,9 +4,9 @@ hide_bc: true
 title: "Microsoft Azure-dokumentáció | Microsoft Dokumentumok"
 description: "Ismerje meg, hogyan készíthet és felügyelhet hatékony alkalmazásokat a Microsoft Azure Cloud Services használatával. Töltse le a dokumentációt, mintakódokat, oktatóanyagokat és sok egyebet."
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1dc4b5b0613a76a90c566dedf3ff41be1f68f744
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24a921e6ccb73d3092e774243d51085f2d7835b9
+ms.lasthandoff: 03/31/2017
 
 ---
 <div id="main" class="v2">
@@ -522,6 +522,12 @@ ms.lasthandoff: 03/22/2017
                                             <a href="/azure/advisor">
                                                 <img src="media/index/advisor.svg" alt="" />
                                                 <p>Azure Advisor</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/resource-health">
+                                                <img src="media/index/resource-health.svg" alt="" />
+                                                <p>Azure Resource Health</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2348,6 +2354,25 @@ ms.lasthandoff: 03/22/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/resource-health/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/resource-health.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Resource Health</h3>
+                                                    <p>Segítséget nyújt a diagnosztizálásban és a támogatás igénylésében, ha egy Azure-ral kapcsolatos probléma hatással van az erőforrásaira</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2668,13 +2693,13 @@ ms.lasthandoff: 03/22/2017
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Első lépések</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">A Linuxos Azure CLI&2;.0 letöltése</a>
+                                                    <a href="http://aka.ms/linux-azure-cli">A Linuxos Azure CLI 2.0 letöltése</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">A Maces Azure CLI&2;.0 letöltése</a>
+                                                    <a href="http://aka.ms/mac-azure-cli">A Maces Azure CLI 2.0 letöltése</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">A Windowsos Azure CLI&2;.0 letöltése</a>
+                                                    <a href="http://aka.ms/webpi-azure-cli">A Windowsos Azure CLI 2.0 letöltése</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">Referencia</a>

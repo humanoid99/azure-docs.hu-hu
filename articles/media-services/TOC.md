@@ -41,6 +41,7 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Nagy fájlok feltöltése az Asperával](media-services-upload-files-with-aspera.md)
+### [Fájlok feltöltése a StorSimple-lel](media-services-upload-files-from-storsimple.md)
 ### [Meglévő blobok másolása](media-services-copying-existing-blob.md)
 
 ## [Tartalom kódolása](media-services-encode-asset.md)

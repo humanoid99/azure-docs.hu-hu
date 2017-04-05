@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +35,7 @@ A DC/OS és a Docker Swarm esetében létre kell hoznia egy belső rendszerbe ve
 ## <a name="prerequisites"></a>Előfeltételek
 
 * Az [Azure Container Service](container-service-deployment.md)-ben üzembe helyezett Kubernetes-, DC/OS- vagy Docker Swarm-fürt.
-* Titkos SSH RSA-kulcsfájl, amely a fürthöz az üzembe helyezéskor hozzáadott nyilvános kulcshoz tartozik. Ezek a parancsok feltételezik, hogy a titkos SSH-kulcs a következő helyen található a számítógépen: `$HOME/.ssh/id_rsa`. További információkat az [OS X és Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) rendszerekre vagy a [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) rendszerre vonatkozó útmutatókban találhat. Ha az SSH-kapcsolat nem működik, lehetséges, hogy [új SSH-kulcsot kell létrehoznia](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* Titkos SSH RSA-kulcsfájl, amely a fürthöz az üzembe helyezéskor hozzáadott nyilvános kulcshoz tartozik. Ezek a parancsok feltételezik, hogy a titkos SSH-kulcs a következő helyen található a számítógépen: `$HOME/.ssh/id_rsa`. További információkat az [OS X és Linux](../virtual-machines/linux/mac-create-ssh-keys.md) rendszerekre vagy a [Windows](../virtual-machines/linux/ssh-from-windows.md) rendszerre vonatkozó útmutatókban találhat. Ha az SSH-kapcsolat nem működik, lehetséges, hogy [új SSH-kulcsot kell létrehoznia](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Csatlakozás Kubernetes-fürthöz
 

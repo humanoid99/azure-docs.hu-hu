@@ -46,6 +46,9 @@
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Címtárbővítmények](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Az Azure AD Sync szolgáltatásfiók jelszavának módosítása](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [AD lomtárának engedélyezése](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Szinkronizálási szolgáltatáskezelő](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Műveletek](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Összekötők](active-directory-aadconnectsync-service-manager-ui-connectors.md)

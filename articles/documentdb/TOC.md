@@ -85,6 +85,7 @@
 
 
 ## Integrálás
+### [Csatlakozás a Sparkhoz](documentdb-spark-connector.md)
 ### [Webhely üzembe helyezése az Azure App Service-szel](documentdb-create-documentdb-website.md)
 ### [Alkalmazásnaplózás a Logic Apps használatával](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Kötés az Azure Functionshöz](../azure-functions/functions-bindings-documentdb.md)

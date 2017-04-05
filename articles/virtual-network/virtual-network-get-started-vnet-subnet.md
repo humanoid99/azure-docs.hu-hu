@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -101,7 +101,7 @@ A webkiszolgáló virtuális gép létrehozásához hajtsa végre az alábbi lé
     |**Erőforráscsoport**|**Meglévő használata:** Válassza a *MyRG* elemet|Bár ugyanazt az erőforráscsoportot használjuk, mint a VNet esetében, az erőforrásoknak nem szükséges ugyanabban az erőforráscsoportban lenniük.|
     |**Hely**|*USA nyugati régiója*|A helynek ugyanannak a helynek kell lennie, amelyet a jelen cikk [Virtuális hálózat létrehozása két alhálózattal](#create-vnet) című szakaszának 5. lépésében meghatározott. A virtuális gépeknek és virtuális hálózatnak, amelyhez csatlakoznak, ugyanazon a helyen kell lenniük.|
 
-4. A **Méret kiválasztása** panelen kattintson a *DS1_V2 Standard* elemre, majd a **Kiválasztás** lehetőségre. Az Azure által támogatott összes Windows rendszerű virtuális gép listáját megtalálja a [Windows rendszerű virtuális gépek méreteit](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ismertető cikkben.
+4. A **Méret kiválasztása** panelen kattintson a *DS1_V2 Standard* elemre, majd a **Kiválasztás** lehetőségre. Az Azure által támogatott összes Windows rendszerű virtuális gép listáját megtalálja a [Windows rendszerű virtuális gépek méreteit](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ismertető cikkben.
 5. A **Beállítások** panelen adja meg vagy válassza ki az alábbi értékeket, majd kattintson az **OK** gombra:
 
     |**Beállítás**|**Érték**|**Részletek**|
@@ -111,7 +111,7 @@ A webkiszolgáló virtuális gép létrehozásához hajtsa végre az alábbi lé
     |**Alhálózat**|Válassza ki az *Előtér* elemet|A VNetben lévő bármelyik alhálózatot kiválaszthatja.|
     |**Nyilvános IP-cím**|Fogadja el az alapértelmezett beállítást|A nyilvános IP-cím lehetővé teszi, hogy az interneten keresztül csatlakozzon a virtuális géphez. Ha többet szeretne megtudni a nyilvános IP-címekről, olvassa el az [IP-címek](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) című cikket.|
     |**Hálózati biztonsági csoport (tűzfal)**|Fogadja el az alapértelmezett beállítást|A beállítások megtekintéséhez kattintson az **(új) MyWebServer-nsg** alapértelmezett NSG-re, amelyet a portál hozott létre. A megnyíló **Hálózati biztonsági csoport létrehozása** panelen figyelje meg, hogy egy olyan bejövő szabállyal rendelkezik, amely engedélyezi a TCP/3389 (RDP) forgalmat bármilyen forrás-IP-címről.|
-    |**Minden egyéb érték**|Fogadja el az alapértelmezett beállításokat|A további beállításokkal kapcsolatban olvassa el a [Tudnivalók a virtuális gépekről](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) című cikket.|
+    |**Minden egyéb érték**|Fogadja el az alapértelmezett beállításokat|A további beállításokkal kapcsolatban olvassa el a [Tudnivalók a virtuális gépekről](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) című cikket.|
 
     A hálózati biztonsági csoportok (NSG) lehetővé teszik, hogy bejövő/kimenő szabályokat hozzon létre a virtuális gépekről érkező, illetve az azokra irányuló forgalom típusának megfelelően. Alapértelmezés szerint a virtuális gépre irányuló minden bejövő forgalom le van tiltva. Az éles webkiszolgáló esetében további bejövő szabályokat adhat hozzá a TCP/80 (HTTP) és a TCP/443 (HTTPS) portok számára. Nincs a kimenő forgalomra vonatkozó szabály, mivel alapértelmezés szerint minden kimenő forgalom engedélyezett. A saját házirendjeinek megfelelően szabadon hozzáadhat/eltávolíthat szabályokat a forgalom szabályozására. Ha többet szeretne megtudni az NSG-kről, olvassa el a [Hálózati biztonsági csoportok](virtual-networks-nsg.md) című cikket.
 
@@ -160,7 +160,7 @@ Bár Ön egy VNetet és két virtuális gépet hozott létre, az Azure Portal t�
 
     ![Erőforráscsoport tartalma](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-A virtuális gépekkel, lemezekkel és tárfiókokkal kapcsolatos további információkért olvassa el a [Virtuális gép](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), a [Lemez](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) és a [Tárfiók](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) című áttekintő cikkeket. A listában látható a portál által létrehozott két alapértelmezett NSG. Láthatja továbbá, hogy a portál létrehozott két hálózati adapter (NIC) típusú erőforrást is. A virtuális gépek a hálózati adapterek segítségével tudnak más erőforrásokhoz kapcsolódni a VNeten. Ha többet szeretne megtudni a NIC-ekkről, olvassa el a [NIC](virtual-network-network-interface.md) című cikket. A portál létrehozott egy nyilvános IP-cím típusú erőforrást is. A Nyilvános IP-címek az egyik beállítás a nyilvános IP-cím típusú erőforrásokhoz. Ha többet szeretne megtudni a nyilvános IP-címekről, olvassa el az [IP-címek](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) című cikket.
+A virtuális gépekkel, lemezekkel és tárfiókokkal kapcsolatos további információkért olvassa el a [Virtuális gép](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), a [Lemez](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) és a [Tárfiók](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) című áttekintő cikkeket. A listában látható a portál által létrehozott két alapértelmezett NSG. Láthatja továbbá, hogy a portál létrehozott két hálózati adapter (NIC) típusú erőforrást is. A virtuális gépek a hálózati adapterek segítségével tudnak más erőforrásokhoz kapcsolódni a VNeten. Ha többet szeretne megtudni a NIC-ekkről, olvassa el a [NIC](virtual-network-network-interface.md) című cikket. A portál létrehozott egy nyilvános IP-cím típusú erőforrást is. A Nyilvános IP-címek az egyik beállítás a nyilvános IP-cím típusú erőforrásokhoz. Ha többet szeretne megtudni a nyilvános IP-címekről, olvassa el az [IP-címek](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) című cikket.
 
 ## <a name="connect-to-from-vms"></a>Kapcsolódás a virtuális gépekhez
 
@@ -252,5 +252,5 @@ Ebben a példában egy VNetet és két virtuális gépet hozott létre. A virtu�
 - [Nyilvános IP-címek](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Hálózati illesztők](virtual-network-network-interface.md)
 - [Hálózati biztonsági csoportok](virtual-networks-nsg.md)
-- [Virtuális gépek](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Virtuális gépek](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

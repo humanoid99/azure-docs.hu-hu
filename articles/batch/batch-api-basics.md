@@ -16,9 +16,9 @@ ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -107,7 +107,7 @@ Készlet létrehozásakor a következő attribútumokat adhatja meg:
 
     A **Cloud Services-konfigurációt** használó számítási csomópontok méretét a [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (A Cloud Servicesben érvényes méretek) című cikk tartalmazza. A Batch az `ExtraSmall`, `STANDARD_A1_V2` és `STANDARD_A2_V2` kivételével az összes Cloud Services-méretet támogatja.
 
-    A **virtuálisgép-konfigurációt** használó számítási csomópontok méretét a [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Virtuális gépek mérete az Azure-ban, Linux) és a [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Virtuális gépek mérete az Azure-ban, Windows) című cikk tartalmazza. A Batch a `STANDARD_A0`, illetve a Premium Storage típusú méretek (`STANDARD_GS`, `STANDARD_DS` és `STANDARD_DSV2` sorozat) kivételével az összes Azure virtuálisgép-méretet támogatja.
+    A **virtuálisgép-konfigurációt** használó számítási csomópontok méretét a [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md) (Virtuális gépek mérete az Azure-ban, Linux) és a [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md) (Virtuális gépek mérete az Azure-ban, Windows) című cikk tartalmazza. A Batch a `STANDARD_A0`, illetve a Premium Storage típusú méretek (`STANDARD_GS`, `STANDARD_DS` és `STANDARD_DSV2` sorozat) kivételével az összes Azure virtuálisgép-méretet támogatja.
 
     A számítási csomópont méretének kiválasztásakor vegye figyelembe a csomóponton futtatni kívánt alkalmazások jellemzőit és követelményeit. Az olyan szempontok, mint hogy az alkalmazás többszálú-e vagy mennyi memóriát fogyaszt, segíthetnek meghatározni a legmegfelelőbb és legköltséghatékonyabb csomópontméretet. A csomópont méretének kiválasztásakor általában az feltételezhető, hogy egyszerre egy tevékenység fog futni a csomóponton. Azonban lehetséges egyszerre több tevékenységet (és így több alkalmazáspéldányt) [párhuzamosan is futtatni](batch-parallel-node-tasks.md) egy számítási csomóponton a feladat végrehajtása során. Ebben az esetben a párhuzamos tevékenység-végrehajtás megnövekedett igényének kielégítése érdekében általában nagyobb csomópontméretet választanak. A további információkat a [Tevékenységütemezési szabályzat](#task-scheduling-policy) tartalmazza.
 

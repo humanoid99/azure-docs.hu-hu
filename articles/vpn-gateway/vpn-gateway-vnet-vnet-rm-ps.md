@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/27/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a4cbc4cd1c48da1120c643892b19692ac583d4c3
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Klasszikus – Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Klasszikus – Klasszikus portál](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
-> 
+>
 
 Ez a cikk lépésről lépésre bemutatja, hogyan hozható létre virtuális hálózatok közötti kapcsolat a Resource Manager-alapú üzemi modellben a VPN Gateway használatával. A virtuális hálózatok lehetnek azonos vagy eltérő régiókban, illetve azonos vagy eltérő előfizetésekben.
 
@@ -70,13 +72,13 @@ A cikkben szereplő lépések az egyes szakaszok elején deklarált változókat
 
 ![Mindkét kapcsolat](./media/vpn-gateway-vnet-vnet-rm-ps/differentsubscription.png)
 
-## <a name="a-namesamesubahow-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Azonos előfizetésben található virtuális hálózatok összekapcsolása
+## <a name="samesub"></a>Azonos előfizetésben található virtuális hálózatok összekapcsolása
 ![v2v ábra](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Előkészületek
 Mielőtt elkezdi, telepítenie kell az Azure Resource Manager PowerShell-parancsmagjait. A PowerShell-parancsmagok telepítésével kapcsolatban további információ: [Az Azure PowerShell telepítése és konfigurálása](/powershell/azureps-cmdlets-docs).
 
-### <a name="a-namestep1astep-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>1. lépés – Az IP-címtartományok megtervezése
+### <a name="Step1"></a>1. lépés – Az IP-címtartományok megtervezése
 A következő lépések során két virtuális hálózatot fogunk létrehozni az azokhoz tartozó átjáróalhálózatokkal és konfigurációkkal. Ezután létrehozunk egy VPN-kapcsolatot a két virtuális hálózat között. Fontos, hogy megtervezze a hálózati konfiguráció IP-címtartományát. Ügyeljen arra, hogy a virtuális hálózata tartományai és a helyi hálózata tartományai ne legyenek átfedésben egymással.
 
 A példákban a következő értékeket használjuk:
@@ -114,7 +116,7 @@ A példákban a következő értékeket használjuk:
 * Kapcsolat: VNet4toVNet1
 * Kapcsolat típusa: VNet2VNet
 
-### <a name="a-namestep2astep-2---create-and-configure-testvnet1"></a><a name="Step2"></a>2. lépés – A TestVNet1 létrehozása és konfigurálása
+### <a name="Step2"></a>2. lépés – A TestVNet1 létrehozása és konfigurálása
 1. A változók deklarálása
    
     Kezdje a változók deklarálásával. Ez a példa a gyakorlathoz használt értékekkel deklarálja a változókat. A legtöbb esetben ezeket az értékeket a saját értékeire kell lecserélnie. Ezeket a változókat akkor használhatja, ha azért hajtja végre a lépéseket, hogy megismerje ezt a konfigurációtípust. Ha szükséges, módosítsa a változókat, majd másolja és illessze be őket a PowerShell-konzolra.
@@ -182,7 +184,7 @@ A példákban a következő értékeket használjuk:
         -Subnet $subnet1 -PublicIpAddress $gwpip1
 8. A TestVNet1 átjárójának létrehozása
    
-    Ebben a lépésben a TestVNet1 virtuális hálózati átjáróját fogja létrehozni. A virtuális hálózatok közötti konfigurációkhoz a VpnType paraméternek RouteBased értékűnek kell lennie. Az átjáró létrehozása akár&45; percet vagy hosszabb időt is igénybe vehet.
+    Ebben a lépésben a TestVNet1 virtuális hálózati átjáróját fogja létrehozni. A virtuális hálózatok közötti konfigurációkhoz a VpnType paraméternek RouteBased értékűnek kell lennie. Az átjáró létrehozása akár 45 percet vagy hosszabb időt is igénybe vehet.
    
         New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
@@ -265,7 +267,7 @@ A TestVNet1 konfigurálása után a hozza létre a TestVNet4 virtuális hálóza
     A kapcsolat néhány perc alatt létrejön.
 4. Ellenőrizze a kapcsolatot. Tekintse meg [A kapcsolat ellenőrzése](#verify) című szakaszt.
 
-## <a name="a-namedifsubahow-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Különböző előfizetésben található virtuális hálózatok összekapcsolása
+## <a name="difsub"></a>Különböző előfizetésben található virtuális hálózatok összekapcsolása
 ![v2v ábra](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 Ebben a forgatókönyvben csatlakoztatjuk a TestVNet1 és a TestVNet5 virtuális hálózatot. A TestVNet1 és a TestVNet5 eltérő előfizetésekben található. A konfiguráláshoz használt lépések egy további, virtuális hálózatok közötti kapcsolatot hoznak létre a TestVNet1 és a TestVNet5 összekapcsolásához. 
@@ -421,7 +423,7 @@ Ebben a példában, mivel az átjárók különböző előfizetésekben találha
         $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
         New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
-## <a name="a-nameverifyahow-to-verify-a-connection"></a><a name="verify"></a>A kapcsolat ellenőrzése
+## <a name="verify"></a>A kapcsolat ellenőrzése
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
@@ -430,10 +432,5 @@ Ebben a példában, mivel az átjárók különböző előfizetésekben találha
 
 * Miután a kapcsolat létrejött, hozzáadhat virtuális gépeket a virtuális hálózataihoz. További információkért tekintse meg a [Virtual Machines-dokumentációt](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Információk a BGP-ről: [A BGP áttekintése](vpn-gateway-bgp-overview.md) és [A BGP konfigurálása](vpn-gateway-bgp-resource-manager-ps.md). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

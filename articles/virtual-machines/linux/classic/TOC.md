@@ -1,16 +1,16 @@
-# [Áttekintés](../../virtual-machines-linux-azure-overview.md)
+# [Áttekintés](../overview.md)
 ## [Képek](about-images.md)
 ## [Virtuálisgép-bővítmények](agents-and-extensions.md)
 ## [Rendelkezésre állás](configure-availability.md)
 ## [Gyakori kérdések](faq.md)
 
-# [Első lépések](../../virtual-machines-linux-opensource-links.md)
+# [Első lépések](../opensource-links.md)
 ## [Linux rendszerű virtuális gép létrehozása a portálról](createportal.md)
 ## [Az Azure parancssori felület telepítése](../../../cli-install-nodejs.md)
-## [SSH-kulcsok létrehozása](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [SSH-kulcsok létrehozása](../mac-create-ssh-keys.md)
 
 # Útmutató
-## [Számítás](../../virtual-machines-linux-intro-on-azure.md)
+## [Számítás](../intro-on-azure.md)
 ### [Egyéni virtuális gép létrehozása](create-custom.md)
 ### [Virtuális gép rögzítése](capture-image.md)
 ### [Távoli asztal használata Linux rendszerű virtuális géppel](remote-desktop.md)

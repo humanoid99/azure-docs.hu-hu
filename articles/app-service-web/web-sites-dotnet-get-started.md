@@ -3,7 +3,7 @@ title: "ASP.NET-alkalmazás üzembe helyezése az Azure-ba a Visual Studio haszn
 description: "ASP.NET webes projekt telepítése új webalkalmazásba az Azure App Service szolgáltatásban a Visual Studio használatával."
 services: app-service\web
 documentationcenter: .net
-author: tdykstra
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 12/16/2016
-ms.author: rachelap
+ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
-ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 93107d19e1814b30d69fc12c92b544d9760bda6a
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -50,7 +50,7 @@ Az Azure SDK for .NET telepítéséhez szükséges időn kívül az oktatóanyag
   
     Ha nem szeretne regisztrálni Azure-fiókot az Azure App Service megismerése előtt, menjen [Az App Service kipróbálása](https://azure.microsoft.com/try/app-service/) oldalra. ahol létrehozhat egy rövid élettartamú alapszintű alkalmazást az App Service-ben. Ehhez nincs szükség bankkártyára, és nem jár semmilyen kötelezettséggel.
 
-## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>A fejlesztési környezet kialakítása
+## <a name="setupdevenv"></a>A fejlesztési környezet kialakítása
 Az oktatóanyag a Visual Studio 2015-höz, valamint az [Azure SDK for .NET](../dotnet-sdk.md) 2.9-es vagy újabb verziójához készült. 
 
 * [Töltse le a legfrissebb Azure SDK-t a Visual Studio 2015-höz](http://go.microsoft.com/fwlink/?linkid=518003). Ha a Visual Studio 2015 még nincs telepítve, az SDK telepíti azt.
@@ -189,8 +189,6 @@ Ebben a szakaszban a webes projektet telepíti az Azure App Service-ben létreho
 
 ## <a name="troubleshooting"></a>Hibaelhárítás
 Ha problémába ütközik az oktatóanyag lépéseinek követése közben, győződjön meg arról, hogy az Azure SDK for .NET legújabb verzióját használja. Ennek legegyszerűbb módja [az Azure SDK letöltése a Visual Studio 2015-höz](http://go.microsoft.com/fwlink/?linkid=518003). Ha a legfrissebb verzió van telepítve, a Webplatform-telepítő értesíti Önt arról, hogy nincs szükség a telepítésre.
-
-Ha vállalati hálózaton dolgozik, és tűzfalon keresztül szeretne az Azure App Service-re telepíteni, győződjön meg arról, hogy a 443-as és a 8172-es port nyitva van a webes telepítéshez. Ha nem tudja kinyitni ezeket a portokat, tekintse át a következő További lépések szakaszt az egyéb telepítési lehetőségekért.
 
 Most, hogy sikeresen telepítette ASP.NET webalkalmazását az Azure App Service-ben, további információkat tudhat meg a Visual Studio hibaelhárítást megkönnyítő funkcióiról. A naplózással, a távoli hibakereséssel és egyebekkel kapcsolatos információkért lásd: [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md) (Azure-webalkalmazások hibaelhárítása a Visual Studióban).
 

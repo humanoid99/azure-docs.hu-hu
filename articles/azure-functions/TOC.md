@@ -21,13 +21,12 @@
 #### [HTTP- és webhookkötések](functions-bindings-http-webhook.md)
 #### [Mobile Apps-kötések](functions-bindings-mobile-apps.md)
 #### [Értesítési központ kimeneti kötése](functions-bindings-notification-hubs.md)
-#### [Service Bus-eseményindítók és -kötések a várólistákhoz és a témakörökhöz](functions-bindings-service-bus.md)
+#### [Szolgáltatásbusz-kötések](functions-bindings-service-bus.md)
 #### [SendGrid-kötések](functions-bindings-sendgrid.md)
 #### Tárkötések
 ##### [Blobkötések](functions-bindings-storage-blob.md)
 ##### [Üzenetsorkötések](functions-bindings-storage-queue.md)
 ##### [Táblakötések](functions-bindings-storage-table.md)
-##### [SendGrid-kötések](functions-bindings-sendgrid.md)
 #### [Időzítő eseményindító](functions-bindings-timer.md)
 #### [Twilio kimeneti kötése](functions-bindings-twilio.md)
 ### [Függvényalkalmazás létrehozása az Azure Portal használatával](functions-create-function-app-portal.md) 
@@ -35,6 +34,8 @@
 ### [Helyi fejlesztés és hibakeresés](functions-run-local.md)
 ### [Azure Functions – ajánlott eljárások](functions-best-practices.md)
 ### [Az Azure Functions használata ütemezett karbantartási feladatok végrehajtásához](functions-scenario-database-table-cleanup.md)
+### [OpenAPI definíció létrehozása (előnézet)](functions-api-definition-getting-started.md)
+#### [OpenAPI 2.0 a Függvényreferenciában](functions-api-definition.md)
 
 ## Kezelés
 ### [Függvényalkalmazás beállításainak konfigurálása](functions-how-to-use-azure-function-app-settings.md)

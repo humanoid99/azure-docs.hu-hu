@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0bab12648a31b416bd7ceca75f0f83f5da226bad
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -90,10 +90,10 @@ Ebben a cikkben további információt talál a Big Compute-megoldások és -mun
 > 
 
 ### <a name="compute-services"></a>Számítási szolgáltatások
-Az Azure számítási szolgáltatások a Big Compute-megoldások fő elemei, és a különböző számítási szolgáltatások különböző forgatókönyvekhez nyújtanak előnyöket. Alapszinten ezek a szolgáltatások különböző módokat nyújtanak, amelyekkel az alkalmazások az Azure által a Windows Server Hyper-V technológiával biztosított virtuálisgép-alapú számítási példányokon futhatnak. Ezek a példányok szabványos és egyéni Linux és Windows operációs rendszereket és eszközöket futtathatnak. Az Azure különböző [példányméreteket](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tesz elérhetővé a processzormagok, memória, lemezkapacitás és más jellemzők különböző konfigurációival. Az igényei alapján a példányokat több ezer magra is méretezheti, majd csökkentheti a méretüket, amikor kevesebb erőforrásra van szüksége.
+Az Azure számítási szolgáltatások a Big Compute-megoldások fő elemei, és a különböző számítási szolgáltatások különböző forgatókönyvekhez nyújtanak előnyöket. Alapszinten ezek a szolgáltatások különböző módokat nyújtanak, amelyekkel az alkalmazások az Azure által a Windows Server Hyper-V technológiával biztosított virtuálisgép-alapú számítási példányokon futhatnak. Ezek a példányok szabványos és egyéni Linux és Windows operációs rendszereket és eszközöket futtathatnak. Az Azure különböző [példányméreteket](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tesz elérhetővé a processzormagok, memória, lemezkapacitás és más jellemzők különböző konfigurációival. Az igényei alapján a példányokat több ezer magra is méretezheti, majd csökkentheti a méretüket, amikor kevesebb erőforrásra van szüksége.
 
 > [!NOTE]
-> Az Azure [számításigényes példányai, például a H-sorozat](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) használatával növelheti a HPC számítási feladatainak teljesítményét és méretezhetőségét. Ezek a példányok támogatják a párhuzamos MPI-alkalmazásokat is, amelyekhez alacsony késésű és nagy átviteli kapacitású alkalmazáshálózat szükséges. Emellett elérhetőek az [N-sorozat](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) NVIDIA GPU-kkal szerelt virtuális gépei, amelyek kiterjesztik az Azure-ban lehetséges számítási és vizualizációs forgatókönyvek tárházát.  
+> Az Azure [számításigényes példányai, például a H-sorozat](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) használatával növelheti a HPC számítási feladatainak teljesítményét és méretezhetőségét. Ezek a példányok támogatják a párhuzamos MPI-alkalmazásokat is, amelyekhez alacsony késésű és nagy átviteli kapacitású alkalmazáshálózat szükséges. Emellett elérhetőek az [N-sorozat](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) NVIDIA GPU-kkal szerelt virtuális gépei, amelyek kiterjesztik az Azure-ban lehetséges számítási és vizualizációs forgatókönyvek tárházát.  
 > 
 > 
 

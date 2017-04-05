@@ -182,7 +182,7 @@ A következő példa egy **HighMessages** nevű előfizetést hoz létre egy [Sq
 ```csharp
 // Create a "HighMessages" filtered subscription.
 SqlFilter highMessagesFilter =
-   new SqlFilter("MessageNumber > 3");
+   new SqlFilter("MessageId > 3");
 
 namespaceManager.CreateSubscription("TestTopic",
    "HighMessages",
@@ -194,7 +194,7 @@ A következő példa hasonlóképpen egy **LowMessages** nevű előfizetést hoz
 ```csharp
 // Create a "LowMessages" filtered subscription.
 SqlFilter lowMessagesFilter =
-   new SqlFilter("MessageNumber <= 3");
+   new SqlFilter("MessageId <= 3");
 
 namespaceManager.CreateSubscription("TestTopic",
    "LowMessages",

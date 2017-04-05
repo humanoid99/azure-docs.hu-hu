@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 98cb1d7e5fd464421ae97f2ace33852e71a18a21
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 28edde3e70bca833d888cdf9831c1544d8cdd4bb
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -115,7 +115,7 @@ Az árakkal kapcsolatos további információkért lásd a következő erőforr�
 ### <a name="administration"></a>Adminisztráció
 Számos vállalat számára a felhőszolgáltatásokra történő átállást az összetett adminisztrációs feladatok kiszervezése ösztönzi, és nem csupán a költségszempontok. Az **SQL Database** használata esetén a Microsoft felel az alkalmazás mögött álló hardverek felügyeletéért. A Microsoft minden adatot automatikusan replikál a magas rendelkezésre állás érdekében, konfigurálja és frissíti az adatbázisszoftvert, kezeli a terheléselosztást, valamint kiszolgálóhiba esetén gondoskodik a transzparens feladatátvételről. Az adatbázis kezelését továbbra is Ön végzi, de az adatbázismotor, valamint a kiszolgáló-operációsrendszer és -hardver felügyeletével többé nem kell foglalkoznia.  Ön felelős például a következő területekért: adatbázisok és bejelentkezési adatok, indexek és lekérdezések hangolása, naplózás és biztonság.
 
-Az **Azure virtuális gépeken futó SQL Server** használata esetén teljes mértékben Ön végezheti el az operációs rendszer és az SQL Server-példány konfigurálását. A virtuális gépen Ön dönti el, hogy mikor frissíti az operációs rendszert és az adatbázisszoftvert, illetve, hogy telepít-e kiegészítő programokat, például víruskereső vagy biztonsági mentési eszközöket. Egyes automatizált szolgáltatások jelentősen leegyszerűsítik a frissítést, a biztonsági mentések készítését és a magas rendelkezésre állást. Ezenfelül meghatározhatja a virtuális gép méretét, a lemezek számát, valamint a tárhely konfigurációját is. Az Azure-ban igény szerint módosítható a virtuális gépek mérete. További információk: [Virtual Machine and Cloud Service Sizes for Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Virtuális gépek és felhőszolgáltatások mérete az Azure-ban). 
+Az **Azure virtuális gépeken futó SQL Server** használata esetén teljes mértékben Ön végezheti el az operációs rendszer és az SQL Server-példány konfigurálását. A virtuális gépen Ön dönti el, hogy mikor frissíti az operációs rendszert és az adatbázisszoftvert, illetve, hogy telepít-e kiegészítő programokat, például víruskereső vagy biztonsági mentési eszközöket. Egyes automatizált szolgáltatások jelentősen leegyszerűsítik a frissítést, a biztonsági mentések készítését és a magas rendelkezésre állást. Ezenfelül meghatározhatja a virtuális gép méretét, a lemezek számát, valamint a tárhely konfigurációját is. Az Azure-ban igény szerint módosítható a virtuális gépek mérete. További információk: [Virtual Machine and Cloud Service Sizes for Azure](../virtual-machines/windows/sizes.md) (Virtuális gépek és felhőszolgáltatások mérete az Azure-ban). 
 
 ### <a name="service-level-agreement-sla"></a>Szolgáltatói szerződés (SLA)
 Számos számítástechnikai osztály számára elsődleges prioritást jelent a szolgáltatói szerződésben (SLA) vállalt üzemidő biztosítása. Ebben a részben áttekintjük, hogy milyen  SLA vonatkozik az egyes adatbázis-üzemeltetési megoldásokra.

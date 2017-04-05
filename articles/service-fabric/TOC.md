@@ -57,16 +57,19 @@
 #### Bevezetés
 ##### [C# Windowson](service-fabric-reliable-services-quick-start.md)
 ##### [Java Linuxon](service-fabric-reliable-services-quick-start-java.md)
-#### [A Reliable Services életciklusa](service-fabric-reliable-services-lifecycle.md)
+#### [A Reliable Services életciklusa – C#](service-fabric-reliable-services-lifecycle.md)
+#### [A Reliable Services életciklusa – Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [A Reliable Collections használata](service-fabric-work-with-reliable-collections.md)
 #### [Konfigurálás](service-fabric-reliable-services-configuration.md)
 #### [Értesítések](service-fabric-reliable-services-notifications.md)
 #### [Biztonsági mentés és visszaállítás](service-fabric-reliable-services-backup-restore.md)
 #### [Kommunikáció a Reliable Services szolgáltatással](service-fabric-reliable-services-communication.md)
-#### [Biztonságos kommunikáció a Reliable Services szolgáltatással](service-fabric-reliable-services-secure-communication.md)
+#### [Biztonságos kommunikáció a Reliable Services szolgáltatással – C#](service-fabric-reliable-services-secure-communication.md)
+#### [Biztonságos kommunikáció a Reliable Services szolgáltatással – Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Szolgáltatás távelérésének lehetővé tétele](service-fabric-reliable-services-communication-remoting.md)
+##### [Szolgáltatás távelérésének lehetővé tétele – C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Szolgáltatás távelérésének lehetővé tétele – Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Fordított proxy](service-fabric-reverseproxy.md)
 #### [Haladó szintű használat](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Fürt kezelése az Azure CLI-vel](service-fabric-azure-cli.md) 
 #### [Fürt biztonságossá tétele](service-fabric-cluster-security.md)
 #### [Vészhelyreállítás](service-fabric-disaster-recovery.md)
+#### [Különbségek a Linux és a Windows szolgáltatásai között](service-fabric-linux-windows-differences.md)
 
 ### Fürtök az Azure-on
 #### Fürt létrehozása az Azure-ban

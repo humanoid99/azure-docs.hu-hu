@@ -33,6 +33,8 @@
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Az Azure-naplók integrációjának bemutatása](security-azure-log-integration-overview.md)
 #### [Ismerkedés az Azure-naplók integrációjával](security-azure-log-integration-get-started.md)
+#### [Az Azure Active Directory naplóinak integrálása](security-azure-log-integration-ad.md)
+#### [A Security Center riasztásainak integrálása](security-azure-log-integration-security-center.md)
 #### [Gyakori kérdések](security-azure-log-integration-faq.md)
 
 ## Identitáskezelés

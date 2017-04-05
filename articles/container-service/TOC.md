@@ -16,6 +16,7 @@
 ### [Terheléselosztó DC/OS-tárolók](container-service-load-balancing.md)
 ### [Alkalmazás-/felhasználóspecifikus Orchestrator a DC/OS-ben](container-service-application-specific-marathon.md)
 ### [Fájlmegosztás hozzáadása](container-service-dcos-fileshare.md)
+### [Az Azure Container Registry használata](container-service-dcos-acr.md)
 ### DC/OS figyelése
 #### [Figyelés az ELK-val](container-service-monitoring-elk.md)
 #### [Figyelés az OMS-szel](container-service-monitoring-oms.md)
@@ -36,6 +37,7 @@
 ## Kezelés a Docker Swarmmal
 ### [A Docker és a Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm folyamatos integráció](container-service-docker-swarm-setup-ci-cd.md)
+## [Biztonságos tárolók](container-service-security.md)
 # Referencia
 ## [Azure CLI 2.0](/cli/azure/acs)
 ## [REST](/rest/api/compute/containerservices)
@@ -43,3 +45,4 @@
 ## [Régiónkénti elérhetőség](https://azure.microsoft.com/regions/services/)
 ## [Díjszabás](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Szolgáltatási hírek](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-service)

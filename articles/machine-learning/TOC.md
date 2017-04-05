@@ -114,7 +114,6 @@
 #### [Hive-lekérdezések használata](machine-learning-data-science-create-features-hive.md)
 #### [TDSP-funkciók kiválasztása](machine-learning-data-science-select-features.md)
 ### Modellek létrehozása és betanítása
-#### [Átalakítás relevanciává](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Életciklus-felügyelet kipróbálása](machine-learning-version-control.md)
 #### [Az ismétlések kezelése](machine-learning-manage-experiment-iterations.md)
 #### [Modellek létrehozása a PowerShell-lel](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [Egyéni R-modulok készítése](machine-learning-custom-r-modules.md)
 ##### [Python-parancsprogramok futtatása](machine-learning-execute-python-scripts.md)
 
-## Modellek üzembe helyezése és felhasználása
+## Modellek üzembe helyezése
 ### [Áttekintés](machine-learning-deploy-consume-web-service-guide.md)
 ### Modellek üzembe helyezése
-#### [Működés](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Webszolgáltatások üzembe helyezése](machine-learning-publish-a-machine-learning-web-service.md)
+#### [Működés](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Felkészülés az üzembe helyezésre](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Külső adatok használata](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Üzembe helyezés több régióban](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Webszolgáltatás-paraméterek használata](machine-learning-web-service-parameters.md)
 #### [Naplózás engedélyezése](machine-learning-web-services-logging.md)
 ### Webszolgáltatások kezelése
-#### [Végpontok létrehozása](machine-learning-create-endpoint.md)
 #### [Web Services portál használata](machine-learning-manage-new-webservice.md)
 #### [Kezelés API-kkal](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Végpontok létrehozása](machine-learning-create-endpoint.md)
 #### [Méretezés](machine-learning-scaling-webservice.md)
 ### Modellek újratanítása
 #### [Áttekintés](machine-learning-retrain-machine-learning-model.md)
@@ -198,12 +198,6 @@
 #### [Rendellenességek észlelése](machine-learning-apps-anomaly-detection-api.md)
 #### [Szövegelemzés](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-#### Javaslatok
-##### [Áttekintés](machine-learning-recommendation-api-sample-application.md)
-##### [Első lépések](machine-learning-recommendation-api-quick-start-guide.md)
-##### [Referencia](machine-learning-recommendation-api-documentation.md)
-##### [JavaScript használata](machine-learning-recommendation-api-javascript-integration.md)
-##### [Gyakori kérdések](machine-learning-recommendation-api-faq.md)
 #### Prediktív karbantartás
 ##### [Áttekintés](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Architektúra](cortana-analytics-architecture-predictive-maintenance.md)

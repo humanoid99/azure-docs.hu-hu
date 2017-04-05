@@ -46,11 +46,12 @@
 ### [Biztonsági szempontok](best-practices-resource-manager-security.md)
 ## Erőforrás-házirendek beállítása
 ### [Mik azok az erőforrás-házirendek?](resource-manager-policy.md)
-### [A házirendek hozzárendelése és kezelése](resource-manager-policy-create-assign.md)
+### [Portálházirend hozzárendelése](resource-manager-policy-portal.md)
+### [Szkriptházirend hozzárendelése](resource-manager-policy-create-assign.md)
 ### [Erőforrás-címkézési házirendek](resource-manager-policy-tags.md)
 ### [Tárolási házirendek](resource-manager-policy-storage.md)
-### [Linux rendszerű virtuális gépek házirendjei](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows rendszerű virtuális gépek házirendjei](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Linux rendszerű virtuális gépek házirendjei](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Windows rendszerű virtuális gépek házirendjei](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Naplózás és hibaelhárítás
 ### [Gyakori üzembehelyezési hibák elhárítása](resource-manager-common-deployment-errors.md)
 ### [Tevékenységnaplók megtekintése](resource-group-audit.md)

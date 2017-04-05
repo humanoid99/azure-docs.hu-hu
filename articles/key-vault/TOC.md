@@ -24,7 +24,8 @@
 
 ## Automatizálás
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Létrehozás és kezelés a parancssori felület használatával](key-vault-manage-with-cli.md)
+### [Létrehozás és kezelés a CLI használatával](key-vault-manage-with-cli.md)
+### [Létrehozás és kezelés a CLI 2.0 használatával](key-vault-manage-with-cli2.md)
 
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)

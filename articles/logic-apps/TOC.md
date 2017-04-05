@@ -16,9 +16,9 @@
 ### [Egyéni kód hozzáadása az Azure Functions használatával](logic-apps-azure-functions.md)
 ### [Hurkok, hatókörök és adatkibontás](logic-apps-loops-and-scopes.md)
 ### [Logikaialkalmazás-definíciók készítése](logic-apps-author-definitions.md)
+### [Logikai alkalmazások hívása, aktiválása vagy beágyazása](logic-apps-http-endpoint.md)
 ### [Egyéni API-k létrehozása logikai alkalmazásokhoz](logic-apps-create-api-app.md)
 ### [Egyéni API-k meghívása logikai alkalmazásokhoz](logic-apps-custom-hosted-api.md)
-### [Logikai alkalmazás végpontjainak meghívása eseményindítókként](logic-apps-http-endpoint.md)
 ### [Hibák és kivételek kezelése](logic-apps-exception-handling.md)
 ### [Tartalomtípusok kezelése](logic-apps-content-type.md)
 ### [A logikai alkalmazások védelme](logic-apps-securing-a-logic-app.md)
@@ -47,6 +47,7 @@
 ### [X12 vállalati integrációja](logic-apps-enterprise-integration-x12.md)
 ### [X12-kódolás](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12-dekódolás](logic-apps-enterprise-integration-x12-decode.md)
+### [Vészhelyreállítás](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## Helyszíni adatok elérése
 ### [Csatlakozás helyszíni adatokhoz](logic-apps-gateway-connection.md)
@@ -69,6 +70,7 @@
 
 ## Példák, forgatókönyvek és útmutatók
 ### [Áttekintés](logic-apps-examples-and-scenarios.md)
+### [Kiszolgáló nélküli közösségi irányítópult létrehozása](logic-apps-scenario-social-serverless.md)
 ### [Logikai alkalmazások meghívása Azure Functions-függvényekkel](logic-apps-scenario-function-sb-trigger.md)
 ### [Hiba- és kivételkezelés hozzáadása](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B feldolgozás](logic-apps-enterprise-integration-b2b.md)

@@ -48,6 +48,7 @@
 ### [Használat a Stream Analytics-szel](data-lake-store-stream-analytics.md)
 ### [Használat a Power BI-jal](data-lake-store-power-bi.md)
 ### [Használat a Data Cataloggal](data-lake-store-with-data-catalog.md)
+### [Használat a PolyBase-zel az SQL Data Warehouse-ban](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [További Azure-integrálási lehetőségek](data-lake-store-integrate-with-other-services.md)
 
 ## Kezelés
