@@ -3,8 +3,8 @@ title: "Bevezetés a Prémium szintű Azure Active Directory használatába"
 description: "Ez a témakör ismerteti, hogyan regisztrálhat a Prémium szintű Active Directory-kiadásra a Mennyiségi licencelés webhelyén keresztül."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: curtand
+author: curtand
+manager: femila
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services
