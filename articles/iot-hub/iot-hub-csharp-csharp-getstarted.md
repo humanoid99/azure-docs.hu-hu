@@ -196,7 +196,7 @@ Ebben a szakaszban egy .NET-konzolalkalmazást hoz létre, amely egy, az eszköz
                 await deviceClient.SendEventAsync(message);
                 Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
    
-                Task.Delay(1000).Wait();
+                await Task.Delay(1000);
             }
         }
    

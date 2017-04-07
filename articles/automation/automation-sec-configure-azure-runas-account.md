@@ -250,7 +250,7 @@ A szkript végrehajtásához feltétlenül szükséges *SubscriptionID*, *Resour
 2. A **Minden beállítás** panel **Fiókbeállítások** részénél válassza a **Tulajdonságok** lehetőséget. 
 3. Jegyezze fel a **Tulajdonságok** panelen megjelenő értékeket.
 
- ![Az Automation-fiók „Tulajdonságok” panelje](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![Az Automation-fiók „Tulajdonságok” panelje](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>Futtató fiókhoz használható PowerShell-szkript létrehozása
 Ez a PowerShell-szkript a következő konfigurációk támogatását tartalmazza:
@@ -415,7 +415,6 @@ A szkript végrehajtásához és a tanúsítvány feltöltéséhez tegye a köve
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
