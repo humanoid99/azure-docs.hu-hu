@@ -33,11 +33,11 @@ Ez a cikk bemutatja, hogyan való használatát.
 > 
 > 
 
-Ez adatlap egy nagyon adott célközönséget van tartva: egy kezdete adatok tudósok undergraduate szintű machine Learning segítségével, megpróbálja válasszunk algoritmust kezdje az Azure Machine Learning Studióban. Ez azt jelenti, hogy néhány általánosítást és oversimplifications teszi, de biztonságos irányba mutat. Azt is jelenti, hogy vannak-e nagy mennyiségű algoritmusok itt nem látható. Növekedésével Azure Machine Learning magában foglaló rendelkezésre álló metódusok több teljes készletét, fel kell venni őket.
+Ez az adatlap egy nagyon adott célközönséget van tartva: egy kezdete adatok tudósok undergraduate szintű machine Learning segítségével, megpróbálja válasszunk algoritmust kezdje az Azure Machine Learning Studióban. Ez azt jelenti, hogy néhány általánosítást és oversimplifications teszi, de biztonságos irányba mutat. Azt is jelenti, hogy vannak-e nagy mennyiségű algoritmusok itt nem látható. Növekedésével Azure Machine Learning magában foglaló rendelkezésre álló metódusok több teljes készletét, fel kell venni őket.
 
 Ezek a javaslatok még lefordított visszajelzések és tippek sok adatszakértőkön és machine learning szakértői. Jelenleg nem fogadja el a licencfeltételeket a mindent, de a vélemények összehangolni a nyers együttműködési próbált I. Legtöbb utasítás érjen véget kezdődhet "Előfeltétel..."
 
-### <a name="how-to-use-the-cheat-sheet"></a>A Adatlap használata
+### <a name="how-to-use-the-cheat-sheet"></a>Az Adatlap használata
 Olvassa el a diagram elérési útját és algoritmus címkéinek "a  *&lt;elérési útját címke&gt;*, használjon  *&lt;algoritmus&gt;*." Például "a *sebesség*, használjon *két osztály logisztikai regresszió*." Egyes esetekben több fiókirodai vonatkozik.
 Egyes esetekben tökéletes egyikük sem. Ezek éppen használhatók szabály az USB-a javaslatok, így nem kell aggódni pontos alatt.
 Több adatszakértőkön I volt szó, az említett, amely a csak meg arról, hogy a legjobb algoritmus található módja próbálja az összes.
